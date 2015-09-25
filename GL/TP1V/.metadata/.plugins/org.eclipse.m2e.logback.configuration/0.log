@@ -1,0 +1,583 @@
+2015-09-16 10:15:24,577 [Worker-2] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Collecting project info '/pom.xml' /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/pom.xml
+2015-09-16 10:15:26,148 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:robotv1:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/pom.xml.
+2015-09-16 10:15:28,222 [Worker-2] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /robotv1/src/main/java
+2015-09-16 10:15:28,235 [Worker-2] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /robotv1/src/test/java
+2015-09-16 10:15:28,366 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:robotv1:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/pom.xml.
+2015-09-16 10:15:28,792 [Worker-2] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 4 sec
+2015-09-16 10:15:30,256 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:robotv1:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/pom.xml.
+2015-09-16 10:15:30,306 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:15:30,307 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:15:30,308 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:15:30,309 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:16:55,024 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:16:55,024 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:16:55,025 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:16:55,025 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:17:08,364 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:08,365 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:17:08,366 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:08,366 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:17:47,188 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:47,188 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:17:47,189 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:47,189 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:17:48,556 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:48,557 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:17:48,558 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:48,558 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:17:50,642 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:50,643 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:17:50,644 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:50,644 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:17:51,676 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:51,676 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:17:51,677 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:51,677 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:17:52,744 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:52,744 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:17:52,746 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:52,746 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:17:53,786 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:53,786 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:17:53,787 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:53,788 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:17:56,174 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:56,174 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:17:56,175 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:56,175 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:17:57,777 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:57,777 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:17:57,778 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:57,778 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:17:58,902 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:58,902 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:17:58,903 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:17:58,903 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:18:00,524 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:18:00,524 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:18:00,525 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:18:00,525 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:18:01,806 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:18:01,806 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:18:01,807 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:18:01,807 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:18:48,936 [Worker-10] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:robotv1:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/pom.xml.
+2015-09-16 10:18:48,996 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:18:48,996 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:18:48,997 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:18:48,997 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:18:50,441 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:18:50,442 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:18:50,443 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:18:50,443 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:19:10,770 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2015-09-16 10:19:18,693 [Worker-11] INFO  o.e.m.i.launch.MavenLaunchDelegate - /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1
+2015-09-16 10:19:18,693 [Worker-11] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean compile
+2015-09-16 10:21:52,039 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate - /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1
+2015-09-16 10:21:52,039 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B test
+2015-09-16 10:21:58,244 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:21:58,245 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:21:58,245 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:21:58,245 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:31:18,122 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:31:18,122 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:31:18,123 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:31:18,123 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:38:05,508 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:38:05,508 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:38:05,509 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:38:05,509 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:38:22,121 [Worker-26] INFO  o.e.m.i.launch.MavenLaunchDelegate - /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1
+2015-09-16 10:38:22,121 [Worker-26] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B test
+2015-09-16 10:38:26,624 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:38:26,624 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:38:26,625 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:38:26,625 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:38:37,933 [Worker-29] INFO  o.e.m.i.launch.MavenLaunchDelegate - /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1
+2015-09-16 10:38:37,933 [Worker-29] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B install
+2015-09-16 10:38:47,396 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:38:47,396 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 10:38:47,396 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:38:47,397 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 10:40:11,470 [Worker-19] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Collecting project info '/pom.xml' /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml
+2015-09-16 10:40:11,586 [Worker-19] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:40:12,300 [Worker-19] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /glMaven/src/main/java
+2015-09-16 10:40:12,321 [Worker-19] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /glMaven/src/test/java
+2015-09-16 10:40:12,398 [Worker-19] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 0 sec
+2015-09-16 10:40:13,160 [Worker-19] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:40:13,566 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:40:13,566 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:40:13,567 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:40:13,568 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:40:14,674 [Worker-24] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:40:14,871 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:40:14,871 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:40:14,872 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:40:14,872 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:45:39,703 [Worker-33] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:558) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:567) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:511) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:466) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:336) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:289) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.1.v20141014-1248.jar:na]
+Caused by: org.apache.maven.model.io.ModelParseException: Duplicated tag: 'groupId' (position: START_TAG seen ...</scope>\n      <groupId>... @23:16) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:127) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:91) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:556) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Duplicated tag: 'groupId' (position: START_TAG seen ...</scope>\n      <groupId>... @23:16) 
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkFieldWithDuplicate(MavenXpp3Reader.java:114) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1314) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2197) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3807) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:557) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	... 26 common frames omitted
+2015-09-16 10:45:41,269 [Worker-24] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:558) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:567) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:511) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:466) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:336) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:289) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.1.v20141014-1248.jar:na]
+Caused by: org.apache.maven.model.io.ModelParseException: Duplicated tag: 'groupId' (position: START_TAG seen ...</scope>\n      <groupId>... @23:16) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:127) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:91) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:556) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Duplicated tag: 'groupId' (position: START_TAG seen ...</scope>\n      <groupId>... @23:16) 
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkFieldWithDuplicate(MavenXpp3Reader.java:114) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1314) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2197) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3807) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:557) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	... 26 common frames omitted
+2015-09-16 10:45:59,655 [Worker-33] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:558) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:567) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:511) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:466) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:336) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:289) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.1.v20141014-1248.jar:na]
+Caused by: org.apache.maven.model.io.ModelParseException: Duplicated tag: 'groupId' (position: START_TAG seen ...</scope>\n      <groupId>... @23:16) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:127) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:91) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:556) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Duplicated tag: 'groupId' (position: START_TAG seen ...</scope>\n      <groupId>... @23:16) 
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkFieldWithDuplicate(MavenXpp3Reader.java:114) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1314) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2197) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3807) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:557) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	... 26 common frames omitted
+2015-09-16 10:46:48,920 [Worker-33] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:46:49,007 [Worker-33] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/tp/pwargnie/robotv1/1.0.0--SNAPSHOT/maven-metadata.xml
+2015-09-16 10:46:49,037 [Worker-33] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/tp/pwargnie/robotv1/1.0.0--SNAPSHOT/robotv1-1.0.0--SNAPSHOT.pom
+2015-09-16 10:46:49,044 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.tp.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:46:49,064 [Worker-33] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/tp/pwargnie/robotv1/1.0.0--SNAPSHOT/robotv1-1.0.0--SNAPSHOT.jar
+2015-09-16 10:46:49,532 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:46:49,533 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:46:49,534 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:46:49,534 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:46:59,958 [Worker-24] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:558) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:567) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:511) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:466) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:336) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:289) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.1.v20141014-1248.jar:na]
+Caused by: org.apache.maven.model.io.ModelParseException: unexpected character in markup - (position: START_TAG seen ...<dependency>\n      <-... @19:9) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:127) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:91) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:556) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: unexpected character in markup - (position: START_TAG seen ...<dependency>\n      <-... @19:9) 
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextImpl(MXParser.java:1299) ~[plexus-utils-3.0.17.jar:na]
+	at org.codehaus.plexus.util.xml.pull.MXParser.next(MXParser.java:1131) ~[plexus-utils-3.0.17.jar:na]
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextTag(MXParser.java:1116) ~[plexus-utils-3.0.17.jar:na]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1312) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2197) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3807) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:557) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	... 26 common frames omitted
+2015-09-16 10:47:01,584 [Worker-30] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:558) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:567) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:511) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:466) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:336) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:289) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.1.v20141014-1248.jar:na]
+Caused by: org.apache.maven.model.io.ModelParseException: unexpected character in markup - (position: START_TAG seen ...<dependency>\n      <-... @19:9) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:127) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:91) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:556) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: unexpected character in markup - (position: START_TAG seen ...<dependency>\n      <-... @19:9) 
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextImpl(MXParser.java:1299) ~[plexus-utils-3.0.17.jar:na]
+	at org.codehaus.plexus.util.xml.pull.MXParser.next(MXParser.java:1131) ~[plexus-utils-3.0.17.jar:na]
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextTag(MXParser.java:1116) ~[plexus-utils-3.0.17.jar:na]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1312) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2197) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3807) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:557) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	... 26 common frames omitted
+2015-09-16 10:47:02,655 [Worker-34] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:558) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:567) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:511) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:466) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:336) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:289) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.1.v20141014-1248.jar:na]
+Caused by: org.apache.maven.model.io.ModelParseException: Duplicated tag: 'groupId' (position: START_TAG seen ...</scope>\n      <groupId>... @23:16) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:127) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:91) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:556) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Duplicated tag: 'groupId' (position: START_TAG seen ...</scope>\n      <groupId>... @23:16) 
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkFieldWithDuplicate(MavenXpp3Reader.java:114) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1314) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2197) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3807) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:557) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	... 26 common frames omitted
+2015-09-16 10:48:24,997 [Worker-30] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:558) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:567) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:511) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:466) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:336) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:289) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.1.v20141014-1248.jar:na]
+Caused by: org.apache.maven.model.io.ModelParseException: end tag name </dependancy> must be the same as start tag <dependency> from line 18 (position: TEXT seen ...</scope>\n      </dependancy>... @23:20) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:127) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:91) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:556) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag name </dependancy> must be the same as start tag <dependency> from line 18 (position: TEXT seen ...</scope>\n      </dependancy>... @23:20) 
+	at org.codehaus.plexus.util.xml.pull.MXParser.parseEndTag(MXParser.java:1734) ~[plexus-utils-3.0.17.jar:na]
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextImpl(MXParser.java:1169) ~[plexus-utils-3.0.17.jar:na]
+	at org.codehaus.plexus.util.xml.pull.MXParser.next(MXParser.java:1131) ~[plexus-utils-3.0.17.jar:na]
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextTag(MXParser.java:1118) ~[plexus-utils-3.0.17.jar:na]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1312) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2197) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3807) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:557) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	... 26 common frames omitted
+2015-09-16 10:48:37,404 [Worker-37] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:558) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:567) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:511) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:466) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:336) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:289) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200) [org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.1.v20141014-1248.jar:na]
+Caused by: org.apache.maven.model.io.ModelParseException: end tag name </dependancy> must be the same as start tag <dependency> from line 18 (position: TEXT seen ...</scope>\n     </dependancy>... @23:19) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:127) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:91) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:556) ~[org.eclipse.m2e.core_1.5.2.20150413-2215.jar:na]
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag name </dependancy> must be the same as start tag <dependency> from line 18 (position: TEXT seen ...</scope>\n     </dependancy>... @23:19) 
+	at org.codehaus.plexus.util.xml.pull.MXParser.parseEndTag(MXParser.java:1734) ~[plexus-utils-3.0.17.jar:na]
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextImpl(MXParser.java:1169) ~[plexus-utils-3.0.17.jar:na]
+	at org.codehaus.plexus.util.xml.pull.MXParser.next(MXParser.java:1131) ~[plexus-utils-3.0.17.jar:na]
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextTag(MXParser.java:1118) ~[plexus-utils-3.0.17.jar:na]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1312) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2197) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3807) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:557) ~[maven-model-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	... 26 common frames omitted
+2015-09-16 10:48:47,943 [Worker-34] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:48:47,956 [Worker-34] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.tp.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:48:49,833 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:48:49,833 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:48:49,834 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:48:49,835 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:50:32,926 [Worker-41] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:50:32,952 [Worker-41] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/pwargnie/robotv1/1.0.0--SNAPSHOT/maven-metadata.xml
+2015-09-16 10:50:32,980 [Worker-41] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/pwargnie/robotv1/1.0.0--SNAPSHOT/robotv1-1.0.0--SNAPSHOT.pom
+2015-09-16 10:50:32,987 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:50:33,008 [Worker-41] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/pwargnie/robotv1/1.0.0--SNAPSHOT/robotv1-1.0.0--SNAPSHOT.jar
+2015-09-16 10:50:33,048 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:50:33,048 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:50:33,049 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:50:33,050 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:51:08,239 [Worker-40] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:51:08,254 [Worker-40] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:51:08,298 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:51:08,298 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:51:08,299 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:51:08,299 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:51:12,130 [Worker-36] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:51:12,144 [Worker-36] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:51:12,188 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:51:12,189 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:51:12,190 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:51:12,190 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:51:35,862 [Worker-34] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:51:35,928 [Worker-34] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:51:36,080 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:51:36,080 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:51:36,081 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:51:36,081 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:51:45,574 [Worker-36] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:51:45,603 [Worker-36] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:51:45,659 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:51:45,659 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:51:45,660 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:51:45,660 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:51:55,180 [Worker-34] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:51:55,194 [Worker-34] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:51:55,242 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:51:55,242 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:51:55,244 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:51:55,244 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:52:03,599 [Worker-30] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:52:03,613 [Worker-30] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.tp.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:52:03,663 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:52:03,663 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:52:03,664 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:52:03,664 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:52:20,252 [Worker-34] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:52:20,544 [Worker-34] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:52:20,871 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:52:20,872 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:52:20,872 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:52:20,872 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 10:54:20,578 [Worker-38] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 10:54:20,593 [Worker-38] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.tp.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+2015-09-16 10:54:20,646 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:54:20,646 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 10:54:20,647 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 10:54:20,647 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 11:02:23,101 [Worker-48] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 11:02:23,169 [Worker-48] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/tp/pwargnie/robotv1/1.0.0-SNAPSHOT/maven-metadata.xml
+2015-09-16 11:02:23,195 [Worker-48] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/tp/pwargnie/robotv1/1.0.0-SNAPSHOT/robotv1-1.0.0-SNAPSHOT.pom
+2015-09-16 11:02:23,202 [Worker-48] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.tp.pwargnie:robotv1:jar:1.0.0-SNAPSHOT is missing, no dependency information available
+2015-09-16 11:02:23,227 [Worker-48] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/tp/pwargnie/robotv1/1.0.0-SNAPSHOT/robotv1-1.0.0-SNAPSHOT.jar
+2015-09-16 11:02:23,284 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:02:23,284 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 11:02:23,285 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:02:23,285 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 11:02:34,901 [Worker-45] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 11:02:34,923 [Worker-45] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/pwargnie/robotv1/1.0.0-SNAPSHOT/maven-metadata.xml
+2015-09-16 11:02:34,947 [Worker-45] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/pwargnie/robotv1/1.0.0-SNAPSHOT/robotv1-1.0.0-SNAPSHOT.pom
+2015-09-16 11:02:34,954 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0-SNAPSHOT is missing, no dependency information available
+2015-09-16 11:02:34,977 [Worker-45] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://m1gl.deptinfo-st.univ-fcomte.fr:8081/nexus/content/groups/public/fr/femtost/disc/gl/pwargnie/robotv1/1.0.0-SNAPSHOT/robotv1-1.0.0-SNAPSHOT.jar
+2015-09-16 11:02:35,011 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:02:35,011 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 11:02:35,012 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:02:35,012 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 11:02:58,330 [Worker-49] INFO  o.e.m.i.launch.MavenLaunchDelegate - /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1
+2015-09-16 11:02:58,330 [Worker-49] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B install
+2015-09-16 11:03:03,178 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:03:03,178 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 11:03:03,178 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:03:03,178 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-16 11:04:24,061 [Worker-53] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.femtost.disc.gl.pwargnie:glMaven:0.0.1-SNAPSHOT @ /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/pom.xml.
+2015-09-16 11:04:24,127 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:04:24,127 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 11:04:24,128 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:04:24,128 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 11:04:25,488 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:04:25,488 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 11:04:25,489 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:04:25,489 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 11:09:00,208 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:09:00,208 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 11:09:00,209 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:09:00,209 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 11:10:05,757 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:10:05,758 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-16 11:10:05,758 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:10:05,759 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-16 11:10:40,715 [Worker-44] INFO  o.e.m.i.launch.MavenLaunchDelegate - /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1
+2015-09-16 11:10:40,715 [Worker-44] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean
+2015-09-16 11:10:42,139 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:10:42,139 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/main/resources
+2015-09-16 11:10:42,140 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-16 11:10:42,140 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/robotv1/src/test/resources
+2015-09-18 13:30:13,124 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-18 13:30:13,161 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-18 13:30:13,168 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-18 13:30:13,168 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-18 13:30:51,332 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-18 13:30:51,332 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-18 13:30:51,334 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-18 13:30:51,335 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-18 13:31:16,477 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-18 13:31:16,478 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-18 13:31:16,479 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-18 13:31:16,479 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources
+2015-09-18 13:32:04,526 [Worker-3] INFO  o.e.m.i.launch.MavenLaunchDelegate - /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven
+2015-09-18 13:32:04,526 [Worker-3] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B install
+2015-09-18 13:32:11,288 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-18 13:32:11,288 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/main/resources
+2015-09-18 13:32:11,291 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-09-18 13:32:11,291 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /afs/deptinfo-st.univ-fcomte.fr/users/pwargnie/M1/GL/TP1V/glMaven/src/test/resources

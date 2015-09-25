@@ -1,0 +1,143 @@
+!SESSION 2015-09-16 10:13:33.167 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.7.0_80
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.rcp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.rcp.product
+
+!ENTRY org.tigris.subversion.subclipse.core 4 0 2015-09-16 10:15:29.137
+!MESSAGE Could not auto-share project robotv1
+!STACK 1
+org.tigris.subversion.subclipse.core.SVNException: Provided SVN information does not match that on disk for project 'robotv1'.
+	at org.tigris.subversion.subclipse.core.resources.SVNWorkspaceRoot.setSharing(SVNWorkspaceRoot.java:206)
+	at org.tigris.subversion.subclipse.core.SVNTeamProviderType$AutoShareJob.autoconnectSVNProject(SVNTeamProviderType.java:140)
+	at org.tigris.subversion.subclipse.core.SVNTeamProviderType$AutoShareJob.run(SVNTeamProviderType.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.tigris.subversion.subclipse.core 4 4 2015-09-16 10:15:29.138
+!MESSAGE Provided SVN information does not match that on disk for project 'robotv1'.
+
+!ENTRY org.eclipse.ui 4 4 2015-09-16 10:18:28.468
+!MESSAGE Conflicting handlers for org.eclipse.ui.edit.text.contentAssist.proposals: {org.eclipse.ui.fieldassist.ContentAssistCommandAdapter$1@640ab7a5} vs {se.sics.sicstus.ui.toplevel.TopLevelContentAssistHandler@7b9ee4f2}
+
+!ENTRY org.tigris.subversion.subclipse.core 4 0 2015-09-16 10:40:12.766
+!MESSAGE Could not auto-share project glMaven
+!STACK 1
+org.tigris.subversion.subclipse.core.SVNException: Provided SVN information does not match that on disk for project 'glMaven'.
+	at org.tigris.subversion.subclipse.core.resources.SVNWorkspaceRoot.setSharing(SVNWorkspaceRoot.java:206)
+	at org.tigris.subversion.subclipse.core.SVNTeamProviderType$AutoShareJob.autoconnectSVNProject(SVNTeamProviderType.java:140)
+	at org.tigris.subversion.subclipse.core.SVNTeamProviderType$AutoShareJob.run(SVNTeamProviderType.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.tigris.subversion.subclipse.core 4 4 2015-09-16 10:40:12.766
+!MESSAGE Provided SVN information does not match that on disk for project 'glMaven'.
+
+!ENTRY org.eclipse.ui 4 4 2015-09-16 10:40:42.797
+!MESSAGE Conflicting handlers for org.eclipse.ui.edit.text.contentAssist.proposals: {org.eclipse.ui.fieldassist.ContentAssistCommandAdapter$1@17b9e7eb} vs {se.sics.sicstus.ui.toplevel.TopLevelContentAssistHandler@7b9ee4f2}
+
+!ENTRY org.eclipse.ui 4 4 2015-09-16 10:40:47.166
+!MESSAGE Conflicting handlers for org.eclipse.ui.edit.text.contentAssist.proposals: {se.sics.sicstus.ui.toplevel.TopLevelContentAssistHandler@7b9ee4f2} vs {org.eclipse.ui.fieldassist.ContentAssistCommandAdapter$1@2cd6aeb6}
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-16 10:45:39.703
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-16 10:45:41.269
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-16 10:45:59.655
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:46:49.044
+!MESSAGE The POM for fr.femtost.disc.gl.tp.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-16 10:46:59.958
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-16 10:47:01.584
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-16 10:47:02.655
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-16 10:48:24.998
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-09-16 10:48:37.404
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:48:47.956
+!MESSAGE The POM for fr.femtost.disc.gl.tp.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:50:32.988
+!MESSAGE The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:51:08.254
+!MESSAGE The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:51:12.144
+!MESSAGE The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:51:35.929
+!MESSAGE The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:51:45.604
+!MESSAGE The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:51:55.194
+!MESSAGE The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:52:03.613
+!MESSAGE The POM for fr.femtost.disc.gl.tp.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:52:20.545
+!MESSAGE The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 10:54:20.594
+!MESSAGE The POM for fr.femtost.disc.gl.tp.pwargnie:robotv1:jar:1.0.0--SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 11:02:23.203
+!MESSAGE The POM for fr.femtost.disc.gl.tp.pwargnie:robotv1:jar:1.0.0-SNAPSHOT is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-09-16 11:02:34.955
+!MESSAGE The POM for fr.femtost.disc.gl.pwargnie:robotv1:jar:1.0.0-SNAPSHOT is missing, no dependency information available
+!SESSION 2015-09-18 13:29:45.603 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.7.0_80
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.rcp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.rcp.product
+
+!ENTRY org.eclipse.osgi 2 0 2015-09-18 13:30:18.734
+!MESSAGE While loading class "org.tigris.subversion.subclipse.ui.decorator.SVNLightweightDecorator", thread "Thread[Worker-0,5,main]" timed out waiting (5001ms) for thread "Thread[main,6,main]" to finish starting bundle "org.tigris.subversion.subclipse.ui_1.10.9 [477]". To avoid deadlock, thread "Thread[Worker-0,5,main]" is proceeding but "org.tigris.subversion.subclipse.ui.decorator.SVNLightweightDecorator" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; osgi.identity="org.tigris.subversion.subclipse.ui"; type="osgi.bundle"; version:Version="1.10.9"; singleton:="true" [id=477] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:329)
+	at org.eclipse.osgi.container.Module.start(Module.java:389)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:285)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:125)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:867)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:255)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

@@ -1,0 +1,25 @@
+package fr.femtost.disc.gl.pwargnie.glMaven;
+
+import fr.femtost.disc.gl.pwargnie.robotv1.Coordinates;
+import fr.femtost.disc.gl.pwargnie.robotv1.Robot;
+import fr.femtost.disc.gl.pwargnie.robotv1.UnlandedRobotException;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        
+    try {
+    	Robot robot = new Robot();
+    	robot.land(new Coordinates(3,0));
+    	System.out.println("position du robot : ("+robot.getXposition()+","+robot.getYposition()+")");
+    }catch (UnlandedRobotException e){
+    	e.printStackTrace();
+    }
+    }
+}
