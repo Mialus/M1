@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Quizz</string>
+
+    <string name="Btrue">Vrai</string>
+    <string name="Bfalse">Faux</string>
+    <string name="Bnext">Next</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Q1">Le diable de Tasmanie vit dans la jungle du Brésil.</string>
+    <item type="bool" name="R1">False</item>
+    <string name="Q2">La sauterelle saute l\'équivalent de 200 fois sa taille.</string>
+    <item type="bool" name="R2">True</item>
+    <string name="Q3">Les pandas hibernent.</string>
+    <item type="bool" name="R3">False</item>
+    <string name="Q4">On trouve des dromadaires en liberté en Australie.</string>
+    <item type="bool" name="R4">True</item>
+    <string name="Q5">Le papillon monarque vole plus de 4000 km.</string>
+    <item type="bool" name="R5">True</item>
+    <string name="Q6">Les gorilles mâmes dorment dans les arbres.</string>
+    <item type="bool" name="R6">False</item>
+
+</resources>
