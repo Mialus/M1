@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ReponseQuizz"
+            android:label="RéponseQuizz">
+        </activity>
+        <activity
+            android:name=".ajoutQuestion"
+            android:label="ajoutQuestion">
+        </activity>
     </application>
 
 </manifest>

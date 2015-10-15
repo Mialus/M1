@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+    >
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/commentaireSaisi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Entrez une Question"
+        />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/BQ1"
+            android:id="@+id/radioButton"
+            android:layout_alignTop="@+id/radioButton"
+            android:checked="false"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BQ2"
+        android:id="@+id/radioButton2"
+        android:checked="false" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_ajouter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter"
+        android:onClick="onClickAppuyez"
+        />
+</LinearLayout>
+<ListView
+    android:id="@android:id/list"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    />
+</LinearLayout>
