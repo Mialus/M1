@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS=-g
 SRC=$(wildcard *.c)
 OBJ=$(SRC:.c=.o)
-EXEC=tpgraph
+EXEC=tpGraph
 
 all: $(EXEC)
 
