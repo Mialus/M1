@@ -1,139 +1,195 @@
+/*
+* Par Pierre Wargnier et Anthony Casagrande
+* Décrit les fontions de list.h
+*/
+
+#include "stdlib.h"
+#include "stdio.h"
+#include "string.h"
 #include "list.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-void viderBuffer()
-{
-    int c = 0;
-    while (c != '\n' && c != EOF)
-    {
-        c = getchar();
-    }
-}
- 
-int lire(char *chaine, int longueur)
-{
-    char *positionEntree = NULL;
- 
-    if (fgets(chaine, longueur, stdin) != NULL)
-    {
-        positionEntree = strchr(chaine, '\n');
-        if (positionEntree != NULL)
-        {
-            *positionEntree = '\0';
-        }
-        else
-        {
-            viderBuffer();
-        }
-        return 1;
-    }
-    else
-    {
-        viderBuffer();
-        return 0;
-    }
+/*
+* Fonction : 	ajouterVoisin
+*
+* Parametres : 	listeAdjacences ajouterVoisin(listeAdjacences *liste, int voisin, int poid)
+*
+* Retour : 	
+*
+* Description : permet d'ajoute un element ou voisin dans une liste.
+*
+*/
+listeAdjacences ajouterVoisin(listeAdjacences *liste, int voisin, int poid){
+	/* Création d'un élement à ajouter */
+	listeAdjacences element;	
+	
+	element = (listeAdjacences) malloc(sizeof(TypVoisins));
+	element->voisin = voisin;
+	element->poids = poid;
+	element->voisinSuivant = *liste;
+	
+	 //return element;
+	
 }
 
 
-void ajouteListe(liste** liste1, int st2) 
-{
-  liste* pt1;
-  liste* tmp;
-  pt1 = *liste1;
-  if(!pt1) 
-    {
-    pt1 = (liste*) malloc(sizeof(liste));
-    pt1->state = st2;
-    pt1->suiv=NULL;
-    *liste1 = pt1;
-    return;
-    }
-  if(pt1->state == st2) 
-    {
-    return;
-    }
-  if(st2 < pt1->state) 
-    {
-      tmp = *liste1;
-      *liste1 = (liste*) malloc(sizeof(liste));
-      (*liste1)-> state = st2;
-      (*liste1)->suiv = tmp;
-      return;
-    }
-  while(pt1->suiv && pt1->suiv->state < st2) 
-    {
-      pt1 = pt1->suiv;
-    }
-  if(!pt1->suiv) 
-    {
-      pt1->suiv=(liste*) malloc(sizeof(liste));
-      pt1=pt1->suiv;
-      pt1->state = st2;
-      pt1->suiv=NULL;
-      return;
-    }
-  if(pt1->suiv->state == st2) 
-    {
-      return;
-    }
-  tmp = pt1->suiv;
-  pt1->suiv=(liste*) malloc(sizeof(liste));
-  pt1 = pt1->suiv;
-  pt1->state = st2;
-  pt1->suiv = tmp;
+/*
+* Fonction : 	ajouterVoisinAfter
+*
+* Parametres : 	ListeAdjacences ajouterVoisinAfter(ListeAdjacenes *liste, int voisin, int poid)
+*
+* Retour : 		element
+*
+* Description : focntion qui permet d'ajoute un element à la fin de la liste.
+*
+*/
+listeAdjacences ajouterVoisinAfter(listeAdjacences *liste, int voisin, int poid){
+	
+	/* Créaton de 2 elements dont un qui sera à la fin de la liste*/
+	listeAdjacences element;	
+	listeAdjacences element2;
+	
+	element = (listeAdjacences) malloc(sizeof(TypVoisins));
+	element2 = (listeAdjacences) malloc(sizeof(TypVoisins));
+	
+	element = *liste;
+	if(element->voisin!=-1){
+		while(element->voisinSuivant->voisin != -1) {
+			element = element->voisinSuivant;
+		}	
+		element2->voisinSuivant = element->voisinSuivant;
+		element->voisinSuivant = element2;
+		element2->voisin = voisin;
+		element2->poids = poid;
+	}
+
+	//element->tacheSuivant = *liste;
+	
+	return element;
+	
 }
 
-void supprimeListe(liste** liste1, int st2) 
-{
-  liste* interm1;
-  liste* varSuppr;
-  liste* interm2;
-  
-  interm1 = *liste1;
-  if(interm1 == NULL) 
-  {
-    return;
-  }
-  if(interm1->state == st2) 
-  {
-    varSuppr = interm1;
-    if(interm1->suiv != NULL)
-    {
-      interm1 = interm1->suiv;
-      *liste1 = interm1;
-    }
-    else
-    {
-      *liste1 = NULL;
-    }
-    free(varSuppr);
-  }
-  else
-  {
-    interm2 = interm1->suiv;
-    while(interm2 != NULL)
-    {
-      if(interm2->state != st2)
-      {
-        interm1 = interm1->suiv;
-      }
-      else
-      {
-        varSuppr = interm2;
-        if(interm2->suiv != NULL)
-        {
-          interm2 = interm2->suiv;
-          interm1->suiv = interm2;
+
+/*
+* Fonction : 	supprimeVoisin
+*
+* Parametres : 	listeAdjacences supprimeVoisin(listeAdjacences liste, int voisin)
+*
+* Retour : 		prem
+*
+* Description : Permet de supprimer l'element dans une liste.
+*
+*/
+listeAdjacences supprimeVoisin(listeAdjacences liste, int voisin){
+	/* Declaration des elements et variable*/
+	listeAdjacences precedent;	/* Sommet precedent */
+	listeAdjacences	prem;		/* Premier sommet */
+	listeAdjacences todelete;	/* Sommet a supprimer */
+	int flag;		/* Curseur permetant de savoir ou l'on se situe dans la liste */
+	
+	flag = 0;
+	//precedent = (listeAdjacences) malloc(sizeof(TypVoisins));
+	//prem = (listeAdjacences) malloc(sizeof(TypVoisins));
+	prem = liste;
+	
+	while (liste->voisin != -1) {
+		if (liste->voisin == voisin) {
+			todelete = liste;
+			if (flag == 1) {			/* On est pas sur la tete de liste */
+				precedent->voisinSuivant = liste->voisinSuivant;
+			}
+			else {
+				prem = liste->voisinSuivant;
+			}
+			free(todelete);
+		}
+		else {
+			precedent = liste;
+			flag = 1;
+		}
+		if (liste->voisin != -1) {
+			liste = liste->voisinSuivant;
+		}
+	}
+	
+	return prem;
+}
+
+
+/*
+* Fonction : 	supprimerDependance
+*
+* Parametres : 	listeAdjacences supprimerDependance(listeAdjacences liste, int voisin, int poid)
+*
+* Retour : 		prem
+*
+* Description : Permet de supprime l'arete rentrée en paramètre avec son poids
+*/
+listeAdjacences supprimerDependance(listeAdjacences liste, int voisin, int poid){
+    /* Declaration des elements et variable*/
+	listeAdjacences precedent;	/* Sommet precedent */
+	listeAdjacences	prem;		/* Premier sommet */
+	listeAdjacences todelete;	/* Sommet a supprimer */
+	int flag;		/* Curseur permetant de savoir ou l'on se situe dans la liste */
+	
+	flag = 0;
+	//precedent = (listeAdjacences) malloc(sizeof(TypVoisins));
+	//prem = (listeAdjacences) malloc(sizeof(TypVoisins));
+	prem = liste;
+	
+	
+	while (liste->voisin != -1) {
+		if (liste->voisin == voisin && liste->poids == poid) {
+			todelete = liste;
+			if (flag == 1) {			/* On est pas sur la tete de liste */
+				precedent->voisinSuivant = liste->voisinSuivant;
+			}
+			else {
+				prem = liste->voisinSuivant;
+			}
+			free(todelete);
+		}
+		else {
+			precedent = liste;
+			flag = 1;
+		}
+		if (liste->voisin != -1) {
+			liste = liste->voisinSuivant;
+		}
+	}
+	return prem;
+}
+
+
+/*
+* Fonction : 	afficher
+*
+* Parametres : 	void afficher(listeAdjacences liste, FILE *file)
+*
+* Retour : 		rien
+*
+* Description : Permet d'écrire la liste définie dans le fichier
+*
+*/
+/*void afficher(listeAdjacences liste, FILE *file){	
+	while (liste->voisin != -1) {
+	
+		fprintf(file, "(%d/%d)", liste->voisin, liste->poids);
+		if (liste->voisinSuivant->voisin != -1) {
+			fprintf(file, ", ");
         }
-        else
-        {
-          interm1->suiv = NULL;
+		liste = liste->voisinSuivant;
+	}
+    fprintf(file, "\n");
+ }
+    */
+    void afficher(listeAdjacences liste){	
+	while (liste->voisin != -1) {
+	
+		printf("(%d/%d)", liste->voisin, liste->poids);
+		if (liste->voisinSuivant->voisin != -1) {
+			printf(", ");
         }
-        free(varSuppr);
-      }
-      interm2 = interm1->suiv;
-    }
-  }
+		liste = liste->voisinSuivant;
+	}
+    printf("\n");
 }

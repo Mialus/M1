@@ -18,27 +18,27 @@ public class Quizz extends AppCompatActivity {
     Bundle extra;
     List<String> ques = new ArrayList<String>();
 
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
         extra= getIntent().getExtras();
 
+        //création de la base
         notesDB = new SQL(this);
-        notesDB.chargerLesQuestions(ques);
+        notesDB.chargerLesQuestions(ques);// téléchargement des question
 
         ((TextView) findViewById(R.id.textView)).setText(ques.get(it));
-        /*vueQues = (ListView) findViewById(android.R.id.list);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ques);
-        vueQues.setAdapter(adapter);
-        */
         ((Button)findViewById (R.id.button)).setOnClickListener(new View.OnClickListener() { //Button True
             public void onClick(View v) {
-                if (clicRep) {
+                if (clicRep) { // test si l'utilisateur à vu la réponse
                     if (it == ques.size() - 1) {
                         it = 0;
                     }
-                    if (notesDB.getReponse(it+1).equals("Vrai")) {
+                    if (notesDB.getReponse(it+1).equals("Vrai")) { // si la réponse est correct, on passe à la suivante
                         chaine = ques.get(it + 1);
                         ((TextView) findViewById(R.id.textView)).setText(chaine);
                         it++;
@@ -48,14 +48,6 @@ public class Quizz extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Vous avez vu la réponse !", Toast.LENGTH_SHORT).show();
                 }
-            }
-        }) ;
-
-        ((Button)findViewById (R.id.button5)).setOnClickListener(new View.OnClickListener() { //Button ajout question
-            public void onClick(View v) {
-
-            Intent i = new Intent(Quizz.this, ajoutQuestion.class);
-                startActivity(i);
             }
         }) ;
 
@@ -103,31 +95,12 @@ public class Quizz extends AppCompatActivity {
     }
 
     @Override
-    protected void onRestart() {
-        super.onRestart();
-        notesDB.chargerLesQuestions(ques);
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_quizz, menu);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
     public void button (View view) {
         Toast.makeText(Quizz.this, "Wrong ! try again !", Toast.LENGTH_SHORT).show();
     }

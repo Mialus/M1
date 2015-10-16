@@ -7,6 +7,7 @@
     <string name="app_name">Quizz</string>
 
     <string name="Btrue">Vrai</string>
+    <string name="BQuizz">Quizz</string>
     <string name="Bfalse">Faux</string>
     <string name="Bnext">Next</string>
     <string name="BQ1">true</string>

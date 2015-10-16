@@ -16,8 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Pierre on 12/10/2015.
+ * Created by Pierre
  */
+
 public class ajoutQuestion extends AppCompatActivity {
     RadioButton btVrai;
     ListView vueQuestion;
@@ -25,6 +26,9 @@ public class ajoutQuestion extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     SQL notesDB ;
 
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +50,7 @@ public class ajoutQuestion extends AppCompatActivity {
             }
         });
     }
-
+    //called when you push the button
     public void onClickAppuyez(View v) {
 
         if(btVrai.isChecked()){
@@ -60,9 +64,5 @@ public class ajoutQuestion extends AppCompatActivity {
             notesDB.insereQuestion(edt_ajouter.getText().toString(), "Faux");
             adapter.notifyDataSetChanged();
         }
-        /*EditText edt_ajouter = (EditText) findViewById(R.id.commentaireSaisi);
-        mesQuestion.add(edt_ajouter.getText().toString());
-        notesDB.insereQuestion(edt_ajouter.getText().toString(), "Faux");
-        adapter.notifyDataSetChanged();*/
     }
 }

@@ -1,7 +1,7 @@
 package com.example.pierre.quizz;
 
 /**
- * Created by Pierre on 12/10/2015.
+ * Created by Pierre
  */
 
 import android.content.ContentValues;

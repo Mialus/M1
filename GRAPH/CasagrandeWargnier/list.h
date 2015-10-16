@@ -1,18 +1,24 @@
-﻿#ifndef LIST_H
+#ifndef LIST_H
 #define LIST_H
 
-#include "stdlib.h"
-#include "stdio.h"
-#include "string.h"
+#include <stdio.h>
 
-typedef struct s_liste {
-    int state;
-    struct s_liste* suiv;
-} liste;
-  
-void ajouteListe(liste** liste1, int st2);
-void supprimeListe(liste** liste1, int st2);
-void viderBuffer();
-int lire(char *chaine, int longueur);
+typedef struct TypVoisins TypVoisins;
+struct TypVoisins{
+         int voisin;
+	 int poids;
+         TypVoisins * voisinSuivant;
+};
+
+typedef TypVoisins * listeAdjacences;
+
+listeAdjacences ajouterVoisin(listeAdjacences * voisin, int sommet,int  poid);
+listeAdjacences supprimeVoisin(listeAdjacences voisin, int sommet);
+listeAdjacences 	ajouterVoisinAfter(listeAdjacences *voisin, int sommet, int poid);
+listeAdjacences 	supprimerDependance(listeAdjacences voisin, int sommet, int poid);
+//void 			afficher(listeAdjacences voisin, FILE* file);
+void 			afficher(listeAdjacences voisin);
+
+
   
 #endif
