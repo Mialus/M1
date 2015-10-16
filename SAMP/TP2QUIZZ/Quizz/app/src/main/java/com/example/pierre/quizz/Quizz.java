@@ -38,7 +38,7 @@ public class Quizz extends AppCompatActivity {
                     if (it == ques.size() - 1) {
                         it = 0;
                     }
-                    if (notesDB.getReponse(it+1) == "Vrai") {
+                    if (notesDB.getReponse(it+1).equals("Vrai")) {
                         chaine = ques.get(it + 1);
                         ((TextView) findViewById(R.id.textView)).setText(chaine);
                         it++;
@@ -65,7 +65,7 @@ public class Quizz extends AppCompatActivity {
                     if (it == ques.size() - 1) {
                         it = 0;
                     }
-                    if (notesDB.getReponse(it+1) == "faux") {
+                    if (notesDB.getReponse(it+1).equals("Faux")) {
                         chaine = ques.get(it + 1);
                         ((TextView) findViewById(R.id.textView)).setText(chaine);
                         it++;
@@ -82,12 +82,14 @@ public class Quizz extends AppCompatActivity {
        ((Button)findViewById (R.id.button3)).setOnClickListener(new View.OnClickListener() { //Button Next
             public void onClick(View v) {
                 clicRep=true;
+                System.out.println("Ceci est le it : "+it);
                 if(it==ques.size()-1){
                     it=0;
+                }else{
+                    it++;
                 }
-                chaine = ques.get(it + 1);
+                chaine = ques.get(it);
                 ((TextView) findViewById(R.id.textView)).setText(chaine);
-                it++;
             }
         }) ;
 
@@ -98,6 +100,12 @@ public class Quizz extends AppCompatActivity {
                 startActivityForResult(reponse, 0) ;
             }
         }) ;
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        notesDB.chargerLesQuestions(ques);
     }
 
     @Override

@@ -40,17 +40,27 @@ public class SQL extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO questionQuizz (question,reponse) VALUES ('Les pandas hibernent.','Faux')");
         db.execSQL("INSERT INTO questionQuizz (question,reponse) VALUES ('On trouve des dromadaires en liberté en Australie.','Vrai')");
         db.execSQL("INSERT INTO questionQuizz (question,reponse) VALUES ('Le papillon monarque vole plus de 4000 km.','Vrai')");
-        db.execSQL("INSERT INTO questionQuizz (question,reponse) VALUES ('Les gorilles mâmes dorment dans les arbres.','Faux')");
+        db.execSQL("INSERT INTO questionQuizz (question,reponse) VALUES ('Les gorilles mâles dorment dans les arbres.','Faux')");
     }
 
     public String getReponse(int it){
         Cursor cu;
         String rep="SELECT reponse FROM questionQuizz WHERE _id =" + it;
-        cu=db.rawQuery(rep,new String[] {"reponse"});
-        System.out.println(cu.getString(0));
-        return rep=cu.getString(cu.getColumnIndex("reponse"));
+        cu=db.rawQuery(rep,null);
+        cu.moveToFirst();
+        rep=cu.getString(0);
+        return rep;
     }
+    public int getTaille(){
+        Cursor cu;
+        int nb;
+        String rep="SELECT COUNT(question) FROM questionQuizz";
+        cu=db.rawQuery(rep,null);
+        cu.moveToFirst();
+        nb=cu.getInt(0);
+        return nb;
 
+    }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
@@ -61,6 +71,10 @@ public class SQL extends SQLiteOpenHelper {
         values.put("question", question);
         values.put("reponse", reponse);
         db.insert("questionQuizz",  null,  values);
+    }
+
+    public void supprimeQuestion (int ques){
+        db.execSQL("DELETE FROM questionQuizz WHERE _id ="+ques);
     }
 
     public void chargerLesQuestions(List<String> lcs) {
