@@ -24,6 +24,7 @@
 options {
   STATIC = true;
   VISITOR = true;
+  MULTI = true;
 }
 
 PARSER_BEGIN(MiniJaja)
@@ -52,8 +53,10 @@ public class MiniJaja {
       return;
     }
     try {
-      SimpleNode n = parser.classe();
-	n.dump("");
+      	SimpleNode n = parser.classe();
+		MiniJajaDefaultVisitor visitor = new MiniJajaDefaultVisitor();
+		n.jjtAccept(visitor, null);
+		n.dump("");
       System.out.println("JavaCC Parser:  Java program parsed successfully.");
     } catch (ParseException e) {
       System.out.println(e.getMessage());
@@ -144,7 +147,7 @@ TOKEN :
 SimpleNode classe() #classe:
 {}
 {
-    <CLASS> ident() <ACCOUV> decls() methmain() <ACCFER> [<EOF>] {return jjtThis;}
+    <CLASS> ident() <ACCOUV> decls() methmain() <ACCFER> [<EOF>]{return jjtThis;}
 }
 
 void ident() #ident:
@@ -153,37 +156,37 @@ void ident() #ident:
     t=<IDENT> {jjtThis.value = t.image;}
 }
 
-void decls() #decls:
+void decls() #void:
 {}
 {
-    decl() <PVIRG> decls()
+    decl() <PVIRG> decls() #decls
 |	{} #vnil
 
 }
 
-void decl() :
+void decl() #void:
 {}
 {
 
-	typemeth() ident() (<PAROUV> entetes() <PARFER> <ACCOUV> vars() instrs() <ACCFER> | (<CROOUV> exp() <CROFER>  | vexp()))
-|	<FINAL> type() ident() vexp() 
+	typemeth() ident() (<PAROUV> entetes() <PARFER> <ACCOUV> vars() instrs() <ACCFER> #methode | (<CROOUV> exp() <CROFER> #tableau(1) | vexp() #var))
+|	<FINAL> type() ident() vexp() #cst
 }
 
-void vars() #vars:
+void vars() #void:
 {}
 {
-    var() <PVIRG> vars()
+    var() <PVIRG> vars() #vars
 |	{} #vnil
 }
 
-void var() #var:
+void var() #void:
 {}
 {
-	typemeth() ident() ( <CROOUV> exp() <CROFER>  | vexp())
-|	<FINAL> type() ident() vexp()
+	typemeth() ident() ( <CROOUV> exp() <CROFER> #tableau | vexp() #var )
+|	<FINAL> type() ident() vexp() #cst
 }
 
-void vexp() :
+void vexp() #void:
 {}
 {
     <AFFECT> exp()
@@ -202,10 +205,10 @@ void methmain() #main:
     <MAIN> <ACCOUV> vars() instrs() <ACCFER>
 }
 
-void entetes() #entetes:
+void entetes() #void:
 {}
 {
-    entete() [<VIRG> entetes()]
+    entete() [<VIRG> entetes()] #entetes
 |	{} #enil
 
 }
@@ -216,114 +219,114 @@ void entete() #entete:
     type() ident()
 }
 
-void instrs() #instrs:
+void instrs() #void:
 {}
 {
-    instr() <PVIRG> instrs()
+    instr() <PVIRG> instrs() #instrs
 |	{} #inil
 }
 
-void instr() :
+void instr() #void:
 {}
 {
-    ident() (([<CROOUV> exp() <CROFER>] ( <AFFECT> exp() | <AFFECTPLUS> exp() | <INCR> )) | <PAROUV> listexp() <PARFER> )
-| 	<RETURN> exp()
-| 	<IF> exp() <ACCOUV> instrs() <ACCFER> [ <ELSE> <ACCOUV> instrs() <ACCFER>]
-| 	<WHILE> exp() <ACCOUV> instrs() <ACCFER>
+    ident() (([<CROOUV> exp() <CROFER> #tab]  ( <AFFECT> exp() #affectation | <AFFECTPLUS> exp() #somme| <INCR> #increment)) | <PAROUV> listexp() <PARFER> #appelI)
+| 	<RETURN> exp() #retour
+| 	<IF> exp() <ACCOUV> instrs() <ACCFER> [ <ELSE> <ACCOUV> instrs() <ACCFER>] #si
+| 	<WHILE> exp() <ACCOUV> instrs() <ACCFER> #tantque
 }
 
-void listexp() #listexp:
+void listexp() #void:
 {}
 {
-	exp() [<VIRG> listexp()]
+	exp() [<VIRG> listexp()] #listexp
 |	{} #exnil
 }
 
-void exp() :
+void exp() #void:
 {}
 {
-    <NOT>exp2() [exp1()]
+    <NOT>exp2() [exp1()] #not
 |   exp2() [exp1()]
 }
 
-void exp1() :
+void exp1() #void:
 {}
 {
-    <ET> exp2() [exp1()]
-|   <OU> exp2() [exp1()]
+    <ET> exp2() [exp1()] #et
+|   <OU> exp2() [exp1()] #ou
 
 }
 
-void exp2() :
+void exp2() #void:
 {}
 {
     exp4() [exp3()]
 }
 
-void exp3() :
+void exp3() #void:
 {}
 {
-    <EGAL> exp4() [exp3()]
-|   <SUPGA> exp4() [exp3()]
+    <EGAL> exp4() [exp3()] #egal
+|   <SUPGA> exp4() [exp3()] #supga
 
 }
 
-void exp4() :
+void exp4() #void:
 {}
 {
-    <MOINS> terme() [exp5()]
+    <MOINS> terme() [exp5()] #moinsU
 |   terme() [exp5()]
 }
 
-void exp5() :
+void exp5() #void:
 {}
 {
-    <PLUS> terme() [exp5()]
-|    <MOINS> terme() [exp5()]
+    <PLUS> terme() [exp5()] #plus
+|    <MOINS> terme() [exp5()] #moinsB
    
 }
 
-void terme() :
+void terme() #void:
 {}
 {
     fact() [terme1()]
 }
 
-void terme1() :
+void terme1() #void:
 {}
 {
-    <MULT> fact() [terme1()]
-|   <DIV> fact() [terme1()]
+    <MULT> fact() [terme1()] #mult
+|   <DIV> fact() [terme1()] #div
 }
 
-void fact() :
-{}
+void fact() #void:
+{Token t;}
 {
     
-    <TRUE>
-|   <FALSE>
-|   ident() ( <PAROUV> listexp() <PARFER> | [<CROOUV> exp() <CROFER>] )
-|   <NOMBRE>
+    t=<TRUE> {jjtThis.value = t.image;} #vrai
+|   t=<FALSE> {jjtThis.value = t.image;} #faux
+|   ident() ( <PAROUV> listexp() <PARFER> #appelE | [<CROOUV> exp() <CROFER> #tab]  )
+|   t=<NOMBRE> {jjtThis.value = t.image;} #nbre
 |   <PAROUV> exp() <PARFER>
 
 }
 
-void ident1() :
+void ident1() #void:
 {}
 {
-	ident() [<CROOUV> exp() <CROFER>]
+	ident() [<CROOUV> exp() <CROFER> #tab ] 
 }
 
-void typemeth() :
-{}
+void typemeth() #void:
+{Token t;}
 {
-    <VOID>	#rien
+    t=<VOID> #rien
 |   type()
 }
 
-void type() :
-{}
+void type() #void:
+{Token t;}
 {
-    <INT> #entier
-|   <BOOLEAN> #booleen
+    t=<INT> #entier
+|   t=<BOOLEAN> #booleen
 }

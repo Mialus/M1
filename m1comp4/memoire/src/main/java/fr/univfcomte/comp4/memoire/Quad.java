@@ -10,11 +10,11 @@ package fr.univfcomte.comp4.memoire;
  * @author Pierre
  */
 public class Quad {
-    private String id; //fait
+    private String id;
     private Valeur val; 
-    private Object obj;//fait
-    private Sorte type;//fait
-    
+    private Object obj;
+    private Sorte type;
+  
     public Quad(String id, Valeur val, Object obj, Sorte type){
         this.id=id;
         this.val=val;

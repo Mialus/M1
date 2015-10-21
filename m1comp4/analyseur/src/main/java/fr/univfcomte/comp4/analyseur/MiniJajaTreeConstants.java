@@ -5,75 +5,95 @@ public interface MiniJajaTreeConstants
 {
   public int JJTCLASSE = 0;
   public int JJTIDENT = 1;
-  public int JJTDECLS = 2;
-  public int JJTVNIL = 3;
-  public int JJTDECL = 4;
-  public int JJTVARS = 5;
-  public int JJTVAR = 6;
-  public int JJTVEXP = 7;
-  public int JJTOMEGA = 8;
-  public int JJTMETHODE = 9;
-  public int JJTMAIN = 10;
-  public int JJTENTETES = 11;
-  public int JJTENIL = 12;
-  public int JJTENTETE = 13;
-  public int JJTINSTRS = 14;
-  public int JJTINIL = 15;
-  public int JJTINSTR = 16;
-  public int JJTLISTEXP = 17;
-  public int JJTEXNIL = 18;
-  public int JJTEXP = 19;
-  public int JJTEXP1 = 20;
-  public int JJTEXP2 = 21;
-  public int JJTEXP3 = 22;
-  public int JJTEXP4 = 23;
-  public int JJTEXP5 = 24;
-  public int JJTTERME = 25;
-  public int JJTTERME1 = 26;
-  public int JJTFACT = 27;
-  public int JJTIDENT1 = 28;
-  public int JJTTYPEMETH = 29;
-  public int JJTRIEN = 30;
-  public int JJTTYPE = 31;
-  public int JJTENTIER = 32;
-  public int JJTBOOLEEN = 33;
+  public int JJTVOID = 2;
+  public int JJTDECLS = 3;
+  public int JJTVNIL = 4;
+  public int JJTMETHODE = 5;
+  public int JJTTABLEAU = 6;
+  public int JJTVAR = 7;
+  public int JJTCST = 8;
+  public int JJTVARS = 9;
+  public int JJTOMEGA = 10;
+  public int JJTMAIN = 11;
+  public int JJTENTETES = 12;
+  public int JJTENIL = 13;
+  public int JJTENTETE = 14;
+  public int JJTINSTRS = 15;
+  public int JJTINIL = 16;
+  public int JJTTAB = 17;
+  public int JJTAFFECTATION = 18;
+  public int JJTSOMME = 19;
+  public int JJTINCREMENT = 20;
+  public int JJTAPPELI = 21;
+  public int JJTRETOUR = 22;
+  public int JJTSI = 23;
+  public int JJTTANTQUE = 24;
+  public int JJTLISTEXP = 25;
+  public int JJTEXNIL = 26;
+  public int JJTNOT = 27;
+  public int JJTET = 28;
+  public int JJTOU = 29;
+  public int JJTEGAL = 30;
+  public int JJTSUPGA = 31;
+  public int JJTMOINSU = 32;
+  public int JJTPLUS = 33;
+  public int JJTMOINSB = 34;
+  public int JJTMULT = 35;
+  public int JJTDIV = 36;
+  public int JJTVRAI = 37;
+  public int JJTFAUX = 38;
+  public int JJTAPPELE = 39;
+  public int JJTNBRE = 40;
+  public int JJTRIEN = 41;
+  public int JJTENTIER = 42;
+  public int JJTBOOLEEN = 43;
 
 
   public String[] jjtNodeName = {
     "classe",
     "ident",
+    "void",
     "decls",
     "vnil",
-    "decl",
-    "vars",
-    "var",
-    "vexp",
-    "omega",
     "methode",
+    "tableau",
+    "var",
+    "cst",
+    "vars",
+    "omega",
     "main",
     "entetes",
     "enil",
     "entete",
     "instrs",
     "inil",
-    "instr",
+    "tab",
+    "affectation",
+    "somme",
+    "increment",
+    "appelI",
+    "retour",
+    "si",
+    "tantque",
     "listexp",
     "exnil",
-    "exp",
-    "exp1",
-    "exp2",
-    "exp3",
-    "exp4",
-    "exp5",
-    "terme",
-    "terme1",
-    "fact",
-    "ident1",
-    "typemeth",
+    "non",
+    "et",
+    "ou",
+    "==",
+    ">",
+    "-",
+    "+",
+    "-",
+    "*",
+    "/",
+    "vrai",
+    "faux",
+    "appelE",
+    "nbre",
     "rien",
-    "type",
     "entier",
     "booleen",
   };
 }
-/* JavaCC - OriginalChecksum=cf0ec5002589b64e81901ef47c0b68ae (do not edit this line) */
+/* JavaCC - OriginalChecksum=dfe5decd4eee01fdfb8be079d1560731 (do not edit this line) */

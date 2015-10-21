@@ -7,7 +7,227 @@ public class MiniJajaDefaultVisitor implements MiniJajaVisitor{
     return data;
   }
   public Object visit(SimpleNode node, Object data){
+	  if(node.value != null)
+	    {
+	    	System.out.println(node.value);
+	    }
     return defaultVisit(node, data);
   }
+  
+	@Override
+	public Object visit(ASTclasse node, Object data) {
+		System.out.println(node.children.length);
+		return null;
+	}
+	@Override
+	public Object visit(ASTident node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTdecls node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTvnil node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTmethode node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTtableau node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTvar node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTcst node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTvars node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTomega node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTmain node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTentetes node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTenil node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTentete node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTinstrs node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTinil node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTtab node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTaffectation node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTsomme node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTincrement node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTappelI node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTretour node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTsi node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTtantque node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTlistexp node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTexnil node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTnot node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTet node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTou node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTegal node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTsupga node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTmoinsU node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTplus node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTmoinsB node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTmult node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTdiv node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTvrai node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTfaux node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTappelE node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTnbre node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTrien node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTentier node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Object visit(ASTbooleen node, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 /* JavaCC - OriginalChecksum=d23c23e5a6919e0aada6ce60ff685140 (do not edit this line) */

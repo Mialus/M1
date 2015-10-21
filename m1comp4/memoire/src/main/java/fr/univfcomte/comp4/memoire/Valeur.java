@@ -11,4 +11,9 @@ package fr.univfcomte.comp4.memoire;
  */
 public abstract class Valeur {
     
+    protected String val;
+
+    public String getVal() {
+        return val;
+    }   
 }

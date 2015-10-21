@@ -25,73 +25,80 @@ public class Quizz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
-        extra= getIntent().getExtras();
+        extra = getIntent().getExtras();
 
         //création de la base
         notesDB = new SQL(this);
         notesDB.chargerLesQuestions(ques);// téléchargement des question
 
-        ((TextView) findViewById(R.id.textView)).setText(ques.get(it));
-        ((Button)findViewById (R.id.button)).setOnClickListener(new View.OnClickListener() { //Button True
-            public void onClick(View v) {
-                if (clicRep) { // test si l'utilisateur à vu la réponse
+        if (it<ques.size()) {
+
+            ((TextView) findViewById(R.id.textView)).setText(ques.get(it));
+            ((Button) findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() { //Button True
+                public void onClick(View v) {
+                    if (clicRep) { // test si l'utilisateur à vu la réponse
+                        if (it == ques.size() - 1) {
+                            it = 0;
+                        }
+                        if (notesDB.getReponse(it + 1).equals("Vrai")) { // si la réponse est correct, on passe à la suivante
+                            chaine = ques.get(it + 1);
+                            ((TextView) findViewById(R.id.textView)).setText(chaine);
+                            it++;
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Wrong ! Try Again :)", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Vous avez vu la réponse !", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+            ((Button) findViewById(R.id.button2)).setOnClickListener(new View.OnClickListener() { //Button False
+                public void onClick(View v) {
+                    if (clicRep) {
+                        if (it == ques.size() - 1) {
+                            it = 0;
+                        }
+                        if (notesDB.getReponse(it + 1).equals("Faux")) {
+                            chaine = ques.get(it + 1);
+                            ((TextView) findViewById(R.id.textView)).setText(chaine);
+                            it++;
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Wrong ! Try Again :)", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Vous avez vu la réponse !", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            });
+
+            ((Button) findViewById(R.id.button3)).setOnClickListener(new View.OnClickListener() { //Button Next
+                public void onClick(View v) {
+                    clicRep = true;
+                    System.out.println("Ceci est le it : " + it);
                     if (it == ques.size() - 1) {
                         it = 0;
-                    }
-                    if (notesDB.getReponse(it+1).equals("Vrai")) { // si la réponse est correct, on passe à la suivante
-                        chaine = ques.get(it + 1);
-                        ((TextView) findViewById(R.id.textView)).setText(chaine);
-                        it++;
                     } else {
-                        Toast.makeText(getApplicationContext(), "Wrong ! Try Again :)", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Vous avez vu la réponse !", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }) ;
-
-        ((Button)findViewById (R.id.button2)).setOnClickListener(new View.OnClickListener() { //Button False
-            public void onClick(View v) {
-                if (clicRep) {
-                    if (it == ques.size() - 1) {
-                        it = 0;
-                    }
-                    if (notesDB.getReponse(it+1).equals("Faux")) {
-                        chaine = ques.get(it + 1);
-                        ((TextView) findViewById(R.id.textView)).setText(chaine);
                         it++;
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Wrong ! Try Again :)", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Vous avez vu la réponse !", Toast.LENGTH_SHORT).show();
+                    chaine = ques.get(it);
+                    ((TextView) findViewById(R.id.textView)).setText(chaine);
                 }
-            }
+            });
 
-        }) ;
-
-       ((Button)findViewById (R.id.button3)).setOnClickListener(new View.OnClickListener() { //Button Next
-            public void onClick(View v) {
-                clicRep=true;
-                System.out.println("Ceci est le it : "+it);
-                if(it==ques.size()-1){
-                    it=0;
-                }else{
-                    it++;
+            ((Button) findViewById(R.id.button4)).setOnClickListener(new View.OnClickListener() { //Button voir réponse
+                public void onClick(View v) {
+                    Intent reponse = new Intent(Quizz.this, ReponseQuizz.class);
+                    reponse.putExtra("rep", notesDB.getReponse(it + 1));
+                    startActivityForResult(reponse, 0);
                 }
-                chaine = ques.get(it);
-                ((TextView) findViewById(R.id.textView)).setText(chaine);
-            }
-        }) ;
-
-        ((Button)findViewById (R.id.button4)).setOnClickListener(new View.OnClickListener() { //Button voir réponse
-            public void onClick(View v) {
-                Intent reponse = new Intent(Quizz.this, ReponseQuizz.class);
-                reponse.putExtra("rep",notesDB.getReponse(it+1));
-                startActivityForResult(reponse, 0) ;
-            }
-        }) ;
+            });
+        }else{
+            Intent score = new Intent(Quizz.this, AfficheScore.class);
+            score.putExtras("score", );
+            startActivity(score);
+        }
     }
 
     @Override
