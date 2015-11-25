@@ -1,0 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fr.univfcomte.comp4.memoire;
+
+/**
+ *
+ * @author Pierre
+ */
+public class Main {
+    public static void main(String[] args){
+    Memoire mem = new Memoire();
+    try
+    {
+    	System.out.println(mem);
+    }catch(Exception e)
+    {
+    	System.err.println(e.getMessage());
+    }
+    }
+}

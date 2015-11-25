@@ -1,0 +1,9 @@
+package fr.univfcomte.comp4.memoire;
+
+public class Omega extends Valeur{
+	public Omega()
+	{
+		this.val="omega";
+	}
+
+}

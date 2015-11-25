@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item android:id="@+id/item_refresh_all"
+          android:icon="@drawable/ic_menu_refresh"
+          android:title="@string/refresh_all"/>
+     
+    <item android:id="@+id/item_add_rss"
+          android:icon="@android:drawable/ic_menu_add"
+          android:title="@string/add_rss"/>
+    
+    <item android:id="@+id/item_add_lemonde"
+          android:icon="@android:drawable/ic_menu_today"
+          android:title="@string/add_lemonde"/>
+    
+    <item android:id="@+id/item_add_usgs"
+          android:icon="@android:drawable/ic_menu_mapmode"
+          android:title="@string/add_usgs"/>
+   
+    <item android:id="@+id/item_add_programmez"
+          android:icon="@android:drawable/ic_menu_edit"
+          android:title="@string/add_programmez"/>
+    
+
+</menu><!-- From: file:/Users/Bruno/AndroidStudioProjects/BT/PROJET/LecteurRSS/app/src/main/res/menu/menu_principal.xml -->

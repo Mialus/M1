@@ -73,8 +73,9 @@ public class SQL extends SQLiteOpenHelper {
         db.insert("questionQuizz",  null,  values);
     }
 
-    public void supprimeQuestion (int ques){
-        db.execSQL("DELETE FROM questionQuizz WHERE _id ="+ques);
+    public void supprimeQuestion (String ques){
+        System.out.println(ques);
+        db.execSQL("DELETE FROM questionQuizz WHERE question LIKE '"+ques+"'");
     }
 
     public void chargerLesQuestions(List<String> lcs) {

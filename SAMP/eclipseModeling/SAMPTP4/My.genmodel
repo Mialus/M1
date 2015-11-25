@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/SAMPTP4/src" modelPluginID="SAMPTP4" modelName="My"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>My.ecore</foreignModel>
+  <genPackages prefix="Exo1" disposableProviderFactory="true" ecorePackage="My.ecore#/">
+    <genClasses ecoreClass="My.ecore#//Departement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Departement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Departement/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Departement/budget"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference My.ecore#//Departement/projects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference My.ecore#//Departement/employees"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Project">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Project/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Project/budget"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference My.ecore#//Project/departement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference My.ecore#//Project/employees"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Employee">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Employee/salary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Employee/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference My.ecore#//Employee/projects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference My.ecore#//Employee/departements"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Company">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Company/employees"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Company/projets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Company/departements"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

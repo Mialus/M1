@@ -1,0 +1,11 @@
+package sequence.impl;
+
+public class Main {
+
+	public static void main(String[] args) {
+		sequenceInstructionsImpl ex1 = new sequenceInstructionsImpl();
+		ex1.instructions.toString();
+		
+	}
+
+}

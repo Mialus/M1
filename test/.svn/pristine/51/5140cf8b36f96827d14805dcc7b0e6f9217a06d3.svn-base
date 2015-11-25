@@ -1,0 +1,54 @@
+package fr.univfcomte.comp4.table_hachage;
+
+public class ObjetTableHachage {
+	
+	private Object cle;
+	private Object valeur;
+	private ObjetTableHachage objetTablePrecedent; // peut-être pas utile
+	private ObjetTableHachage objetTableSuivant;
+	// private ? instances;
+	
+	public ObjetTableHachage(Object cle, Object valeur) {
+		this.cle = cle;
+		this.valeur = valeur;
+	}
+
+	public Object getCle() {
+		return cle;
+	}
+
+	public Object getValeur() {
+		return valeur;
+	}
+
+	public ObjetTableHachage getObjetTablePrecedent() {
+		return objetTablePrecedent;
+	}
+
+	public void setObjetTablePrecedent(ObjetTableHachage objetTablePrecedent) {
+		this.objetTablePrecedent = objetTablePrecedent;
+	}
+
+	public ObjetTableHachage getObjetTableSuivant() {
+		return objetTableSuivant;
+	}
+
+	public void setObjetTableSuivant(ObjetTableHachage objetTableSuivant) {
+		this.objetTableSuivant = objetTableSuivant;
+	}
+	
+	public String toString()
+	{
+		String s="";
+		s+="(key : "+this.cle.toString()+", val : "+this.valeur+")->";
+		if(this.getObjetTableSuivant() != null)
+		{
+			s+=this.getObjetTableSuivant().toString();
+		}else
+		{
+			s+="null";
+		}
+		return s;
+	}
+	
+}

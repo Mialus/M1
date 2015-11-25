@@ -1,0 +1,8 @@
+package fr.univfcomte.comp4.memoire;
+
+public class ObjetVconstante extends Objet{
+	
+	  public ObjetVconstante() {
+	        obj="vcst";
+	    }
+}

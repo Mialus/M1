@@ -1,0 +1,10 @@
+package exo1;
+
+import java.io.*;
+import java.util.*;
+import org.eclipse.emf.ecore
+import exo1;
+
+public class UsingEMFModels2 {
+
+}

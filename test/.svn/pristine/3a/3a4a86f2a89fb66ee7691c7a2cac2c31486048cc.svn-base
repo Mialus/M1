@@ -1,0 +1,10 @@
+package fr.univfcomte.comp4.interpreteur_MiniJaja;
+
+import fr.univfcomte.comp4.memoire.Memoire;
+
+public interface MemoireListener {
+    void onMemoireChangedMain(Memoire memoire);
+    void onMemoireChangedMainRetrait(Memoire memoire);
+    void onMemoireChangedAppelI(Memoire memoire, String nom);
+    void onInstruction(Memoire memoire);
+}

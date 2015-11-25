@@ -21,6 +21,7 @@ import java.util.List;
 
 public class ajoutQuestion extends AppCompatActivity {
     RadioButton btVrai;
+    String chaine;
     ListView vueQuestion;
     List<String> mesQuestion = new ArrayList<String>();
     ArrayAdapter<String> adapter;
@@ -40,11 +41,13 @@ public class ajoutQuestion extends AppCompatActivity {
         vueQuestion= (ListView) findViewById(android.R.id.list);
         adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, mesQuestion);
         vueQuestion.setAdapter(adapter);
+
         vueQuestion.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                chaine=mesQuestion.get(position);
                 mesQuestion.remove(position);
-                notesDB.supprimeQuestion(position);
+                notesDB.supprimeQuestion(chaine);
                 adapter.notifyDataSetChanged();
                 return false;
             }

@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MenuActivity"
+    android:orientation="vertical" android:background="@drawable/test">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="QUIZZ"
+        android:id="@+id/titre1"
+        android:textSize="80dp"
+        android:layout_below="@+id/titre1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="JEU"
+        android:id="@+id/titre1"
+        android:layout_alignParentTop="true"
+        android:textSize="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/titre1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jouer"
+        android:id="@+id/menu"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="01233"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voir Scores"
+        android:id="@+id/scores"
+        android:layout_below="@+id/menu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifier le Quizz"
+        android:id="@+id/categorie"
+        android:layout_below="@+id/menu"
+        android:layout_centerHorizontal="true" />
+
+
+
+</RelativeLayout>
+

@@ -1,0 +1,10 @@
+package fr.univfcomte.comp4.memoire;
+
+public class ObjetOmega extends Objet{
+	
+	public ObjetOmega()
+	{
+		this.obj="omega";
+	}
+
+}

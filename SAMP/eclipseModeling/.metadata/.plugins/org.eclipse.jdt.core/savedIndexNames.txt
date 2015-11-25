@@ -1,0 +1,24 @@
+INDEX VERSION 1.127+D:\travail\M1\SAMP\eclipseModeling\.metadata\.plugins\org.eclipse.jdt.core
+4130340435.index
+1878545740.index
+3589786999.index
+3918301752.index
+3969980072.index
+1640311884.index
+1466902844.index
+2636684301.index
+1564581698.index
+638281045.index
+3748197657.index
+709275604.index
+54894601.index
+1789102830.index
+3221047084.index
+442734954.index
+165758641.index
+1828336324.index
+2222850098.index
+2783253792.index
+3492260728.index
+1238306087.index
+2824559631.index

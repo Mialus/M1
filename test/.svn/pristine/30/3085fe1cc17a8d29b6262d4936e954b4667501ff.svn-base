@@ -1,0 +1,33 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fr.univfcomte.comp4.memoire;
+
+/**
+ *
+ * @author Pierre
+ */
+public abstract class Valeur implements Cloneable{
+    
+    protected Object val;
+
+    public Object getVal() {
+        return this.val;
+    }
+    
+    public Object clone() {
+		Valeur v = null;
+		try {
+			v = (Valeur) super.clone();
+		} catch(CloneNotSupportedException cnse) {
+			cnse.printStackTrace(System.err);
+		}
+		return v;
+	}
+    
+    public String toString() {
+        return this.val.toString();
+    } 
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="exo1.Exo1Package"/>
+<fullyQualifiedTypeName name="exo1.Exo1Factory"/>
+<fullyQualifiedTypeName name="org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="exo1.Departement"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="sequence.util.SequenceSwitch"/>
+<fullyQualifiedTypeName name="sequence.impl.sequenceInstructionsImpl"/>
+<fullyQualifiedTypeName name="sequence.impl.InstructionImpl"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+</qualifiedTypeNameHistroy>

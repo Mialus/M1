@@ -1,0 +1,63 @@
+package fr.univfcomte.comp4.compilateur;
+
+import java.util.ArrayList;
+
+public class Paire {
+    private ArrayList<String> instructions;
+    private int adresse;
+    
+    public Paire()
+    {
+    	this(0);
+    	
+    }
+    public Paire(int ad)
+    {
+    	this.adresse = ad;
+    	this.instructions = new  ArrayList<String>();
+    }
+    
+    public Paire(String str, int ad)
+    {
+    	this.adresse = ad;
+    	this.instructions = new  ArrayList<String>();
+    	this.add(str);
+    }
+    
+    public void setAdresse(int ad)
+    {
+    	this.adresse = ad;
+    }
+    
+    public void incAdresse(int nb)
+    {
+    	this.adresse += nb;
+    }
+    
+    
+    public int getAdresse()
+    {
+    	return this.adresse;
+    }
+    
+    public  ArrayList<String> getInstructions()
+    {
+    	return this.instructions;
+    }
+    
+    
+    public void add(String str)
+    {
+    	this.instructions.add(str);
+    }
+    
+    public void add(ArrayList<String> instrs)
+    {
+    	if(!instrs.isEmpty())
+    	{
+    		this.instructions.addAll(instrs);
+    	}
+    }
+    
+    
+}

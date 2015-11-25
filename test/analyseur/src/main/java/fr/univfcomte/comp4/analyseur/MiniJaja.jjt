@@ -1,0 +1,341 @@
+/*
+ * Copyright © 2002 Sun Microsystems, Inc., 4150 Network Circle, Santa Clara,
+ * California 95054, U.S.A. All rights reserved.  Sun Microsystems, Inc. has
+ * intellectual property rights relating to technology embodied in the product
+ * that is described in this document. In particular, and without limitation,
+ * these intellectual property rights may include one or more of the U.S.
+ * patents listed at http://www.sun.com/patents and one or more additional
+ * patents or pending patent applications in the U.S. and in other countries.
+ * U.S. Government Rights - Commercial software. Government users are subject
+ * to the Sun Microsystems, Inc. standard license agreement and applicable
+ * provisions of the FAR and its supplements.  Use is subject to license terms.
+ * Sun,  Sun Microsystems,  the Sun logo and  Java are trademarks or registered
+ * trademarks of Sun Microsystems, Inc. in the U.S. and other countries.  This
+ * product is covered and controlled by U.S. Export Control laws and may be
+ * subject to the export or import laws in other countries.  Nuclear, missile,
+ * chemical biological weapons or nuclear maritime end uses or end users,
+ * whether direct or indirect, are strictly prohibited.  Export or reexport
+ * to countries subject to U.S. embargo or to entities identified on U.S.
+ * export exclusion lists, including, but not limited to, the denied persons
+ * and specially designated nationals lists is strictly prohibited.
+ */
+
+options {
+  STATIC = false;
+  VISITOR = true;
+  MULTI = true;
+  VISITOR_EXCEPTION="MiniJajaException";
+  TRACK_TOKENS =true;
+}
+
+PARSER_BEGIN(MiniJaja)
+package fr.univfcomte.comp4.analyseur;
+
+public class MiniJaja {
+
+String test = "class C {
+	int x = 4;
+	boolean y = true;
+	int x1;
+	boolean y2;
+
+	final int x = 4;
+	final boolean y = true;
+	final int x1;
+	final boolean y2;
+
+	
+	int t1[4];
+	boolean t2[taille];
+
+	void f(int a, int b, int c){};
+	boolean f(){};
+	int f(){};
+
+	main{
+		f(1,2,3);
+	}
+}";
+  public static void main(String args[]) throws ParseException {
+  	MiniJaja parser;
+    if (args.length == 0) {
+      System.out.println("JavaCC Parser:  Reading from standard input . . .");
+      parser = new MiniJaja(System.in);
+    } else if (args.length == 1) {
+      System.out.println("JavaCC Parser:  Reading from file " + args[0] + " . . .");
+      try {
+        parser = new MiniJaja(test);
+      } catch (java.io.FileNotFoundException e) {
+        System.out.println("JavaCC Parser:  File " + args[0] + " not found.");
+        return;
+      }
+    } else {
+      System.out.println("JavaCC Parser:  Usage is one of:");
+      System.out.println("         java MiniJaja < inputfile");
+      System.out.println("OR");
+      System.out.println("         java MiniJaja inputfile");
+      return;
+    }
+    try {
+      	SimpleNode n = parser.classe();
+		/*MiniJajaDefaultVisitor visitor = new MiniJajaDefaultVisitor();
+		n.jjtAccept(visitor, null);*/
+		System.out.println(n.dump(""));
+      System.out.println("JavaCC Parser:  Java program parsed successfully.");
+    } catch (ParseException e) {
+      System.out.println(e.getMessage());
+      System.out.println("JavaCC Parser:  Encountered errors during parse.");
+    }
+  }
+
+}
+
+PARSER_END(MiniJaja)
+
+SKIP :
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+| <"//" (~["\n","\r"])* ("\n"|"\r"|"\r\n")>
+| <"/*" (~["*"])* "*" (~["/"] (~["*"])* "*")* "/">
+}
+//Tokens de la grammaire
+ //Identificateurs
+
+
+//Séparateurs
+TOKEN : 
+{
+    < PAROUV: "(" >
+|   < PARFER: ")" >
+|   < ACCOUV: "{" >
+|   < ACCFER: "}" >
+|   < CROOUV: "[" >
+|   < CROFER: "]" >
+|   < PVIRG: ";" >
+|   < VIRG: "," >
+}
+
+
+
+//Terminaux
+TOKEN:
+{
+    <CLASS: "class">
+|   <FALSE: "false">
+|   <TRUE: "true">
+|   <IF: "if">
+|   <ELSE: "else">
+|   <MAIN: "main">
+|   <FINAL: "final">
+|   <RETURN: "return">
+|   <WHILE: "while">
+}
+
+//Operateurs
+TOKEN : 
+{
+    < PLUS: "+">
+|   < MOINS: "-">
+|   < MULT: "*">
+|   < DIV: "/">
+|   < SUPGA: ">">
+|   < EGAL: "==">
+|   < ET: "&&">
+|   < OU: "||">
+|   < NOT: "!">
+|   < AFFECT: "=">
+|   < AFFECTPLUS: "+=">
+|   < INCR: "++">
+}
+
+//Types
+TOKEN :
+{
+    < INT: "int">
+|   < BOOLEAN: "boolean">
+|   < VOID: "void">
+}
+
+TOKEN : 
+{
+
+    < IDENT:  <LETTRE> (<LETTRE>|<NOMBRE>)* >    
+|   < NOMBRE: (["0"-"9"])+> 
+|   < LETTRE: (["a"-"z", "A"-"Z","_"])+>
+
+}
+
+// Regles 
+
+SimpleNode classe() #classe(3):
+{}
+{
+    <CLASS> ident() <ACCOUV> decls() methmain() <ACCFER> [<EOF>]{return jjtThis;}
+}
+
+void ident() #ident:
+{Token t;}
+{
+    t=<IDENT> {jjtThis.value = t.image;}
+}
+
+void decls() #void:
+{}
+{
+    decl() <PVIRG> decls()  #decls(2)
+|	{} #vnil
+
+}
+
+void decl() #void:
+{}
+{
+
+	typemeth() ident() (<PAROUV> entetes() <PARFER> <ACCOUV> vars() instrs() <ACCFER> #methode(5) | <CROOUV> exp() <CROFER> #tableau(3) | vexp() #var(3))
+|	<FINAL> type() ident() vexp() #cst(3)
+}
+
+void vars() #void:
+{}
+{
+    var() <PVIRG> vars() #vars(2)
+|	{} #vnil
+}
+
+void var() #void:
+{}
+{
+	typemeth() ident() ( <CROOUV> exp() <CROFER> #tableau(3) | vexp() #var(3) )
+|	<FINAL> type() ident() vexp() #cst(3)
+}
+
+void vexp() #void:
+{}
+{
+    <AFFECT> exp()
+|	{} #omega
+}
+
+void methmain() #main(2):
+{}
+{
+    <MAIN> <ACCOUV> vars() instrs() <ACCFER>
+}
+
+void entetes() #void:
+{}
+{
+    entete() (<VIRG> entetes() |  {} #enil ) #entetes(2)
+|	{} #enil
+
+}
+
+void entete() #void:
+{}
+{
+    type() ident() #entete(2)
+}
+
+void instrs() #void:
+{}
+{
+    instr() <PVIRG> instrs() #instrs(2)
+|	{} #inil
+}
+
+void instr() #void:
+{}
+{
+    ident() (([<CROOUV> exp() <CROFER> #tab(2)]( <AFFECT> exp() #affectation(2) | <AFFECTPLUS> exp() #somme(2)| <INCR> #increment(1))) | <PAROUV> listexp() <PARFER> #appelI(2))
+| 	<RETURN> exp() #retour(1)
+| 	<IF> exp() <ACCOUV> instrs() <ACCFER> (<ELSE> <ACCOUV> instrs() <ACCFER> | {} #inil) #si(3)
+| 	<WHILE> <PAROUV> exp() <PARFER> <ACCOUV> instrs() <ACCFER> #tantque(2)
+}
+
+
+void listexp() #void:
+{}
+{
+	exp() (<VIRG> listexp() | {} #exnil) #listexp(2)
+|	{} #exnil
+}
+
+void exp() #void : {} {
+	<NOT> exp2() #not(1)
+|	 <MOINS> exp2() #moinsU(1) 
+|	 exp2() [exp1()]
+}
+
+void exp1() #void : {} {
+
+	 <ET> exp2() #et(2) [exp1()] 
+|	 <OU> exp2() #ou(2) [exp1()] 
+}
+
+void exp2() #void : {} {
+	exp4() [exp3()]
+}
+
+void exp3() #void : {} {
+	 <EGAL> exp4() #egal(2)
+|	 <SUPGA> exp4() #supga(2)
+}
+
+void exp4() #void : {} {
+	terme() [exp5()]
+}
+
+void exp5() #void : {} {
+	 <PLUS> exp4() #plus(2)
+|	 <MOINS> exp4() #moinsB(2)
+}
+
+
+void terme() #void:
+{}
+{
+    fact() [terme1()]
+}
+
+void terme1() #void:
+{}
+{
+    <MULT> fact() #mult(2) [terme1()]
+|   <DIV> fact() #div(2) [terme1()] 
+}
+
+void fact() #void:
+{Token t;}
+{
+    
+    <TRUE> #vrai
+|   <FALSE> #faux
+|   ident() ( <PAROUV> listexp() <PARFER> #appelE(2) | [<CROOUV> exp() <CROFER> #tab(2)]  )
+|   t=<NOMBRE> {jjtThis.value = t.image;} #nbre
+|   <PAROUV> exp() <PARFER>
+
+}
+
+void ident1() #void:
+{}
+{
+	ident() [<CROOUV> exp() <CROFER> #tab(2) ] 
+}
+
+void typemeth() #void:
+{}
+{
+    <VOID> #rien
+|   type()
+}
+
+void type() #void:
+{}
+{
+    <INT> #entier
+|   <BOOLEAN> #booleen
+}
+

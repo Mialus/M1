@@ -28,6 +28,10 @@
             android:name=".ajoutQuestion"
             android:label="ajoutQuestion">
         </activity>
+        <activity
+            android:name=".AfficheScore"
+            android:label="AfficheScore">
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/Bruno/AndroidStudioProjects/BT/PROJET/LecteurRSS/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="noir_transparent">#40000000</color>
+    <!-- From: file:/Users/Bruno/AndroidStudioProjects/BT/PROJET/LecteurRSS/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <!-- From: file:/Users/Bruno/AndroidStudioProjects/BT/PROJET/LecteurRSS/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="add_lemonde">Add Le Monde\'s feed</string>
+    <string name="add_programmez">Add Programmez\'s feed</string>
+    <string name="add_rss">Add a RSS feed</string>
+    <string name="add_usgs">Add USGS\'s feed</string>
+    <string name="app_name">RSS Reader</string>
+    <string name="choix_adresse">Enter an address</string>
+    <string name="click_here">Clickez here</string>
+    <string name="connection_problem">Connection Problem</string>
+    <string name="date">Date :</string>
+    <string name="delete_rss">Remove this RSS feed</string>
+    <string name="delete_rss_sure">Are you sure to want to delete this RSS feed ?</string>
+    <string name="description">Description :</string>
+    <string name="download">Downloading RSS feed</string>
+    <string name="link">Link :</string>
+    <string name="liste_RSS">List of RSS feeds :</string>
+    <string name="no">Cancel</string>
+    <string name="refresh_all">Refresh all</string>
+    <string name="success">RSS feed successfully downloaded</string>
+    <string name="title">Title :</string>
+    <string name="update_rss">Update this RSS feed</string>
+    <string name="wait">Wait…</string>
+    <string name="yes">Ok</string>
+    <!-- From: file:/Users/Bruno/AndroidStudioProjects/BT/PROJET/LecteurRSS/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppTheme" parent="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+    </style>
+</resources>

@@ -1,0 +1,13 @@
+package sequence.impl;
+
+import sequence.util.SequenceSwitch;
+
+public class Main {
+
+	public static void main(String[] args) {
+		sequenceInstructionsImpl ex1 = new sequenceInstructionsImpl();
+		ex1.instructions.toString();
+		
+	}
+
+}

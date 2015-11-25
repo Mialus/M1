@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1447641435959_1" label="comp4" name="comp4">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/analyseur" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/comp4" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/interpreteur_MiniJaja" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/table_hachage" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/guid" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/quadruplet" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pile" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/analyseur_JajaCode" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/tas" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/compilateur" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/memoire_MiniJaja" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/controle_type" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1447641373508_0" label="Window Working Set" name="Aggregate for window 1447641373492"/>
+</workingSetManager>

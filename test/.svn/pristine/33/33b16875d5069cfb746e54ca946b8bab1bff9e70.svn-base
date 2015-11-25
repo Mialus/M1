@@ -1,0 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fr.univfcomte.comp4.memoire;
+
+/**
+ *
+ * @author Pierre
+ */
+public class Element implements Cloneable{
+    protected Object valeur;
+    protected Element suivant;  
+    
+    public Object clone() {
+		Element e = null;
+		try {
+			e = (Element) super.clone();
+		} catch(CloneNotSupportedException cnse) {
+			cnse.printStackTrace(System.err);
+		}
+		if(this.valeur instanceof Quad)
+		{
+			e.valeur = ((Quad)this.valeur).clone();
+		}else
+		{
+			e.valeur = null;
+		}
+		if(this.suivant != null)
+		{
+			e.suivant = (Element) this.suivant.clone();
+		}else
+		{
+			e.suivant = null;
+		}
+		
+		return e;
+	}
+}

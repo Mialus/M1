@@ -1,0 +1,35 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fr.univfcomte.comp4.quadruplet;
+
+/**
+ *
+ * @author Pierre
+ */
+public abstract class Sorte implements Cloneable{
+
+    protected String type;
+
+    public String getType() {
+        return this.type;
+    }
+    
+    public Object clone() {
+		Sorte t = null;
+		try {
+			t = (Sorte) super.clone();
+		} catch(CloneNotSupportedException cnse) {
+			cnse.printStackTrace(System.err);
+		}
+		return t;
+	}
+    
+    abstract public Valeur createValeur();
+
+    public String toString() {
+        return this.type;
+    }
+}

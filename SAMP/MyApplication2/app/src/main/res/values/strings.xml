@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">QUIZ</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="hello_world">Hello Wold!</string>
+
+    <string name="question1">Le diable de Tasmanie vit dans la jungle du Brésil.</string>
+    <item type="bool" name="reponse1">false</item>
+
+    <string name="question2">La sauterelle saute l\'equivalent de 200 fois sa taille</string>
+    <item type="bool" name="reponse2">true</item>
+
+    <string name="question3">Les pandas hibernent.</string>
+    <item type="bool" name="reponse3">false</item>
+
+    <string name="question4">On trouve des dromadaires en liberté en Ausralie.</string>
+    <item type="bool" name="reponse4">true</item>
+
+    <string name="question5">Le papillon monarque vole plus de 4000 km.</string>
+    <item type="bool" name="reponse5">true</item>
+
+    <string name="question6">Les gorilles mâles dorment dans les arbres</string>
+    <item type="bool" name="reponse6">false</item>
+
+    <string name="correct">Correct</string>
+
+    <string name="incorrect">Incorrect</string>
+
+    <string name="reponseDejaVue">Réponse déjà vue</string>
+
+    <string name="vousAvezDejaRep">Vous avez déjà repondu à la question</string>
+</resources>

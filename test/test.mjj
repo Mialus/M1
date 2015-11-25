@@ -1,0 +1,23 @@
+class C {
+	int x = 4;
+	boolean y = true;
+	int x1;
+	boolean y2;
+
+	final int x = 4;
+	final boolean y = true;
+	final int x1;
+	final boolean y2;
+
+	
+	int t1[4];
+	boolean t2[taille];
+
+	void f(int a, int b, int c){};
+	boolean f(){};
+	int f(){};
+
+	main{
+		f(1,2,3);
+	}
+}

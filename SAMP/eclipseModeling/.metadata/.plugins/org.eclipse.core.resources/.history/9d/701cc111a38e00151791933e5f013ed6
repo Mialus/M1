@@ -1,0 +1,10 @@
+package exo1;
+
+import exo1.*;
+import java.util.*;
+import java.io.*;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+
+public class UsingEMFModels2 {
+
+}

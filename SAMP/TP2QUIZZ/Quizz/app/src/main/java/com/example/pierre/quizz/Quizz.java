@@ -10,12 +10,11 @@ import java.util.*;
 
 public class Quizz extends AppCompatActivity {
     int it = 0;
+    int sco=0;
     boolean clicRep = true;
-    ListView vueQues;
     String chaine;
-    ArrayAdapter<String> adapter;
     SQL notesDB ;
-    Bundle extra;
+    Bundle extra, scoreRes;
     List<String> ques = new ArrayList<String>();
 
     /**
@@ -26,26 +25,34 @@ public class Quizz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
         extra = getIntent().getExtras();
+        scoreRes = getIntent().getExtras();
 
         //création de la base
         notesDB = new SQL(this);
         notesDB.chargerLesQuestions(ques);// téléchargement des question
 
-        if (it<ques.size()) {
-
             ((TextView) findViewById(R.id.textView)).setText(ques.get(it));
             ((Button) findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() { //Button True
                 public void onClick(View v) {
                     if (clicRep) { // test si l'utilisateur à vu la réponse
-                        if (it == ques.size() - 1) {
-                            it = 0;
-                        }
-                        if (notesDB.getReponse(it + 1).equals("Vrai")) { // si la réponse est correct, on passe à la suivante
-                            chaine = ques.get(it + 1);
-                            ((TextView) findViewById(R.id.textView)).setText(chaine);
-                            it++;
+                        it++;
+                        if (notesDB.getReponse(it).equals("Vrai")) { // si la réponse est correct, on passe à la suivante
+                            if (it < ques.size()) {
+                                chaine = ques.get(it);
+                                ((TextView) findViewById(R.id.textView)).setText(chaine);
+                                sco++;
+                            } else {
+                                sco++;
+                                score();
+                            }
                         } else {
-                            Toast.makeText(getApplicationContext(), "Wrong ! Try Again :)", Toast.LENGTH_SHORT).show();
+                            if (it < ques.size()) {
+                                chaine = ques.get(it);
+                                ((TextView) findViewById(R.id.textView)).setText(chaine);
+                            } else {
+                                score();
+                            }
+                            Toast.makeText(getApplicationContext(), "Wrong !", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(getApplicationContext(), "Vous avez vu la réponse !", Toast.LENGTH_SHORT).show();
@@ -56,15 +63,24 @@ public class Quizz extends AppCompatActivity {
             ((Button) findViewById(R.id.button2)).setOnClickListener(new View.OnClickListener() { //Button False
                 public void onClick(View v) {
                     if (clicRep) {
-                        if (it == ques.size() - 1) {
-                            it = 0;
-                        }
-                        if (notesDB.getReponse(it + 1).equals("Faux")) {
-                            chaine = ques.get(it + 1);
-                            ((TextView) findViewById(R.id.textView)).setText(chaine);
-                            it++;
+                        it++;
+                        if (notesDB.getReponse(it).equals("Faux")) {
+                            if(it<ques.size()) {
+                                chaine = ques.get(it);
+                                ((TextView) findViewById(R.id.textView)).setText(chaine);
+                                sco++;
+                            }else{
+                                sco++;
+                                score();
+                            }
                         } else {
-                            Toast.makeText(getApplicationContext(), "Wrong ! Try Again :)", Toast.LENGTH_SHORT).show();
+                            if(it<ques.size()) {
+                                chaine = ques.get(it);
+                                ((TextView) findViewById(R.id.textView)).setText(chaine);
+                            }else{
+                                score();
+                            }
+                            Toast.makeText(getApplicationContext(), "Wrong !", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(getApplicationContext(), "Vous avez vu la réponse !", Toast.LENGTH_SHORT).show();
@@ -75,15 +91,15 @@ public class Quizz extends AppCompatActivity {
 
             ((Button) findViewById(R.id.button3)).setOnClickListener(new View.OnClickListener() { //Button Next
                 public void onClick(View v) {
-                    clicRep = true;
-                    System.out.println("Ceci est le it : " + it);
-                    if (it == ques.size() - 1) {
-                        it = 0;
-                    } else {
+                        clicRep = true;
+                        System.out.println("Ceci est le it : " + it);
                         it++;
+                    if(it<ques.size()) {
+                        chaine = ques.get(it);
+                        ((TextView) findViewById(R.id.textView)).setText(chaine);
+                    }else{
+                        score();
                     }
-                    chaine = ques.get(it);
-                    ((TextView) findViewById(R.id.textView)).setText(chaine);
                 }
             });
 
@@ -94,11 +110,13 @@ public class Quizz extends AppCompatActivity {
                     startActivityForResult(reponse, 0);
                 }
             });
-        }else{
-            Intent score = new Intent(Quizz.this, AfficheScore.class);
-            score.putExtras("score", );
-            startActivity(score);
-        }
+    }
+
+    public void score(){
+        Intent score = new Intent(Quizz.this, AfficheScore.class);
+        score.putExtra("score",Integer.toString(sco));
+        score.putExtra("total",Integer.toString(ques.size()));
+        startActivityForResult(score, 1000);
     }
 
     @Override
@@ -117,6 +135,10 @@ public class Quizz extends AppCompatActivity {
         if(resultCode == RESULT_OK && requestCode == 0){
             clicRep = false;
         }
-
+        if (requestCode==1000) {
+            if (resultCode == 1) {
+                finish();
+            }
+        }
     }
 }
