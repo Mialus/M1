@@ -27,14 +27,22 @@ public class MenuActivity extends AppCompatActivity {
         findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(MenuActivity.this, ChoixCategorie.class);
+                i.putExtra("choix", "Jouer");
                 startActivity(i);
             }
         });
 
         findViewById(R.id.scores).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(MenuActivity.this, ScoresActivity.class);
+                Intent i = new Intent(MenuActivity.this, ChoixCategorie.class);
+                i.putExtra("choix", "Score");
                 startActivity(i);
+            }
+        });
+
+        findViewById(R.id.quitter).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.exit(0);
             }
         });
 

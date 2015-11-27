@@ -1,10 +1,11 @@
 <resources>
-    <string name="app_name">QUIZ</string>
+    <string name="plus">+</string>
+    <string name="app_name">QUIZZ</string>
     <string name="action_settings">Settings</string>
 
     <string name="hello_world">Hello Wold!</string>
 
-    <string name="question1">Le diable de Tasmanie vit dans la jungle du Brésil.</string>
+    <string name="question1">Appuyer sur le bouton pour voir la réponse</string>
     <item type="bool" name="reponse1">false</item>
 
     <string name="question2">La sauterelle saute l\'equivalent de 200 fois sa taille</string>

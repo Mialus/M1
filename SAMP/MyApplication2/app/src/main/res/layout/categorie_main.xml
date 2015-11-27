@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Dans quelle catégorie voulez vous jouer ?"
+        android:text="Quelle catégorie choisissez-vous ?"
         android:id="@+id/titre1"
         android:layout_centerHorizontal="true"
         android:textColor="#ff6a00"/>
@@ -24,6 +24,16 @@
         android:layout_centerHorizontal="true"
         android:textColor="#ff6a00"
         android:background="@null"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RAFFRAICHIR"
+        android:id="@+id/refresh"
+        android:textColor="#ff6a00"
+        android:background="@null"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/titre1" />
 
     <ListView
         android:layout_width="wrap_content"

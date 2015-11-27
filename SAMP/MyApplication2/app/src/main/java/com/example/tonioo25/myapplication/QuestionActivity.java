@@ -12,7 +12,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 
 import com.example.tonioo25.myapplication.Adapter.AdapterListView;
-import com.example.tonioo25.myapplication.Categorie.ModifCategorie;
 import com.example.tonioo25.myapplication.Item.ItemQR;
 
 import java.util.ArrayList;
@@ -24,12 +23,20 @@ import java.util.ArrayList;
 
 public class QuestionActivity extends AppCompatActivity{
 
+    //Recharge l'affichage de la base de données dans la listeVie
+    // w
+    public void reloadDB(){
+        adapVue.notifyDataSetChanged();
+    }
+
     //Création des élémentsS
+    int idSujet;
     private Button boutonValider;
     private RadioButton boutonVrai;
     private RadioButton boutonFaux;
     private EditText texte;
     Bundle extra;
+   // ArrayAdapter<String> adapter;
 
     //Déclaration de la base
     QuizzDatabase db = new QuizzDatabase(this);
@@ -58,11 +65,11 @@ public class QuestionActivity extends AppCompatActivity{
         setContentView(R.layout.question_main);
 
         Intent i = getIntent();
-        int idSujet = i.getIntExtra("sujetChoisi",1);
+        idSujet = i.getIntExtra("sujetChoisi",1);
 
         //Déclaration de l'Adapteur
         //AdapterDB = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,toutesLesQuestions);
-
+        //adapter = new ArrayAdapter<String>(this, android.R.layout., toutesLesQuestions);
         //On retourne la valeur des élements dans de nouveaux elements crées
         boutonValider = (Button)findViewById(R.id.ajoutQuestion);
         texte = (EditText)findViewById(R.id.texte);
@@ -106,17 +113,22 @@ public class QuestionActivity extends AppCompatActivity{
         findViewById(R.id.ajoutQuestion).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(QuestionActivity.this, AjoutQuestion.class);
-                startActivity(i);
+                i.putExtra("sujetChoisi", idSujet);
+                startActivityForResult(i,2000);
             }
         });
 
     }
 
-
-    //Recharge l'affichage de la base de données dans la listeView
-    public void reloadDB(){
-        adapVue.notifyDataSetChanged();
+    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+        if (requestCode==2000) {
+            toutesLesQuestions.clear();
+            db.chargerLesQuestions(toutesLesQuestions, idSujet);
+            reloadDB();
+            if (resultCode == 1) {
+                setResult(1);
+                finish();
+            }
+        }
     }
-
-
 }

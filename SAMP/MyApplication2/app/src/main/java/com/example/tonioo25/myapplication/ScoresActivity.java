@@ -1,38 +1,50 @@
 package com.example.tonioo25.myapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.example.tonioo25.myapplication.Adapter.ScoresListeViewAdapter;
+import com.example.tonioo25.myapplication.Item.ItemSujet;
 
-import com.example.tonioo25.myapplication.Activity.MenuActivity;
+import java.util.ArrayList;
 
 /**
  * Created by tonioo25 on 21/10/2015.
  */
 public class ScoresActivity extends AppCompatActivity {
 
-    int cpt = 0;
-    int i =0;
-    int reponseVue = 0;
-    String reponse;
+    //Déclaration des variables
+    private ListView listeDeScore;
+    ArrayList<ItemSujet> listeScore = new ArrayList<>();
+    Bundle recup;
+
+    //Création de la base de données
+    QuizzDatabase db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scores_main);
 
-        Intent i = getIntent();
-        reponse = i.getStringExtra("reponseCourante");
-        Log.i("test 5", "" + reponse);
+        recup = getIntent().getExtras();
+        int id = recup.getInt("sujetChoisi");
+        //Gestion de la base de données et du cuseur pour la parcourir
+        db = new QuizzDatabase(this);
+        ((TextView) findViewById(R.id.titreScore)).setText("Voici votre score pour le quizz "+db.getSujet(id));
+
+        listeDeScore = (ListView) findViewById(R.id.liste_score);
+        db.chargerLesScores(listeScore,id);
+
+        ScoresListeViewAdapter viewScores = new ScoresListeViewAdapter(listeScore, this);
+        listeDeScore.setAdapter(viewScores);
 
         findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //Log.i("test 1", "" + reponseVue);
-                Intent i = new Intent(ScoresActivity.this, MenuActivity.class);
-                startActivity(i);
-                //finish();
+                setResult(1);
+                finish();
             }
 
         });

@@ -59,6 +59,15 @@
         android:layout_centerHorizontal="true"
         android:background="@null"
         android:textColor="#ff6a00"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUITTER"
+        android:id="@+id/quitter"
+        android:background="@null"
+        android:textColor="#ff6a00"
+        android:layout_below="@+id/scores"
+        android:layout_alignStart="@+id/scores" />
 
 
 

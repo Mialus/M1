@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/tp5samp/src" modelPluginID="tp5samp" modelName="Ident"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>../My.ecore</foreignModel>
+  <genPackages prefix="Samp" disposableProviderFactory="true" ecorePackage="My.ecore#/">
+    <genClasses ecoreClass="My.ecore#//Affectation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference My.ecore#//Affectation/identitfiant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Affectation/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Affectation/Operation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Affectation/FinOperation"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Return">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Return/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Return/Return"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Return/FinOpeartion"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="My.ecore#//OperationSimple">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//OperationSimple/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Nombre">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Nombre/nb"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="My.ecore#//Expression"/>
+    <genClasses ecoreClass="My.ecore#//Identitfiant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Identitfiant/nom"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="My.ecore#//Sequence"/>
+    <genClasses image="false" ecoreClass="My.ecore#//OperationBinaire">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//OperationBinaire/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Instruction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Instruction/segmentation"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Multiplication"/>
+    <genClasses ecoreClass="My.ecore#//Bin"/>
+    <genClasses ecoreClass="My.ecore#//Addition"/>
+    <genClasses ecoreClass="My.ecore#//Soustraction"/>
+    <genClasses ecoreClass="My.ecore#//Division"/>
+  </genPackages>
+</genmodel:GenModel>

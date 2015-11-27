@@ -3,7 +3,6 @@ package com.example.tonioo25.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -26,19 +25,16 @@ public class SecondActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         reponse = i.getStringExtra("reponseCourante");
-        Log.i("test 5",""+reponse);
 
         findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 ((TextView) findViewById(R.id.repText)).setText(String.valueOf(reponse));
                 reponseVue = 1;
-                Log.i("test 3",""+reponseVue);
             }
         });
 
         findViewById(R.id.modifQuizz).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.i("test 1", "" + reponseVue);
                 Intent data = new Intent();
                 data.putExtra("reponseVue",reponseVue);
                 setResult(RESULT_OK, data);

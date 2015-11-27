@@ -33,6 +33,12 @@ public class QuizzDatabase extends SQLiteOpenHelper {
             + "reponse text null, "
             + "sujet integer not null) ;";
 
+    //Base de données qui repertorie les "scores"
+    private static final String DATABASE_CREATE4 = "create table scores "
+            + "(_id integer primary key autoincrement, "
+            + "score text not null, "
+            + "sujet integer not null) ;";
+
     //Base de données qui repertorie les "sujets" ou themes des questions
     private static final String DATABASE_CREATE2 = "create table sujets "
             + "(_id integer primary key autoincrement, "
@@ -61,6 +67,7 @@ public class QuizzDatabase extends SQLiteOpenHelper {
         database.execSQL(DATABASE_CREATE) ;
         database.execSQL(DATABASE_CREATE2) ;
         database.execSQL(DATABASE_CREATE3) ;
+        database.execSQL(DATABASE_CREATE4) ;
 
         new Parser(cont,this).execute("https://dept-info.univ-fcomte.fr/joomla/images/CR0700/Quizzs.xml");
         /*db.execSQL("INSERT INTO sujets (nom) VALUES ('Culture Generale')");
@@ -159,7 +166,7 @@ public class QuizzDatabase extends SQLiteOpenHelper {
         /* Pas pour le moment */
     }
 
-    //Fonction qui permet de rajouter une qesution et sa réponse dans la base de donnéesS
+    //Fonction qui permet de rajouter une quesution et sa réponse dans la base de données
     public void insereQuestion (String questionAAjouter, String reponseAAjouter) {
         ContentValues values = new ContentValues();
         values.put("question", questionAAjouter);
@@ -183,6 +190,24 @@ public class QuizzDatabase extends SQLiteOpenHelper {
         }
         cursor.close();
     }
+
+    public void chargerLesScores(ArrayList<ItemSujet> cat,int id) {
+        this.db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM scores Where sujet = " + id, null) ;
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            String sujets = cursor.getString(1) ;
+            cat.add(new ItemSujet(sujets,cursor.getInt(0)));
+
+            if(cursor.getColumnCount()==cursor.getColumnIndex("_id")){
+                cursor.moveToFirst();
+            }
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+    }
+
     //Fonction qui rajoute un element dans la base de données
     public void chargerLesQuestions(List<ItemQR> lcs) {
         Cursor cursor = this.getCursor() ;
@@ -204,24 +229,6 @@ public class QuizzDatabase extends SQLiteOpenHelper {
     //Fonction qui supprime un element dans la base de données
     public void suppDatabase(String question){
         db.delete("questions", "question =?", new String[]{question});
-    }
-
-    public boolean notExisteQ(String ques,int sujet){
-        Cursor cursor = db.rawQuery("SELECT question FROM questions where question = " + ques + " AND sujet =" + sujet, null);
-        if(cursor.moveToFirst()) {
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    public boolean notExisteS(String sujet){
-        Cursor cursor = db.rawQuery("SELECT (_id FROM sujetss where (_id ="+sujet, null);
-        if(cursor.moveToFirst()) {
-            return false;
-        }else{
-            return true;
-        }
     }
 
     public ArrayList<String> getReponsebyQuestion(int id){
@@ -284,6 +291,16 @@ public class QuizzDatabase extends SQLiteOpenHelper {
 
     }
 
+    //Fonction qui permet de rajouter un score dans la base de données
+    public int insereScore (String scoreAAjouter, int sujet) {
+        this.db =this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("score", scoreAAjouter);
+        values.put("sujet", sujet);
+        int id = (int) db.insert("scores", null, values);
+        return id;
+    }
+
     public int insertReponse(String text, int idQuestion) {
         this.db =this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -301,7 +318,38 @@ public class QuizzDatabase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put("reponse",s);
-        db.update("questions",values,"_id =?",new String[]{""+idQuestion});
+        db.update("questions", values, "_id =?", new String[]{"" + idQuestion});
 
+    }
+
+    public String getSujet(int id) {
+        this.db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT nom FROM sujets where _id ="+id, null);
+        cursor.moveToFirst();
+        String rep = cursor.getString(0);
+        cursor.close();
+        return rep;
+    }
+
+    public int getIdSujet(String id) {
+        this.db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT _id FROM sujets where nom = "+id, null);
+        cursor.moveToFirst();
+        int rep = cursor.getInt(0);
+        cursor.close();
+        return rep;
+    }
+
+    public int getIdQuestion(String ques) {
+        this.db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT _id FROM questions where question LIKE "+ques, null);
+        cursor.moveToFirst();
+        int rep = Integer.parseInt(cursor.getString(0));
+        cursor.close();
+        return rep;
+    }
+
+    public void supprimeCategorie(String id) {
+        db.execSQL("DELETE FROM sujets WHERE nom LIKE '"+id+"'");
     }
 }

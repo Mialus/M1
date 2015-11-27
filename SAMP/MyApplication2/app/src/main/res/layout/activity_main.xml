@@ -36,7 +36,9 @@
         android:text="voir réponse"
         android:id="@+id/reponse"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff6a00"
+        android:background="@null"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -52,7 +54,9 @@
             android:text="Suivant"
             android:id="@+id/next"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:textColor="#ff6a00"
+            android:background="@null"/>
 
         <FrameLayout
             android:layout_width="match_parent"

@@ -12,16 +12,27 @@
         android:text="Retourner au Menu"
         android:id="@+id/menu"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff6a00"
+        android:background="@null"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Vos Scores par Quiz"
+        android:text="Bonjour"
         android:id="@+id/titreScore"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
+        android:layout_alignStart="@+id/menu"
+        android:textColor="#ff6a00"
+        android:background="@null"/>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/liste_score"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/titreScore"
+        android:layout_above="@+id/menu"
+        />
 
 </RelativeLayout>

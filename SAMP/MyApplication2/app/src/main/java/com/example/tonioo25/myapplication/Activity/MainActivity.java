@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         recup = getIntent().getExtras();
         int id = recup.getInt("sujetChoisi");
-
         //Gestion de la base de données et du cuseur pour la parcourir
         db = new QuizzDatabase(this);
         Cursor c = db.getReadableDatabase().rawQuery("select * from questions where _id = "+id ,null);
@@ -68,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // On affiche la question 1 du quizz
         questionCourante = 0;
-        afficheQuestion(questionCourante);
+        afficheQuestion();
 
 
         findViewById(R.id.next).setOnClickListener(this);
@@ -80,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     sco++;
                     Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
                     questionCourante++;
-                    afficheQuestion(questionCourante);
+                    afficheQuestion();
                     estVue=0;
                     ((TextView) findViewById(R.id.result)).setText(" ");
 
@@ -88,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else{
                     Toast.makeText(MainActivity.this, "Incorrect", Toast.LENGTH_SHORT).show();
                     questionCourante++;
-                    afficheQuestion(questionCourante);
+                    afficheQuestion();
                     estVue=0;
                     ((TextView) findViewById(R.id.result)).setText(" ");
                 }
@@ -111,13 +109,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //Fonction qui permet d'afficher la question courante dans l'application pour que l'utilisateur puisse répondre
-    private void afficheQuestion(int idQuestion){
+    private void afficheQuestion(){
 
         // A la fin des question, on va dans l'activité qui montre le score final
         if(questionCourante == listeDesQuestions.size()){
             Intent score = new Intent(MainActivity.this, ScoreFinDePartie.class);
             score.putExtra("score",Integer.toString(sco));
-            score.putExtra("total",Integer.toString(listeDesQuestions.size()));
+            score.putExtra("total", Integer.toString(listeDesQuestions.size()));
+            score.putExtra("sujet",recup.getInt("sujetChoisi"));
             startActivityForResult(score, 1000);
         }
         else {
@@ -135,9 +134,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         if (requestCode == ACTIVITE_REP && resultCode == RESULT_OK) {
             estVue = data.getIntExtra("reponseVue", 1);
-            Log.i("test2", "" + estVue);
-
-
+        }
+        if (requestCode==1000) {
+            if (resultCode == 1) {
+                setResult(1);
+                finish();
+            }
         }
     }
 
@@ -179,11 +181,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else {
                     questionCourante++;
-                    afficheQuestion(questionCourante);
-
-
+                    afficheQuestion();
                 }
-                afficheQuestion(questionCourante);
+                afficheQuestion();
                 estVue=0;
                 ((TextView) findViewById(R.id.result)).setText(" ");
                 break;
