@@ -10,7 +10,9 @@
         android:id="@+id/repAQuestion"
         android:layout_gravity="center_horizontal"
         android:clickable="false"
-        android:focusable="false" />
+        android:focusable="false"
+        android:textColor="#ff6a00"
+        android:background="@null"/>
 
 
 </LinearLayout>

@@ -43,6 +43,7 @@ public class ChoixCategorie extends AppCompatActivity{
         SujetListeViewAdapter listeSujet = new SujetListeViewAdapter(listeCategorie,this);
         listeDeCategorie.setAdapter(listeSujet);
 
+        //permet de savoir sur qu'elle bouton le joueur à appuyer
         listeDeCategorie.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -78,7 +79,7 @@ public class ChoixCategorie extends AppCompatActivity{
 
 
     }
-
+    @Override
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         if (requestCode==1500) {
             if (resultCode == 1) {

@@ -23,6 +23,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_main);
+
         //Permet de jouer au quizz, change d'activité, nous envoie vers MainActivity
         findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -54,7 +55,6 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
         db=new QuizzDatabase(this);
-        //new Parser(this,db).execute("https://dept-info.univ-fcomte.fr/joomla/images/CR0700/Quizzs.xml");
     }
 
 

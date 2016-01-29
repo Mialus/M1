@@ -23,20 +23,14 @@ import java.util.ArrayList;
 
 public class QuestionActivity extends AppCompatActivity{
 
-    //Recharge l'affichage de la base de données dans la listeVie
-    // w
+    //Recharge l'affichage de la base de données dans la listeView
     public void reloadDB(){
         adapVue.notifyDataSetChanged();
     }
 
-    //Création des élémentsS
+    //Création des éléments
     int idSujet;
-    private Button boutonValider;
-    private RadioButton boutonVrai;
-    private RadioButton boutonFaux;
     private EditText texte;
-    Bundle extra;
-   // ArrayAdapter<String> adapter;
 
     //Déclaration de la base
     QuizzDatabase db = new QuizzDatabase(this);
@@ -45,19 +39,10 @@ public class QuestionActivity extends AppCompatActivity{
     private ListView listeQuestion;
     ArrayList <ItemQR> listeDesQuestions = new ArrayList<>();
 
-    //private itemQR qr = new itemQR();
-    //HashMap<String,String> toutesLesQuestions = new HashMap<>();
-
     //Liste qui contient toutes les questions
-    //ArrayList<String> toutesLesQuestions = new ArrayList<>();
     ArrayList<ItemQR> toutesLesQuestions = new ArrayList<>();
 
     AdapterListView adapVue = new AdapterListView(toutesLesQuestions, this);
-
-
-    //Details de chaques éléments de la liste
-    ArrayAdapter<String> AdapterDB;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,33 +52,10 @@ public class QuestionActivity extends AppCompatActivity{
         Intent i = getIntent();
         idSujet = i.getIntExtra("sujetChoisi",1);
 
-        //Déclaration de l'Adapteur
-        //AdapterDB = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,toutesLesQuestions);
-        //adapter = new ArrayAdapter<String>(this, android.R.layout., toutesLesQuestions);
         //On retourne la valeur des élements dans de nouveaux elements crées
-        boutonValider = (Button)findViewById(R.id.ajoutQuestion);
         texte = (EditText)findViewById(R.id.texte);
 
         db.chargerLesQuestions(listeDesQuestions);
-        //Lorsque que l'on clique sur valider, on ajoute la question à la base de données
-        findViewById(R.id.ajoutQuestion).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                String questionAAjouter = texte.getText().toString();
-                String reponseAAjouter = "vrai";
-                if(boutonVrai.isChecked()){
-                    reponseAAjouter = "vrai";
-                }
-                else{
-                    reponseAAjouter = "faux";
-                }
-                //On ajoute dans la base de données la question et sa reponse avec
-                db.insereQuestion(questionAAjouter, reponseAAjouter);
-                toutesLesQuestions.add(new ItemQR(questionAAjouter,reponseAAjouter,null));
-                reloadDB();
-            }
-
-        });
-
 
         listeQuestion = (ListView) findViewById(R.id.listeViewQuestion);
         db.chargerLesQuestions(toutesLesQuestions, idSujet);

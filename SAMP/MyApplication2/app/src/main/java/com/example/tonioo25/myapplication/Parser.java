@@ -60,11 +60,7 @@ public class Parser extends AsyncTask<String, Integer, Long> {
                 }
                 else if(type == XmlPullParser.TEXT) {
                     if(tag.equalsIgnoreCase("Question")){
-                        //if(db.notExisteQ(parser.getText(),idCategorie)) {
                             idQuestion = db.insertQuestion(parser.getText(), idCategorie);
-                        //}else{
-                           // test=1;
-                        //}
 
                     }
                     else if(tag.equalsIgnoreCase("Proposition")){

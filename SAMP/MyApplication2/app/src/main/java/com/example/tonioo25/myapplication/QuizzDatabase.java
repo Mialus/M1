@@ -21,11 +21,6 @@ public class QuizzDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "quizz.db";
     private static final int DATABASE_VERSION = 1;
 
-    public static final String QUESTION_KEY = "id";
-    public static final String QUESTION_DESC = "Question";
-    public static final String REPONSE = "réponse";
-
-
     //Base de données qui repertorie les "questions"
        private static final String DATABASE_CREATE = "create table questions "
             + "(_id integer primary key autoincrement, "
@@ -70,94 +65,6 @@ public class QuizzDatabase extends SQLiteOpenHelper {
         database.execSQL(DATABASE_CREATE4) ;
 
         new Parser(cont,this).execute("https://dept-info.univ-fcomte.fr/joomla/images/CR0700/Quizzs.xml");
-        /*db.execSQL("INSERT INTO sujets (nom) VALUES ('Culture Generale')");
-        db.execSQL("INSERT INTO sujets (nom) VALUES ('Sport')");
-        db.execSQL("INSERT INTO sujets (nom) VALUES ('Histoire')");
-        db.execSQL("INSERT INTO sujets (nom) VALUES ('Jeux Videos')");
-
-        //Gestion des questions
-            //Culture General
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Le diable de Tasmanie vit dans la jungle du Brésil', 'faux',1)");
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('La sauterelle saute l equivalent de 200 fois sa taille', 'vrai',1)");
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Les pandas hibernent.','faux',1)");
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('On trouve des dromadaires en liberté en Ausralie.', 'vrai',1)");
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Le papillon monarque vole plus de 4000 km.','vrai',1)");
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Les gorilles mâles dorment dans les arbres', 'faux',1)");
-
-            //Sport
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Zidane a arreté sa carrière internationalle après quelle coupe du monde ?', '2006',2)");
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Qui est le joueur de foot qui a remporté le plus de ballon dor', 'messi',2)");
-
-            //Histoire
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Qui était le roi de France lors de la révolution française ?', 'Louix XVI',3)");
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Qui fut le petit fils de François 1er ?', 'Francois II',3)");
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Date de la prise de la bastille ?','1789',3)");
-
-            //Histoire
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Année de sortie de black ops 3','2015',4)");
-            db.execSQL("INSERT INTO questions (question, reponse, sujet) VALUES ('Année de sortie de BO2','2012',4)");
-
-        //// Gestions des themes de reponses
-            //culture general
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('faux',1)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('vrai',1)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('je sais pas',1)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('on sen fou',1)");
-
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('faux',2)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('vrai',2)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('je sais pas',2)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('on sen fou',2)");
-
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('faux',3)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('vrai',3)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('je sais pas',3)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('on sen fou',3)");
-
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('faux',4)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('vrai',4)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('je sais pas',4)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('on sen fou',4)");
-
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('faux',5)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('vrai',5)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('je sais pas',5)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('on sen fou',5)");
-
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('faux',6)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('vrai',6)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('je sais pas',6)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('on sen fou',6)");
-
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('Ronaldo',7)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('Pele',7)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('Platini',7)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('Messi',7)");
-
-            //Reponse sport
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2002',8)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2006',8)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2010',8)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2014',8)");
-
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('Ronaldo',9)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('Pele',9)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('Platini',9)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('Messi',9)");
-
-            //Reponse jeux video
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2012',10)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2013',10)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2014',10)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2015',10)");
-
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2012',11)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2013',11)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2014',11)");
-            db.execSQL("INSERT INTO reponses (reponse,question) VALUES ('2015',11)");*/
-
-
-
     }
 
 
@@ -257,9 +164,6 @@ public class QuizzDatabase extends SQLiteOpenHelper {
             ArrayList<String> lesReponses = getReponsebyQuestion(cursor.getInt(0));
             listeDesQuestions.add(new ItemQR(questions, reponse,lesReponses));
 
-            /*if(cursor.getColumnCount()==cursor.getColumnIndex("_id")){
-                cursor.moveToFirst();
-            }*/
             cursor.moveToNext();
 
         }

@@ -33,9 +33,6 @@ import java.util.ArrayList;
 public class AjoutQuestion extends AppCompatActivity {
 
     //Création des élémentsS
-    private Button boutonValider;
-    private RadioButton boutonVrai;
-    private RadioButton boutonFaux;
     private EditText texte;
     int id,it;
     QuestionListeViewAdapter viewQuestion;
@@ -76,11 +73,7 @@ public class AjoutQuestion extends AppCompatActivity {
         extra = getIntent().getExtras();
         sujet = extra.getInt("sujetChoisi");
 
-        //Déclaration de l'Adapteur
-        //AdapterDB = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,toutesLesQuestions);
-
         //On retourne la valeur des élements dans de nouveaux elements crées
-        boutonValider = (Button) findViewById(R.id.ajoutQuestion);
         texte = (EditText) findViewById(R.id.texte);
 
         db.chargerLesQuestions(listeDesQuestions);

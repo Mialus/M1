@@ -39,7 +39,6 @@ public class ModifCategorie extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Intent i = getIntent();
         act=this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.modif_categorie);

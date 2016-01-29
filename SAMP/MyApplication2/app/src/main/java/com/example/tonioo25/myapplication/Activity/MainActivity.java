@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //Déclaration des variables
     int sco = 0;
-    int i =0;
     int estVue = 0;
     public static final int ACTIVITE_REP = 1;
     int nombreDeQuestion;
@@ -51,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         recup = getIntent().getExtras();
         int id = recup.getInt("sujetChoisi");
+
         //Gestion de la base de données et du cuseur pour la parcourir
         db = new QuizzDatabase(this);
         Cursor c = db.getReadableDatabase().rawQuery("select * from questions where _id = "+id ,null);
@@ -74,21 +74,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         grilleDeReponse.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(listeDesQuestions.get(questionCourante).getReponse().equalsIgnoreCase(StockerRep.get(position))){
-                    sco++;
-                    Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
-                    questionCourante++;
-                    afficheQuestion();
-                    estVue=0;
-                    ((TextView) findViewById(R.id.result)).setText(" ");
+                if(estVue==0) {
+                    if (listeDesQuestions.get(questionCourante).getReponse().equalsIgnoreCase(StockerRep.get(position))) {
+                        sco++;
+                        Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+                        questionCourante++;
+                        afficheQuestion();
+                        estVue = 0;
+                        ((TextView) findViewById(R.id.result)).setText(" ");
 
-                }
-                else{
-                    Toast.makeText(MainActivity.this, "Incorrect", Toast.LENGTH_SHORT).show();
-                    questionCourante++;
-                    afficheQuestion();
-                    estVue=0;
-                    ((TextView) findViewById(R.id.result)).setText(" ");
+                    } else {
+                        Toast.makeText(MainActivity.this, "Incorrect", Toast.LENGTH_SHORT).show();
+                        questionCourante++;
+                        afficheQuestion();
+                        estVue = 0;
+                        ((TextView) findViewById(R.id.result)).setText(" ");
+                    }
+                }else{
+                    Toast.makeText(MainActivity.this, "Vous avez vue la réponse ! Appuyer sur suivant !", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -167,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //Gestion de mes boutons
-    //Bouton reponse "vrai, reponse "faux", et question "next"
+    //Bouton "next"
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

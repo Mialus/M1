@@ -11,8 +11,6 @@ import android.widget.TextView;
  */
 //Activité qui permet à l'utilisateur de voir ou non la réponse à la question si il le souhaite
 public class SecondActivity extends AppCompatActivity {
-    int cpt = 0;
-    int i =0;
     int reponseVue = 0;
     String reponse;
 
@@ -43,9 +41,4 @@ public class SecondActivity extends AppCompatActivity {
 
         });
     }
-
-    public void laRepEstVue() {
-        //super.finish();
-    }
-
 }
