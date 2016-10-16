@@ -1,0 +1,27 @@
+public class Maximum {
+ int[] t1;
+ int n1;
+
+ /*@ requires 1 <= n1 && n1 < t1.length;
+   @ ensures (/forall int i; i>=0 && i< t1.length ==> t1[\result]>=t1[i]);
+   @ assignable k1, ima;
+   @ diverges true; */
+ public int max() {
+  int imax = 1;
+  int k1 = 1;
+
+  /*@ loop_invariant (/forall int i; i>=0 && i< t1.length ==> t1[imax]>=t1[i]);
+    @ loop_invariant (0 <= k1 && k1 < tab.length);
+    @ loop_invariant (/exist int i; i>=0 && i< t1.length && t1[imax]==t1[i]);
+    @ assignable k1,imax;  
+    @ decreases n1 - 1 - k1;
+    @*/
+  while (k1 < n1) {
+   if (t1[imax] < t1[k1+1]) {
+    imax = k1 + 1;
+   }
+   k1 = k1 + 1;
+  }
+  return imax;
+ }
+}

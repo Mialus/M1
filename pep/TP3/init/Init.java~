@@ -1,0 +1,17 @@
+public class Init {
+  /*@ requires tab.length>0;
+    @ ensures (\forall int i; i >= 0 && i < tab.length ==> tab[i] == val); 
+    @ assignable tab[*]; */
+  public void constant(int[] tab, int val) {
+    int k;
+    
+    k = 0;
+    /*@ loop_invariant (\forall int i; 0 <= i && i < tab.length ==> tab[i] == val);
+      @ loop_invariant (0 <= k && k < tab.length);
+      @ assignable k,tab[*];
+      @ 
+      @  
+      @*/
+    while (k < tab.length) tab[k++] = val; 
+  }
+}
