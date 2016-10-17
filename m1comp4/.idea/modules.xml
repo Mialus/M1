@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/analyseur/analyseur.iml" filepath="$PROJECT_DIR$/analyseur/analyseur.iml" />
+      <module fileurl="file://$PROJECT_DIR$/analyseur/analyseur.iml" filepath="$PROJECT_DIR$/analyseur/analyseur.iml" />
+      <module fileurl="file://$PROJECT_DIR$/analyseur_JajaCode/analyseur_JajaCode.iml" filepath="$PROJECT_DIR$/analyseur_JajaCode/analyseur_JajaCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/analyseur_JajaCode/analyseur_JajaCode.iml" filepath="$PROJECT_DIR$/analyseur_JajaCode/analyseur_JajaCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp4.iml" filepath="$PROJECT_DIR$/comp4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compilateur/compilateur.iml" filepath="$PROJECT_DIR$/compilateur/compilateur.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compilateur/compilateur.iml" filepath="$PROJECT_DIR$/compilateur/compilateur.iml" />
+      <module fileurl="file://$PROJECT_DIR$/controle_type/controle_type.iml" filepath="$PROJECT_DIR$/controle_type/controle_type.iml" />
+      <module fileurl="file://$PROJECT_DIR$/controle_type/controle_type.iml" filepath="$PROJECT_DIR$/controle_type/controle_type.iml" />
+      <module fileurl="file://$PROJECT_DIR$/guid/guid.iml" filepath="$PROJECT_DIR$/guid/guid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/guid/guid.iml" filepath="$PROJECT_DIR$/guid/guid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interpreteur_JajaCode/interpreteur_JajaCode.iml" filepath="$PROJECT_DIR$/interpreteur_JajaCode/interpreteur_JajaCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interpreteur_JajaCode/interpreteur_JajaCode.iml" filepath="$PROJECT_DIR$/interpreteur_JajaCode/interpreteur_JajaCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interpreteur_MiniJaja/interpreteur_MiniJaja.iml" filepath="$PROJECT_DIR$/interpreteur_MiniJaja/interpreteur_MiniJaja.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interpreteur_MiniJaja/interpreteur_MiniJaja.iml" filepath="$PROJECT_DIR$/interpreteur_MiniJaja/interpreteur_MiniJaja.iml" />
+      <module fileurl="file://$PROJECT_DIR$/memoire/memoire.iml" filepath="$PROJECT_DIR$/memoire/memoire.iml" />
+      <module fileurl="file://$PROJECT_DIR$/memoire_MiniJaja/memoire_MiniJaja.iml" filepath="$PROJECT_DIR$/memoire_MiniJaja/memoire_MiniJaja.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pile/pile.iml" filepath="$PROJECT_DIR$/pile/pile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pile/pile.iml" filepath="$PROJECT_DIR$/pile/pile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quadruplet/quadruplet.iml" filepath="$PROJECT_DIR$/quadruplet/quadruplet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quadruplet/quadruplet.iml" filepath="$PROJECT_DIR$/quadruplet/quadruplet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/table_hachage/table_hachage.iml" filepath="$PROJECT_DIR$/table_hachage/table_hachage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/table_hachage/table_hachage.iml" filepath="$PROJECT_DIR$/table_hachage/table_hachage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tas/tas.iml" filepath="$PROJECT_DIR$/tas/tas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tas/tas.iml" filepath="$PROJECT_DIR$/tas/tas.iml" />
+    </modules>
+  </component>
+</project>

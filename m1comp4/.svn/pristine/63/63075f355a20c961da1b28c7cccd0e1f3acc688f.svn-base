@@ -1,0 +1,37 @@
+package fr.univfcomte.comp4.guid;
+
+import fr.univfcomte.comp4.analyseur.MiniJajaException;
+import fr.univfcomte.comp4.analyseur.SimpleNode;
+import fr.univfcomte.comp4.interpreteur_MiniJaja.MiniJajaInterpreteurVisitor;
+import fr.univfcomte.comp4.memoire_MiniJaja.MemoireMiniJaja;
+
+/**
+ * Created by aymeric on 17/11/2015.
+ */
+public class ThreadInterpretation extends Thread {
+
+    private SimpleNode noeud;
+    private MiniJajaInterpreteurVisitor visiteur;
+    private MemoireMiniJaja memoire;
+
+    public ThreadInterpretation(MiniJajaInterpreteurVisitor visiteur) {
+        this.memoire = new MemoireMiniJaja();
+        this.visiteur = visiteur;
+    }
+
+    public void run() {
+
+            //////////////////
+            //INTERPRETATION//
+            //////////////////
+            try {
+                this.noeud.jjtAccept(this.visiteur, memoire);
+            } catch (MiniJajaException e) {
+                System.err.println(e.getMessage());
+            }
+    }
+
+    public void setNoeud(SimpleNode n) {
+        this.noeud = n;
+    }
+}

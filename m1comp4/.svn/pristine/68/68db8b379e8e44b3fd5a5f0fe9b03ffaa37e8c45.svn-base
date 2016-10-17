@@ -1,0 +1,100 @@
+package fr.univfcomte.comp4.pile;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import junit.framework.TestCase;
+
+public class TestPile{
+	
+	@Test
+	public void testPush()
+	{
+		Pile ref = new Pile();
+		Element hp = new Element();
+		Element suivant = new Element();
+		suivant.suivant = null;
+		suivant.valeur = 2;
+		hp.suivant = suivant;
+		hp.valeur = 1;
+		ref.hautPile = hp;
+		
+		Pile test = new Pile();
+		test.push(2);
+		test.push(1);
+		
+		Assert.assertEquals(ref, test);
+	}
+	
+	@Test
+	public void testPop()
+	{
+		Pile ref = new Pile();
+		Pile test = new Pile();
+
+		Object testPop = null;
+		ref.push(2);
+		test.push(2);
+		test.push(1);
+		testPop = test.pop();
+		
+		Assert.assertTrue(ref.equals(test) && testPop.equals(1));
+	}
+	
+	@Test
+	public void testGetHautPile()
+	{
+		Pile ref = new Pile();
+		Element refHp = new Element();
+		Element testHp = null;
+		
+		ref.push(1);
+		refHp.suivant = null;
+		refHp.valeur = 1;
+		
+		testHp = ref.getHautPile();
+		
+		Assert.assertEquals(refHp, testHp);
+	}
+	
+	@Test
+	public void testSetHautPile()
+	{
+		Pile ref = new Pile();
+		Pile test = new Pile();
+		Element refHp = new Element();
+		
+		ref.push(1);
+		refHp.suivant = null;
+		refHp.valeur = 1;
+		test.setHautPile(refHp);
+		
+		Assert.assertEquals(ref, test);
+	}
+	
+	@Test
+	public void testSwap()
+	{
+		Pile ref = new Pile();
+		Pile test = new Pile();
+		ref.push(2);
+		ref.push(1);
+		test.push(1);
+		test.push(2);
+		test.swap();
+		Assert.assertEquals(ref,test);
+	}
+	
+	@Test
+	public void testEquals()
+	{
+		Pile ref = new Pile();
+		Pile test = new Pile();
+		ref.push(1);
+		ref.push(2);
+		test.push(1);
+		test.push(2);
+		Assert.assertEquals(ref,test);
+	}
+	
+}

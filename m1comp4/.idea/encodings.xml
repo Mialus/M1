@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analyseur" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analyseur_JajaCode" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/compilateur" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/controle_type" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/guid" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/interpreteur_JajaCode" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/interpreteur_MiniJaja" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/memoire" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/memoire_MiniJaja" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pile" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/quadruplet" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/table_hachage" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tas" charset="UTF-8" />
+  </component>
+</project>

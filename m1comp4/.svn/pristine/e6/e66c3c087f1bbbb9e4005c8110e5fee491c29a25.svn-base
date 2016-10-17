@@ -1,0 +1,63 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fr.univfcomte.comp4.quadruplet;
+
+/**
+ *
+ * @author Pierre
+ */
+public abstract class Valeur implements Cloneable{
+    
+    protected Object val;
+
+    public Object getVal() {
+        return this.val;
+    }
+    
+    public Boolean getValBooleen()
+    {
+    	if(this.val instanceof Boolean)
+    	{
+    		return (Boolean)this.val;
+    	}
+    	return false;
+    }
+    
+    public Integer getValEntier()
+    {
+    	if(this.val instanceof Integer)
+    	{
+    		return (Integer)this.val;
+    	}
+    	return 0;
+    }
+    
+    public Object clone() {
+		Valeur v = null;
+		try {
+			v = (Valeur) super.clone();
+		} catch(CloneNotSupportedException cnse) {
+			cnse.printStackTrace(System.err);
+		}
+		return v;
+	}
+    
+    public boolean equals(Object v)
+    {
+    	if(v instanceof Valeur && v!= null)
+    	{
+    		
+    		return this.val.equals(((Valeur) v).val);
+    	}else
+    	{
+    		return false;
+    	}
+    }
+    
+    public String toString() {
+        return this.val.toString();
+    } 
+}

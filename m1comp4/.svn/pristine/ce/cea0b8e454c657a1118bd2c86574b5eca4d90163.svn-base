@@ -1,0 +1,579 @@
+package fr.univfcomte.comp4.controle_type;
+
+import fr.univfcomte.comp4.analyseur.*;
+import fr.univfcomte.comp4.table_hachage.*;
+
+public class ControleTypeVisitor implements MiniJajaVisitor{
+	
+	/* Méthode comparant une sorte d'expression avec les sortes "var" et "cst"
+	 * Elle retourne true si l'expression est d'une de ces sortes */
+	private boolean sorteExpression (String sorte) {	
+		return sorte.equals("cst") || sorte.equals("var");
+	}
+
+	public Object visit(SimpleNode node, Object data) throws MiniJajaException {
+		return null;
+	}
+
+	public Object visit(ASTclasse node, Object data) throws MiniJajaException {
+		DataControleType dataCT = (DataControleType)data;
+		String nomIdent = (String) ((SimpleNode)node.jjtGetChild(0)).jjtGetValue();
+		dataCT.setPorteeCourante("class");
+		dataCT.getTableSymbole().put(new Symbole(nomIdent,dataCT.getPorteeCourante()), 
+				new Info("var","omega",dataCT.getPorteeCourante()));
+		node.jjtGetChild(1).jjtAccept(this, data);
+		node.jjtGetChild(2).jjtAccept(this, data);
+		return null;
+	}
+
+	public Object visit(ASTident node, Object data) throws MiniJajaException {
+		DataControleType dataCT = (DataControleType)data;
+		Info infoIdent;
+		
+		// test de l'existence de l'identificateur et récupération de ses infos
+		try {
+			infoIdent = dataCT.getTableSymbole().get(new Symbole
+					((String)node.jjtGetValue(),dataCT.getPorteeCourante()));
+		} catch (TableHachageException e) {
+			throw new MiniJajaException("Identificateur '"+node.jjtGetValue()+"' non déclaré");
+		}
+		return infoIdent;
+	}
+
+	public Object visit(ASTdecls node, Object data) throws MiniJajaException {
+		node.jjtGetChild(0).jjtAccept(this, data);
+		node.jjtGetChild(1).jjtAccept(this, data);
+		return null;
+	}
+
+	public Object visit(ASTvnil node, Object data) throws MiniJajaException {
+		return null;
+	}
+
+	public Object visit(ASTmethode node, Object data) throws MiniJajaException {
+		DataControleType dataCT = (DataControleType)data;
+
+		String typeRetour = (String) node.jjtGetChild(0).jjtAccept(this, data);
+		String nomIdent = (String) ((SimpleNode)node.jjtGetChild(1)).jjtGetValue();
+		String porteeParent = dataCT.getPorteeCourante();
+		
+		Symbole s = new Symbole(nomIdent,porteeParent);
+		if (dataCT.getTableSymbole().contains(s)) {
+			throw new MiniJajaException("L'identificateur "+nomIdent+" est déjà utilisé dans "+porteeParent);
+		}
+		
+		dataCT.setPorteeCourante(nomIdent);
+		String typeEntetes = (String) node.jjtGetChild(2).jjtAccept(this, data);
+		dataCT.getTableSymbole().put(s, new Info("meth",typeRetour,porteeParent,typeEntetes));
+		
+		node.jjtGetChild(3).jjtAccept(this, data);
+		node.jjtGetChild(4).jjtAccept(this, data);
+		
+		dataCT.setPorteeCourante(porteeParent);
+		
+		return null;
+	}
+
+	public Object visit(ASTtableau node, Object data) throws MiniJajaException {
+		DataControleType dataCT = (DataControleType)data;
+		String typeIdent = (String) node.jjtGetChild(0).jjtAccept(this, data);
+		String nomIdent = (String) ((SimpleNode)node.jjtGetChild(1)).jjtGetValue();
+		
+		Symbole s = new Symbole(nomIdent,dataCT.getPorteeCourante());
+		if (dataCT.getTableSymbole().contains(s)) {
+			throw new MiniJajaException("L'identificateur "+nomIdent+
+					" est déjà utilisé dans "+dataCT.getPorteeCourante());
+		}
+		
+		Info infoExp = (Info) node.jjtGetChild(2).jjtAccept(this, data);
+		if (!sorteExpression(infoExp.getSorte())) {
+			throw new MiniJajaException("Sorte incompatible");
+		}
+		
+		if(!infoExp.getType().equals("entier"))
+		{
+			throw new MiniJajaException("La taille du tableau doit correspondre à une valeure entière");
+		}
+		
+		dataCT.getTableSymbole().put(s, new Info("tab",typeIdent,dataCT.getPorteeCourante()));
+		
+		return null;
+	}
+
+	public Object visit(ASTvar node, Object data) throws MiniJajaException {
+		DataControleType dataCT = (DataControleType)data;
+		
+		String typeIdent = (String) node.jjtGetChild(0).jjtAccept(this, data);
+		String nomIdent = (String) ((SimpleNode)node.jjtGetChild(1)).jjtGetValue();
+		
+		Symbole s = new Symbole(nomIdent,dataCT.getPorteeCourante());
+		if (dataCT.getTableSymbole().contains(s)) {
+			throw new MiniJajaException("L'identificateur "+nomIdent+
+					" est déjà utilisé dans "+dataCT.getPorteeCourante());
+		}
+		
+		Info infoExp = (Info) node.jjtGetChild(2).jjtAccept(this, data);
+		if (!sorteExpression(infoExp.getSorte())) {
+			throw new MiniJajaException("Sorte incompatible");
+		}
+		
+		if(!typeIdent.equals(infoExp.getType()) && !infoExp.getType().equals("omega"))
+		{
+			throw new MiniJajaException("La valeur assignée à "+nomIdent+" est de type "+infoExp.getType()
+					+" alors que la variable est déclarée en tant que "+typeIdent);
+		}
+		
+		dataCT.getTableSymbole().put(s, new Info("var",typeIdent,dataCT.getPorteeCourante()));
+		
+		return null;
+	}
+
+	public Object visit(ASTcst node, Object data) throws MiniJajaException {
+		DataControleType dataCT = (DataControleType)data;
+		
+		String typeIdent = (String) node.jjtGetChild(0).jjtAccept(this, data);
+		String nomIdent = (String) ((SimpleNode)node.jjtGetChild(1)).jjtGetValue();
+		
+		Symbole s = new Symbole(nomIdent,dataCT.getPorteeCourante());
+		if (dataCT.getTableSymbole().contains(s)) {
+			throw new MiniJajaException("L'identificateur "+nomIdent+
+					" est déjà utilisé dans "+dataCT.getPorteeCourante());
+		}
+		
+		Info infoExp = (Info) node.jjtGetChild(2).jjtAccept(this, data);
+		if (!sorteExpression(infoExp.getSorte())) {
+			throw new MiniJajaException("Sorte incompatible");
+		}
+		
+		if(!typeIdent.equals(infoExp.getType()) && !infoExp.getType().equals("omega"))
+		{
+			throw new MiniJajaException("La valeur assignée à "+nomIdent+" est de type "+infoExp.getType()
+					+" alors que la variable est déclarée en tant que "+typeIdent);
+		}
+		
+		dataCT.getTableSymbole().put(s, new Info("cst",typeIdent,dataCT.getPorteeCourante()));
+		
+		return null;
+	}
+
+	public Object visit(ASTvars node, Object data) throws MiniJajaException {
+		node.jjtGetChild(0).jjtAccept(this, data);
+		node.jjtGetChild(1).jjtAccept(this, data);
+		return null;
+	}
+
+	public Object visit(ASTomega node, Object data) throws MiniJajaException {
+		return new Info("cst","omega");
+	}
+
+	public Object visit(ASTmain node, Object data) throws MiniJajaException {
+		DataControleType dataCT = (DataControleType)data;
+		String porteeParent = dataCT.getPorteeCourante();
+		dataCT.setPorteeCourante("main");
+		node.jjtGetChild(0).jjtAccept(this, data);
+		node.jjtGetChild(1).jjtAccept(this, data);
+		dataCT.setPorteeCourante(porteeParent);
+		return null;
+	}
+
+	public Object visit(ASTenil node, Object data) throws MiniJajaException {
+		return "vide";
+	}
+
+	public Object visit(ASTentetes node, Object data) throws MiniJajaException {
+		
+
+		String typeEntete1 = (String) node.jjtGetChild(0).jjtAccept(this, data);
+		
+		String typeEntete2 = (String) node.jjtGetChild(1).jjtAccept(this, data);
+		if (typeEntete2.equals("vide")) {
+			return typeEntete1;
+		}
+		else {
+			return typeEntete1+"X"+typeEntete2;
+		}
+	}
+
+	public Object visit(ASTentete node, Object data) throws MiniJajaException {
+		DataControleType dataCT = (DataControleType)data;
+		
+		String type = (String) node.jjtGetChild(0).jjtAccept(this, data);
+		String nomIdent = (String) ((SimpleNode) node.jjtGetChild(1)).jjtGetValue();
+		Symbole s = new Symbole(nomIdent,dataCT.getPorteeCourante());
+		if (dataCT.getTableSymbole().contains(s)) {
+			throw new MiniJajaException("L'identificateur "+nomIdent+
+					" est déjà utilisé dans "+dataCT.getPorteeCourante());
+		}
+		
+		// ajouter les variables entete
+		dataCT.getTableSymbole().put(s, new Info("var",type,dataCT.getPorteeCourante()));
+		
+		return type;
+	}
+
+	public Object visit(ASTinstrs node, Object data) throws MiniJajaException {
+		node.jjtGetChild(0).jjtAccept(this, data);
+		node.jjtGetChild(1).jjtAccept(this, data);
+		return null;
+	}
+
+	public Object visit(ASTinil node, Object data) throws MiniJajaException {
+		return null;
+	}
+
+	public Object visit(ASTtab node, Object data) throws MiniJajaException {
+		Info infoTab = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		
+		if (!infoTab.getSorte().equals("tab")) {
+			throw new MiniJajaException("L'identificateur n'est pas un tableau");
+		}
+
+		String typeExp = (String) ((Info)node.jjtGetChild(1).jjtAccept(this, data)).getType();
+		
+		if (!typeExp.equals("entier")) {
+			throw new MiniJajaException("L'indice du tableau doit correspondre à une valeur entière");
+		}
+		
+		return new Info("var",infoTab.getType(),infoTab.getPortee());
+	}
+
+	public Object visit(ASTaffectation node, Object data) throws MiniJajaException {
+		Info infoIdent = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		Info infoExp = (Info) node.jjtGetChild(1).jjtAccept(this, data);
+		
+		if (infoIdent.getSorte().equals("tab")) {
+			if (!infoExp.getSorte().equals("tab")) {
+				throw new MiniJajaException("Impossible d'affecter un "+infoExp.getSorte()+" au tableau");
+			}
+			else if (!infoIdent.getType().equals(infoExp.getType())) {
+				throw new MiniJajaException("Types incompatibles");
+			}
+		}
+		else if (infoIdent.getSorte().equals("meth")) {
+			throw new MiniJajaException("Impossible d'affecter une valeur à une méthode");
+		}
+		else {
+			if (!sorteExpression(infoExp.getSorte())) {
+				throw new MiniJajaException("Sortes incompatibles");
+			}
+			else if (!infoIdent.getType().equals(infoExp.getType())) {
+				throw new MiniJajaException("Types incompatibles");
+			}
+		}
+		
+		return null;
+	}
+
+	public Object visit(ASTsomme node, Object data) throws MiniJajaException {
+		Info infoIdent = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		Info infoExp = (Info) node.jjtGetChild(1).jjtAccept(this, data);
+		
+		if (infoIdent.getSorte().equals("tab")) {
+			throw new MiniJajaException("Impossible d'incrémenter un tableau");
+		}
+		else if (infoIdent.getSorte().equals("meth")) {
+			throw new MiniJajaException("Impossible d'incrémenter une méthode");
+		}
+		else {
+			if (!sorteExpression(infoExp.getSorte())) {
+				throw new MiniJajaException("Sortes incompatibles");
+			}
+			else if (!infoIdent.getType().equals(infoExp.getType()) 
+					|| !infoExp.getType().equals("entier")) {
+				throw new MiniJajaException("Types incompatibles : entier requis");
+			}
+		}
+		return null;
+	}
+
+	public Object visit(ASTincrement node, Object data) throws MiniJajaException {
+		Info infoIdent = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		
+		if (infoIdent.getSorte().equals("tab")) {
+			throw new MiniJajaException("Impossible d'incrémenter un tableau");
+		}
+		else if (infoIdent.getSorte().equals("meth")) {
+			throw new MiniJajaException("Impossible d'incrémenter une méthode");
+		}
+		else {
+			if (!infoIdent.getType().equals("entier")) {
+				throw new MiniJajaException("Type incompatible : entier requis");
+			}
+		}
+		return null;
+	}
+
+	public Object visit(ASTappelI node, Object data) throws MiniJajaException {
+		Info infoMethode = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!infoMethode.getSorte().equals("meth")) {
+			throw new MiniJajaException("Impossible de faire un appel de méthode");
+		}
+		String typeListExp = (String) node.jjtGetChild(1).jjtAccept(this, data);
+		
+		// verifie le bon nombre d arguments et le bon typage de ceux-ci avec les entetes
+		if (!infoMethode.getTypeEntetes().equals(typeListExp)) {
+			throw new MiniJajaException("Erreur sur le nombre d'arguments ou le typage de ceux-ci");
+		}
+		
+		return null;
+	}
+
+	public Object visit(ASTretour node, Object data) throws MiniJajaException {
+		DataControleType dataCT = (DataControleType)data;
+
+		// vérifier que l'on retourne bien le type de retour de la methode
+		Info infoExp = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		Info infoMethode;
+		try {
+			infoMethode = (Info)dataCT.getTableSymbole().get(new Symbole(dataCT.getPorteeCourante(),"class"));
+		} catch (TableHachageException e) {
+			throw new MiniJajaException ("Méthode non declarée");
+		}
+		
+		if (!infoMethode.getType().equals(infoExp.getType())) {
+			throw new MiniJajaException ("Type de retour non compatible");
+		}
+		return null;
+	}
+
+	public Object visit(ASTsi node, Object data) throws MiniJajaException {
+		Info infoExp = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		else if (!infoExp.getType().equals("booleen")) {
+			throw new MiniJajaException ("L'expression du si doit être un booléen");
+		}
+		
+		node.jjtGetChild(1).jjtAccept(this, data);
+		node.jjtGetChild(2).jjtAccept(this, data);
+		return null;
+	}
+
+	public Object visit(ASTtantque node, Object data) throws MiniJajaException {
+		Info infoExp = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		else if (!infoExp.getType().equals("booleen")) {
+			throw new MiniJajaException ("L'expression du si doit être un booléen");
+		}
+		
+		node.jjtGetChild(1).jjtAccept(this, data);
+		return null;
+	}
+
+	public Object visit(ASTexnil node, Object data) throws MiniJajaException {
+		return "vide";
+	}
+
+	public Object visit(ASTlistexp node, Object data) throws MiniJajaException {
+		Info infoExp1 = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp1.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		String typeExp2 = (String) node.jjtGetChild(1).jjtAccept(this, data);
+		if (typeExp2.equals("vide")) {
+			return infoExp1.getType();
+		}
+		else {
+			return infoExp1.getType()+"X"+typeExp2;
+		}
+	}
+
+	public Object visit(ASTnot node, Object data) throws MiniJajaException {
+		Info infoExp = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		else if(!infoExp.getType().equals("booleen"))
+		{
+			throw new MiniJajaException("L'expression du not n'est pas un booléen");
+		}
+		return new Info("var","booleen");
+	}
+
+	public Object visit(ASTet node, Object data) throws MiniJajaException {
+		Info infoExp1 = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp1.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		Info infoExp2 = (Info) node.jjtGetChild(1).jjtAccept(this, data);
+		if (!sorteExpression(infoExp2.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		if(!infoExp1.getType().equals("booleen") || !infoExp1.getType().equals(infoExp2.getType()))
+		{
+			throw new MiniJajaException("Les expressions doivent être booléennes");
+		}
+		return new Info("var","booleen");
+	}
+
+	public Object visit(ASTou node, Object data) throws MiniJajaException {
+		Info infoExp1 = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp1.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		Info infoExp2 = (Info) node.jjtGetChild(1).jjtAccept(this, data);
+		if (!sorteExpression(infoExp2.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		if(!infoExp1.getType().equals("booleen") || !infoExp1.getType().equals(infoExp2.getType()))
+		{
+			throw new MiniJajaException("Les expressions doivent être booléennes");
+		}
+		return new Info("var","booleen");
+	}
+
+	public Object visit(ASTegal node, Object data) throws MiniJajaException{
+		Info infoExp1 = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp1.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		Info infoExp2 = (Info) node.jjtGetChild(1).jjtAccept(this, data);
+		if (!sorteExpression(infoExp2.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		if(!infoExp1.getType().equals(infoExp2.getType()))
+		{
+			throw new MiniJajaException("Les expressions doivent être de même type");
+		}
+		return new Info("var","booleen");
+	}
+
+	public Object visit(ASTsupga node, Object data) throws MiniJajaException{
+		Info infoExp1 = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp1.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		Info infoExp2 = (Info) node.jjtGetChild(1).jjtAccept(this, data);
+		if (!sorteExpression(infoExp2.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		if(!infoExp1.getType().equals("entier") || !infoExp1.getType().equals(infoExp2.getType()))
+		{
+			throw new MiniJajaException("Les expressions doivent être de type entière");
+		}
+		return new Info("var","booleen");
+	}
+
+	public Object visit(ASTmoinsU node, Object data) throws MiniJajaException{
+		Info infoExp = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		else if(!infoExp.getType().equals("entier"))
+		{
+			throw new MiniJajaException("L'expression doit être une expression entière");
+		}
+		return new Info("var","entier");
+	}
+
+	public Object visit(ASTplus node, Object data) throws MiniJajaException{
+		Info infoExp1 = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp1.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		Info infoExp2 = (Info) node.jjtGetChild(1).jjtAccept(this, data);
+		if (!sorteExpression(infoExp2.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		if(!infoExp1.getType().equals("entier") || !infoExp1.getType().equals(infoExp2.getType()))
+		{
+			throw new MiniJajaException("Les expressions doivent être de type entière");
+		}
+		return new Info("var","entier");
+	}
+
+	public Object visit(ASTmoinsB node, Object data) throws MiniJajaException{
+		Info infoExp1 = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp1.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		Info infoExp2 = (Info) node.jjtGetChild(1).jjtAccept(this, data);
+		if (!sorteExpression(infoExp2.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		if(!infoExp1.getType().equals("entier") || !infoExp1.getType().equals(infoExp2.getType()))
+		{
+			throw new MiniJajaException("Les expressions doivent être de type entière");
+		}
+		return new Info("var","entier");
+	}
+
+	public Object visit(ASTmult node, Object data) throws MiniJajaException{
+		Info infoExp1 = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp1.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		Info infoExp2 = (Info) node.jjtGetChild(1).jjtAccept(this, data);
+		if (!sorteExpression(infoExp2.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		if(!infoExp1.getType().equals("entier") || !infoExp1.getType().equals(infoExp2.getType()))
+		{
+			throw new MiniJajaException("Les expressions doivent être de type entière");
+		}
+		return new Info("var","entier");
+	}
+
+	public Object visit(ASTdiv node, Object data) throws MiniJajaException{
+		Info infoExp1 = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!sorteExpression(infoExp1.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		Info infoExp2 = (Info) node.jjtGetChild(1).jjtAccept(this, data);
+		if (!sorteExpression(infoExp2.getSorte())) {
+			throw new MiniJajaException("Sortes incompatibles");
+		}
+		if(!infoExp1.getType().equals("entier") || !infoExp1.getType().equals(infoExp2.getType()))
+		{
+			throw new MiniJajaException("Les expressions doivent être de type entière");
+		}
+		return new Info("var","entier");
+	}
+
+	public Object visit(ASTvrai node, Object data) throws MiniJajaException{
+		return new Info ("cst","booleen");
+	}
+
+	public Object visit(ASTfaux node, Object data) throws MiniJajaException{
+		return new Info ("cst","booleen");
+	}
+
+	public Object visit(ASTappelE node, Object data) throws MiniJajaException{
+		Info infoMethode = (Info) node.jjtGetChild(0).jjtAccept(this, data);
+		if (!infoMethode.getSorte().equals("meth")) {
+			throw new MiniJajaException("Impossible de faire un appel de méthode");
+		}
+		String typeListExp = (String) node.jjtGetChild(1).jjtAccept(this, data);
+		
+		// verifie le bon nombre d arguments et le bon typage de ceux-ci avec les entetes
+		if (!infoMethode.getTypeEntetes().equals(typeListExp)) {
+			throw new MiniJajaException("Erreur sur le nombre d'arguments ou le typage de ceux-ci");
+		}
+		
+		// retourne le type de retour de la methode
+		return new Info("var",infoMethode.getType());
+	}
+
+	public Object visit(ASTnbre node, Object data) throws MiniJajaException{
+		return new Info ("cst","entier");
+	}
+
+	public Object visit(ASTrien node, Object data) throws MiniJajaException{
+		return "vide";
+	}
+
+	public Object visit(ASTentier node, Object data) throws MiniJajaException{
+		return "entier";
+	}
+
+	public Object visit(ASTbooleen node, Object data) throws MiniJajaException{
+		return "booleen";
+	}
+
+}

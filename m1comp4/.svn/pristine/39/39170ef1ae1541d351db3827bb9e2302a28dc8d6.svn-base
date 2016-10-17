@@ -1,0 +1,105 @@
+package interpreteur_MiniJaja;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import fr.univfcomte.comp4.analyseur.MiniJaja;
+import fr.univfcomte.comp4.analyseur.MiniJajaException;
+import fr.univfcomte.comp4.analyseur.ParseException;
+import fr.univfcomte.comp4.analyseur.SimpleNode;
+import fr.univfcomte.comp4.controle_type.ControleTypeVisitor;
+import fr.univfcomte.comp4.controle_type.DataControleType;
+import fr.univfcomte.comp4.interpreteur_MiniJaja.MiniJajaInterpreteurVisitor;
+import fr.univfcomte.comp4.memoire_MiniJaja.MemoireMiniJaja;
+import fr.univfcomte.comp4.table_hachage.Info;
+import fr.univfcomte.comp4.table_hachage.Symbole;
+import fr.univfcomte.comp4.table_hachage.TableSymbole;
+import junit.framework.Assert;
+
+public class TestInterpreteurMiniJajaVisitor {
+
+	MiniJaja parser;
+	//Creation du visiteur
+	MiniJajaInterpreteurVisitor visitor = new MiniJajaInterpreteurVisitor();
+	@Test
+	public void testASTClasse() throws ParseException, MiniJajaException {
+		//Creation du noeud de l'AST a tester
+		//Ecrit une str qui represent le noeud
+		String str = "class C {"+
+					"main{}}";
+		
+		//Parse la str pour et on appel la fonction permet de generer le noeud désirer
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.classe();
+		
+		//Le visiteur prend en paramètre un noeud et une memoire de type MemoireMiniJaja
+		//Il peut modifier la memoire en leur affectant ou retirant une valeur
+		
+		//Creation de la table des symboles qui sera passé en paramètre de la memoire
+		//on y défini toutes les déclarations presentes dans la str
+		TableSymbole ts = new TableSymbole();
+		
+		//instruction d'ajout : ts.put(Symbole, Info)
+		//Exemple : final int x dans la fonction fct
+		// Symbole = Symbole("x", "fct")
+		// Info = Info("cst", "entier", "fct")
+		
+		//Ici on déclare que la variable de classe
+		ts.put(new Symbole("C","class"), new Info("var","entier","class"));
+		
+		
+		//On créer une memoire de reference. c'est la memoire attendue à la fin de l'excution du visiteur
+		//On reprend dans le code les modifcations faites à la memoire lors de l'appel du visiteur
+		MemoireMiniJaja memRef = new MemoireMiniJaja(ts);
+		memRef.setNomClass("C");
+		memRef.setPortee("class");
+		
+		//On creer une memoire de test correspondant à la memoire avant l'execution du visiteur
+		MemoireMiniJaja memTest = new MemoireMiniJaja(ts);
+		
+		//Appel du visiteur
+		n.jjtAccept(visitor, memTest);
+		
+		Assert.assertEquals(memRef, memTest);
+	}
+	
+	
+	@Test(expected = MiniJajaException.class)
+	public void testASTClasseFail() throws ParseException, MiniJajaException {
+		//Creation du noeud de l'AST a tester pour generer l'erreur
+		//Ecrit une str qui represent le noeud
+		String str = "class C {"+
+					"main{}}";
+		
+		//Parse la str pour et on appel la fonction permet de generer le noeud désirer
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.classe();
+		
+		//Le visiteur prend en paramètre un noeud et une memoire de type DataControleType
+		//Il modifie la memoire en y ajoutant les variable déclarée lors du controle de type
+		
+		//Creation de la table des symboles qui sera passé en paramètre de la memoire
+		//on y défini toutes les déclarations presentes dans la str
+		TableSymbole ts = new TableSymbole();
+		
+		//instruction d'ajout : ts.put(Symbole, Info)
+		//Exemple : final int x dans la fonction fct
+		// Symbole = Symbole("x", "fct")
+		// Info = Info("cst", "entier", "fct")
+		
+		//Ici on déclare pasla variable de classe, car l'erreur doit prevenir
+		//de la nom declaration dans la TableSymbole de cette variable
+		
+		//On creer une memoire de test correspondant à la memoire avant l'execution du visiteur
+		MemoireMiniJaja memTest = new MemoireMiniJaja(ts);
+		
+		//Appel du visiteur
+		//Doit retourner l'erreur
+		n.jjtAccept(visitor, memTest);
+		
+		//On ne doit pas arriver ici
+		Assert.assertTrue(false);
+	}
+
+}

@@ -1,0 +1,425 @@
+package fr.univfcomte.comp4.memoire;
+
+import fr.univfcomte.comp4.pile.*;
+import fr.univfcomte.comp4.quadruplet.Objet;
+import fr.univfcomte.comp4.quadruplet.ObjetConstante;
+import fr.univfcomte.comp4.quadruplet.ObjetMethode;
+import fr.univfcomte.comp4.quadruplet.ObjetOmega;
+import fr.univfcomte.comp4.quadruplet.ObjetTab;
+import fr.univfcomte.comp4.quadruplet.ObjetVariable;
+import fr.univfcomte.comp4.quadruplet.ObjetVconstante;
+import fr.univfcomte.comp4.quadruplet.Quad;
+import fr.univfcomte.comp4.quadruplet.SortOmega;
+import fr.univfcomte.comp4.quadruplet.Sorte;
+import fr.univfcomte.comp4.quadruplet.Valeur;
+import fr.univfcomte.comp4.quadruplet.ValeurOmega;
+import fr.univfcomte.comp4.quadruplet.ValeurTab;
+import fr.univfcomte.comp4.tas.*;
+
+public class Memoire {
+
+	private Pile pile;
+	private Tas tas;
+	
+	public Memoire()
+	{
+		try {
+			pile = new Pile();
+			tas = new Tas();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	 public void declVar(String id, Valeur v, Sorte t)
+	    {
+	    	this.pile.push(new Quad(id,v, new ObjetVariable(),t));	
+	    }
+	    
+	    public void identVal(String id, Sorte t, int s)
+	    {
+	    	if(this.pile != null)
+	    	{
+		    	if(this.pile.getHautPile() == null)
+		    	{
+		    		return;
+		    	}
+		    	if(s == 0)
+		    	{
+		    		Quad q =(Quad) this.pile.getHautPile().getValeur();
+		    		q.setId(id);
+		    		q.setType(t);
+		    		q.setObj(new ObjetVariable());
+		    	}else
+		    	{
+		    		Quad q =(Quad) this.pile.pop();
+		    		this.identVal(id, t, s-1);
+		    		this.pile.push(q);
+		    		
+		    	}
+	    	}
+	    }
+
+	    public void declCst(String id, Valeur v, Sorte t)
+	    {
+	    	if(v instanceof ValeurOmega)
+	    	{
+	    		
+	    		this.pile.push(new Quad(id,v,new ObjetVconstante(),t));
+	    	}else
+	    	{
+	    		this.pile.push(new Quad(id,v,new ObjetConstante(),t));
+	    	}		
+	    }
+	    
+	    public void declTab(String id, Valeur v, Sorte t)
+	    {
+	    	
+	    	
+	    	try
+	    	{
+		    	ValeurTab val = tas.creerTas(v, t, id);
+		    	this.pile.push(new Quad(id,val,new ObjetTab(),t));
+	    	}catch(Exception e)
+	    	{
+	    		System.err.println(e.getMessage());
+	    	}
+	    }
+	    
+	    public void declMeth(String id, Valeur v, Sorte t)
+	    {
+	    	this.pile.push(new Quad(id,v,new ObjetMethode(),t));
+	    }
+	    
+	    public void retirerDecl(String id)
+	    {
+	    	if(this.pile.getHautPile() == null)
+	    	{
+	    		return;
+	    	}
+	    	if(((Quad)this.pile.getHautPile().getValeur()).getId().equals(id))
+	    	{
+	    		Quad q =(Quad) this.pile.pop();
+	    		if(q.getObj() instanceof ObjetTab)
+	    		{
+	    			try
+	    			{
+	    				tas.retirerTas((ValeurTab)q.getVal());
+	    			}catch(Exception e)
+	    			{
+	    				System.err.println(e.getMessage());
+	    			}
+	    			
+	    		}
+	    	}else
+	    	{
+	    		Quad q = (Quad) this.pile.pop();
+	    		this.retirerDecl(id);
+	    		this.pile.push(q);
+	    		
+	    	}
+	    }
+	    
+	    public void affecterVariableClasse(Valeur v)
+	    {
+	    	
+	    	if(this.pile.getHautPile() == null)
+	    	{
+	    		return;
+	    	}
+	    	Element tmp =this.pile.getHautPile();
+	    	while(tmp.getSuivant() != null)
+	    	{
+	    		tmp = tmp.getSuivant();
+	    	}
+	    	
+	    	((Quad)tmp.getValeur()).setVal(v);
+	    }
+	    
+	    public Valeur variableClasse()
+	    {
+	    	if(this.pile.getHautPile() == null)
+	    	{
+	    		
+	    		return new ValeurOmega();
+	    	}
+
+	    	Element tmp = this.pile.getHautPile();
+	    	while(tmp.getSuivant() != null)
+	    	{
+	    		tmp = tmp.getSuivant();
+	    	}
+	    	
+	    	return ((Quad)tmp.getValeur()).getVal();
+	    }
+	    
+	    public void affecterVal(String id, Valeur v)
+	    {
+	    	if(this.pile.getHautPile() == null)
+	    	{
+	    		return;
+	    	}
+	    	
+	    	if(!((Quad)this.pile.getHautPile().getValeur()).getId().equals(id))
+	    	{
+	    		Quad q = (Quad)this.pile.pop();
+	    		this.affecterVal(id, v);
+	    		this.pile.push(q);
+	    	}else
+	    	{
+	    		if(((Quad)this.pile.getHautPile().getValeur()).getObj() instanceof ObjetVconstante)
+	    		{
+	    			((Quad)this.pile.getHautPile().getValeur()).setVal(v);
+	    			((Quad)this.pile.getHautPile().getValeur()).setObj(new ObjetConstante());
+	    		}else
+	    		{
+	    			if(((Quad)this.pile.getHautPile().getValeur()).getObj() instanceof ObjetConstante)
+	        		{
+	        		
+	    			}else
+	    			{
+		    			if(((Quad)this.pile.getHautPile().getValeur()).getObj() instanceof ObjetTab)
+		        		{
+		    				tas.ajouterRef((ValeurTab)v);
+		    				try
+		    				{
+		    					tas.retirerTas((ValeurTab)((Quad)this.pile.getHautPile().getValeur()).getVal());
+		    				}catch(Exception e)
+		    				{
+		    					System.err.println(e.getMessage());
+		    				}
+		    				((Quad)this.pile.getHautPile().getValeur()).setVal(v);
+		        		}else
+		        		{
+		        			((Quad)this.pile.getHautPile().getValeur()).setVal(v);
+		        		}
+	    			}
+	    		}
+	    	}
+	    }
+	    
+	    public void affecterValT(ValeurTab tab, Valeur v, Valeur indice)
+	    {
+	    	try
+	    	{
+	    		tas.affecterTas(v, (Integer) indice.getVal(), tab);
+	    	}catch(Exception e)
+	    	{
+	    		System.out.println(e.getMessage());
+	    	}
+	    }
+	    public void affecterType(String id, Sorte t)
+	    {
+	    	if (this.pile.getHautPile() == null)
+	    	{
+	    		return;
+	    	}
+	    	if(((Quad)this.pile.getHautPile().getValeur()).getId().equals(id))
+	    	{
+	    		((Quad)this.pile.getHautPile().getValeur()).setType(t);
+	    	}else
+	    	{
+	    		Quad q = (Quad)this.pile.pop();
+	    		this.affecterType(id, t);
+	    		this.pile.push(q);
+	    	}
+	    }
+	    
+	    public Valeur val(String id)
+	    {
+	    	Pile p = (Pile)this.pile.clone();
+	    	if(p.getHautPile() == null)
+	    	{
+	    		return new ValeurOmega();
+	    	}
+	    	if(((Quad)p.getHautPile().getValeur()).getId().equals(id))
+	    	{
+	    		return ((Quad)p.getHautPile().getValeur()).getVal();
+	    	}else
+	    	{
+	    		p.pop();
+	    		return this.valBis(id,p);
+	    	}
+	    }
+	    
+	    private Valeur valBis(String id, Pile p)
+	    {
+	    	if(p.getHautPile() == null)
+	    	{
+	    		return new ValeurOmega();
+	    	}
+	    	if(((Quad)p.getHautPile().getValeur()).getId().equals(id))
+	    	{
+	    		return ((Quad)p.getHautPile().getValeur()).getVal();
+	    	}else
+	    	{
+	    		p.pop();
+	    		return this.valBis(id,p);
+	    	}
+	    }
+	    
+	    public Valeur valT(String id, int indice)
+	    {
+	    	Pile p = (Pile)this.pile.clone();
+	    	if(p.getHautPile() == null)
+	    	{
+	    		return new ValeurOmega();
+	    	}
+
+	    	if(((Quad)p.getHautPile().getValeur()).getId().equals(id))
+	    	{
+	    		Valeur v = ((Quad)p.getHautPile().getValeur()).getVal();
+	    		Valeur res = new ValeurOmega();
+	    		try
+	    		{
+	    			res= tas.valeurTas((ValeurTab)v, indice);
+	    		}catch(Exception e)
+	    		{
+	    			System.out.println(e.getMessage());
+	    		}
+	    		return res;
+	    	}else
+	    	{
+	    		p.pop();
+	    		return this.valTBis(id,indice, p);
+	    	}
+	    }
+	    
+	    private Valeur valTBis(String id, int indice, Pile p)
+	    {
+	    	if(p.getHautPile() == null)
+	    	{
+	    		return new ValeurOmega();
+	    	}
+	    	if(((Quad)p.getHautPile().getValeur()).getId().equals(id))
+	    	{
+	    		Valeur v = ((Quad)p.getHautPile().getValeur()).getVal();
+	    		Valeur res = new ValeurOmega();
+	    		try
+	    		{
+	    			
+	    			res= tas.valeurTas((ValeurTab)v, indice);
+	    		}catch(Exception e)
+	    		{
+	    			System.out.println(e.getMessage());
+	    		}
+
+	    		return res;
+	    	}else
+	    	{
+	    		p.pop();
+	    		return this.valTBis(id,indice,p);
+	    	}
+	    }
+	    public Objet objet(String id)
+	    {
+	    	Pile p = (Pile) this.pile.clone();
+	    	if(p.getHautPile() == null)
+	    	{
+	    		return new ObjetOmega();
+	    	}
+	    	if(((Quad)p.getHautPile().getValeur()).getId().equals(id))
+	    	{
+	    		return ((Quad)p.getHautPile().getValeur()).getObj();
+	    	}else
+	    	{
+	    		p.pop();
+	    		return this.objet(id);
+	    	}
+	    }
+	    
+	    public Sorte sorte(String id)
+	    {
+	    	Pile p = (Pile) this.pile.clone();
+	    	if(p.getHautPile() == null)
+	    	{
+	    		return new SortOmega();
+	    	}
+	    	if(((Quad)p.getHautPile().getValeur()).getId().equals(id))
+	    	{
+	    		return ((Quad)p.getHautPile().getValeur()).getType();
+	    	}else
+	    	{
+	    		p.pop();
+	    		return this.sorte(id);
+	    	}
+	    }
+	    
+	    public void expParam(Element lexp, Element lparam)
+	    {
+	    	Quad tmp;
+	    	boolean flag = true;
+	    	while(flag)
+	    	{
+	    		if(lparam==null || lexp==null)
+	    		{
+	    			break;
+	    		}
+	    		tmp = (Quad)lparam.getValeur();
+	    		if(!(tmp!= null && lexp.getValeur() !=null))
+	    		{
+	    			flag = false;
+	    		}
+	    		if(flag)
+	    		{
+	    			this.declVar(tmp.getId(),(Valeur)lexp.getValeur(), tmp.getType());
+	    		}
+	    		if(lexp.getSuivant()!= null && lparam.getSuivant() !=null)
+	    		{
+	    			lexp = lexp.getSuivant();
+	    			lparam = lparam.getSuivant();
+	    			
+	    		}else
+	    		{
+	    			flag = false;
+	    		}
+	    		
+	    	}
+	    	
+	    }
+	    
+	    public void afficherTas()
+	    {
+	    	Pile tmp =(Pile) this.pile.clone();
+	    	System.out.println("Tas :");
+	    	while(tmp.getHautPile() != null)
+	    	{
+	    		Objet o = ((Quad)tmp.getHautPile().getValeur()).getObj();
+	    		if(o instanceof ObjetTab)
+	    		{
+	    			tas.afficherTableau(((Quad)tmp.getHautPile().getValeur()).getId());
+	    		}
+	    		tmp.setHautPile(tmp.getHautPile().getSuivant());
+	    	}
+	    }
+
+		public String getTableauxTasToString()
+		{
+			String s = "";
+			Pile tmp =(Pile) this.pile.clone();
+			while(tmp.getHautPile() != null)
+			{
+				Objet o = ((Quad)tmp.getHautPile().getValeur()).getObj();
+				if(o instanceof ObjetTab)
+				{
+					s += tas.getTableauToString(((Quad)tmp.getHautPile().getValeur())) + "\n";
+				}
+				tmp.setHautPile(tmp.getHautPile().getSuivant());
+			}
+			return s;
+		}
+		
+	    @Override
+	    public String toString() {
+	        Element tmp = this.pile.getHautPile();
+	        String valPile = "";
+	        while(tmp!=null){
+	        
+		        valPile= valPile + tmp.getValeur().toString() + "\n";
+		        tmp = tmp.getSuivant();
+	        };
+	        
+	        return valPile;
+	    }
+}

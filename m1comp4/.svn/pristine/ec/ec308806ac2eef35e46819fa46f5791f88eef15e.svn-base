@@ -1,0 +1,450 @@
+package fr.univfcomte.comp4.interpreteur_JajaCode;
+
+import fr.univfcomte.comp4.analyseur_JajaCode.*;
+import fr.univfcomte.comp4.memoire.*;
+import fr.univfcomte.comp4.quadruplet.*;
+
+public class JajaCodeInterpreteurVisitor implements JajaCodeVisitor{
+
+	private int addInstr = 1;
+	private int nbInstructions;
+	private SimpleNode[] instructions;
+	private MemoireListener ecouteur;
+
+	public int getLigneInstruction()
+	{
+		return this.addInstr;
+	}
+	
+	public JajaCodeInterpreteurVisitor() {
+		super();
+		this.ecouteur = new EcouteurVideJajaCode();
+	}
+	
+	public JajaCodeInterpreteurVisitor(MemoireListener ecouteur) {
+		super();
+		this.ecouteur = ecouteur;
+	}
+
+	public Object visit(SimpleNode node, Object data) throws JajaCodeException {
+		return null;
+	}
+	
+	
+	public void convertArbreToTab(ASTJajaCode node,Object data) throws JajaCodeException
+	{
+		SimpleNode tmp = node;
+		while(tmp instanceof ASTJajaCode)
+		{
+			int addresse = (Integer)(tmp.jjtGetChild(0)).jjtAccept(this, data);
+			this.instructions[addresse] =(SimpleNode) (tmp.jjtGetChild(1));
+
+			tmp = (SimpleNode) (tmp.jjtGetChild(2));
+		}
+	}
+
+	public Object visit(ASTJajaCode node, Object data) throws JajaCodeException { //noeud new ASTJajaCode fils JCSTOP sinon bo
+		
+		this.nbInstructions = ((Memoire)data).getNbInstructions();
+		this.instructions = new SimpleNode[this.nbInstructions + 1];
+		this.convertArbreToTab(node, data);
+		while(this.addInstr != -1)
+		{
+			SimpleNode n = this.instructions[this.addInstr];
+			n.jjtAccept(this, data);
+			this.ecouteur.onInstruction((Memoire)data, n);
+		}
+
+		return null;
+	}
+
+	public Object visit(ASTjcnil node, Object data) throws JajaCodeException {
+		return null;
+	}
+
+	public Object visit(ASTident node, Object data) throws JajaCodeException {
+		return node.jjtGetValue();
+	}
+
+	public Object visit(ASTtype node, Object data) throws JajaCodeException {
+		String type = (String)node.jjtGetValue();
+		Sorte res = null;
+		if(type.equals("entier"))
+		{
+			res = new SortEntier();
+		}else if (type.equals("booleen"))
+			{
+				res = new SortBooleen();
+			}else if (type.equals("vide"))
+				{
+					res = new SortVide();
+				}
+		return res;
+	}
+
+	public Object visit(ASTobjet node, Object data) throws JajaCodeException {
+		return node.jjtGetValue();
+	}
+
+	public Object visit(ASTadresse node, Object data) throws JajaCodeException {
+		int addresse = (Integer) Integer.parseInt((String)node.jjtGetValue());
+		return addresse;
+	}
+
+	public Object visit(ASTinit node, Object data) throws JajaCodeException {
+		this.addInstr++;
+		return null;
+	}
+
+	public Object visit(ASTswap node, Object data) throws JajaCodeException {
+		((Memoire)data).echanger();
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		this.addInstr++;
+		return null;
+	}
+
+	public Object visit(ASTnewVal node, Object data) throws JajaCodeException {
+		String ident =(String)((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		Sorte type =(Sorte)((SimpleNode)node.jjtGetChild(1)).jjtAccept(this, data);
+		String objet =(String)((SimpleNode)node.jjtGetChild(2)).jjtAccept(this, data);
+
+		
+		if(objet.equals("var"))
+		{
+			int s = (Integer)((SimpleNode)node.jjtGetChild(3)).jjtAccept(this, data);
+			((Memoire)data).identVal(ident, type, s);
+		}else if (objet.equals("cst"))
+			{		
+				Quad q = ((Memoire)data).depiler();
+				((Memoire)data).declCst(ident, q.getVal(), type);
+			}else if (objet.equals("meth"))
+				{
+					Quad q = ((Memoire)data).depiler();
+					((Memoire)data).declMeth(ident, q.getVal(), type);
+				}
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		this.addInstr++;
+		return null;
+	}
+
+	public Object visit(ASTnewarray node, Object data) throws JajaCodeException {
+		String ident =(String)((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		Sorte type =(Sorte)((SimpleNode)node.jjtGetChild(1)).jjtAccept(this, data);
+		Quad q = ((Memoire)data).depiler();
+		try {
+			((Memoire)data).declTab(ident, q.getVal(), type);
+		} catch (Exception e) {
+			String mess = e.getMessage();
+			throw new JajaCodeException(mess);
+		}
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTinvoke node, Object data) throws JajaCodeException {
+		String ident =(String)((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		Valeur addr = ((Memoire)data).val(ident);
+		((Memoire)data).declCst("w", new ValeurEntier(this.addInstr+1), new SortOmega());
+		this.addInstr = addr.getValEntier();
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTretour node, Object data) throws JajaCodeException {
+		Quad q = ((Memoire)data).depiler();
+		this.addInstr = q.getVal().getValEntier();
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTpush node, Object data) throws JajaCodeException {
+		Valeur v = (Valeur) ((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		((Memoire)data).declCst("w", v, new SortOmega());
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTpop node, Object data) throws JajaCodeException {
+		
+		Quad q = ((Memoire)data).depiler();
+		if(q.getObj() instanceof ObjetTab)
+		{
+			try {
+				((Memoire)data).retirerTas((ValeurTab)q.getVal());
+			} catch (Exception e) {
+				String mess = e.getMessage();
+				throw new JajaCodeException(mess);
+			}
+		}
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTload node, Object data) throws JajaCodeException {
+		String ident =(String)((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		Valeur v = ((Memoire)data).val(ident);
+		((Memoire)data).declCst("w"+ident, v, new SortOmega());
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTaload node, Object data) throws JajaCodeException {
+		String ident =(String)((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		Quad q = ((Memoire)data).depiler();
+		Valeur vt;
+		try {
+			vt = ((Memoire)data).valT(ident, q.getVal().getValEntier());
+			((Memoire)data).declCst("wAload", vt, new SortOmega());
+		} catch (Exception e) {
+			String mess = e.getMessage();
+			throw new JajaCodeException(mess);
+		}
+		
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTstore node, Object data) throws JajaCodeException {
+		
+		String ident =(String)((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		Quad q = ((Memoire)data).depiler();
+		try {
+			((Memoire)data).affecterVal(ident, q.getVal());
+		} catch (Exception e) {
+			String mess = e.getMessage();
+			throw new JajaCodeException(mess);
+		}
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		
+		return null;
+	}
+
+	public Object visit(ASTastore node, Object data) throws JajaCodeException {
+		String ident =(String)((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		
+		Quad qV = ((Memoire)data).depiler();
+		Quad qInd = ((Memoire)data).depiler();
+		
+		
+		try {
+			((Memoire)data).affecterValT(ident, qV.getVal(), qInd.getVal());
+		} catch (Exception e) {
+			String mess = e.getMessage();
+			throw new JajaCodeException(mess);
+		}
+		
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTsi node, Object data) throws JajaCodeException {
+		Quad qBool = ((Memoire)data).depiler();
+		boolean test = qBool.getVal().getValBooleen();
+		int addresse =(Integer) ((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		
+		if(test)
+		{
+			this.addInstr = addresse;
+		}else
+		{
+			this.addInstr++;
+		}
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTallerA node, Object data) throws JajaCodeException {
+		int addresse =(Integer) ((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		this.addInstr = addresse;
+		return null;
+	}
+
+	public Object visit(ASTinc node, Object data) throws JajaCodeException {
+		Quad q = ((Memoire)data).depiler();
+		String ident =(String)((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		Valeur valIdent = ((Memoire)data).val(ident);
+		Valeur inc = new ValeurEntier(valIdent.getValEntier()+q.getVal().getValEntier());
+		
+		try {
+			((Memoire)data).affecterVal(ident, inc);
+		} catch (Exception e) {
+			String mess = e.getMessage();
+			throw new JajaCodeException(mess);
+		}
+		
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTainc node, Object data) throws JajaCodeException {
+		Quad qV = ((Memoire)data).depiler();
+		Quad qInd = ((Memoire)data).depiler();
+		String ident =(String)((SimpleNode)node.jjtGetChild(0)).jjtAccept(this, data);
+		
+		try
+		{
+			Valeur valIdent = ((Memoire)data).valT(ident, qInd.getVal().getValEntier());
+			Valeur inc = new ValeurEntier(valIdent.getValEntier()+qV.getVal().getValEntier());
+			
+			((Memoire)data).affecterValT(ident, inc, qInd.getVal());
+		}catch(Exception e)
+		{
+			String mess = e.getMessage();
+			throw new JajaCodeException(mess);
+		}
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTnop node, Object data) throws JajaCodeException {
+		this.addInstr++;
+		return null;
+	}
+
+	public Object visit(ASTjcstop node, Object data) throws JajaCodeException {
+		this.addInstr=-1;
+		return null;
+	}
+
+	public Object visit(ASTvrai node, Object data) throws JajaCodeException {
+		return new ValeurBooleen(true);
+	}
+
+	public Object visit(ASTfaux node, Object data) throws JajaCodeException {
+		return new ValeurBooleen(false);
+	}
+
+	public Object visit(ASTneg node, Object data) throws JajaCodeException {
+		Quad q = ((Memoire)data).depiler();
+		q.setVal(new ValeurEntier(-q.getVal().getValEntier()));
+		((Memoire)data).empiler(q);
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTnot node, Object data) throws JajaCodeException {
+		Quad q = ((Memoire)data).depiler();
+		q.setVal(new ValeurBooleen(!q.getVal().getValBooleen()));
+		((Memoire)data).empiler(q);
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTadd node, Object data) throws JajaCodeException {
+		Quad q2 = ((Memoire)data).depiler();
+		Quad q1 = ((Memoire)data).depiler();
+		ValeurEntier ope = new ValeurEntier(q1.getVal().getValEntier() + q2.getVal().getValEntier());
+		Quad res = new Quad("w",ope,new ObjetConstante(),new SortOmega());
+		
+		((Memoire)data).empiler(res);
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTsub node, Object data) throws JajaCodeException {
+		Quad q2 = ((Memoire)data).depiler();
+		Quad q1 = ((Memoire)data).depiler();
+		ValeurEntier ope = new ValeurEntier(q1.getVal().getValEntier() - q2.getVal().getValEntier());
+		Quad res = new Quad("w",ope,new ObjetConstante(),new SortOmega());
+		
+		((Memoire)data).empiler(res);
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTmul node, Object data) throws JajaCodeException {
+		Quad q2 = ((Memoire)data).depiler();
+		Quad q1 = ((Memoire)data).depiler();
+		ValeurEntier ope = new ValeurEntier(q1.getVal().getValEntier() * q2.getVal().getValEntier());
+		Quad res = new Quad("w",ope,new ObjetConstante(),new SortOmega());
+		
+		((Memoire)data).empiler(res);
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTdiv node, Object data) throws JajaCodeException {
+		Quad q2 = ((Memoire)data).depiler();
+		Quad q1 = ((Memoire)data).depiler();
+		ValeurEntier ope = new ValeurEntier(q1.getVal().getValEntier() / q2.getVal().getValEntier());
+		Quad res = new Quad("w",ope,new ObjetConstante(),new SortOmega());
+		
+		((Memoire)data).empiler(res);
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTcmp node, Object data) throws JajaCodeException {
+		Quad q2 = ((Memoire)data).depiler();
+		Quad q1 = ((Memoire)data).depiler();
+		ValeurBooleen ope = new ValeurBooleen((q1.getVal().getVal() == q2.getVal().getVal()));
+		Quad res = new Quad("w",ope,new ObjetConstante(),new SortOmega());
+		
+		((Memoire)data).empiler(res);
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTsup node, Object data) throws JajaCodeException {
+		Quad q2 = ((Memoire)data).depiler();
+		Quad q1 = ((Memoire)data).depiler();
+		ValeurBooleen ope = new ValeurBooleen((q1.getVal().getValEntier() > q2.getVal().getValEntier()));
+		Quad res = new Quad("w",ope,new ObjetConstante(),new SortOmega());
+		
+		((Memoire)data).empiler(res);
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTor node, Object data) throws JajaCodeException {
+		Quad q2 = ((Memoire)data).depiler();
+		Quad q1 = ((Memoire)data).depiler();
+		ValeurBooleen ope = new ValeurBooleen((q1.getVal().getValBooleen() || q2.getVal().getValBooleen()));
+		Quad res = new Quad("w",ope,new ObjetConstante(),new SortOmega());
+		
+		((Memoire)data).empiler(res);
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+	}
+
+	public Object visit(ASTand node, Object data) throws JajaCodeException {
+		Quad q2 = ((Memoire)data).depiler();
+		Quad q1 = ((Memoire)data).depiler();
+		ValeurBooleen ope = new ValeurBooleen((q1.getVal().getValBooleen() && q2.getVal().getValBooleen()));
+		Quad res = new Quad("w",ope,new ObjetConstante(),new SortOmega());
+		
+		((Memoire)data).empiler(res);
+		this.addInstr++;
+		this.ecouteur.onMemoireChanged((Memoire)data);
+		return null;
+
+	}
+
+	public Object visit(ASTnbre node, Object data) throws JajaCodeException {
+		int addresse = (Integer) Integer.parseInt((String)node.jjtGetValue());
+		return new ValeurEntier(addresse);
+	}
+	
+	public Object visit(ASTomega node, Object data) throws JajaCodeException {
+		return new ValeurOmega();
+	}
+
+}

@@ -1,0 +1,297 @@
+package fr.univfcomte.comp4.tas;
+
+import fr.univfcomte.comp4.quadruplet.*;
+import fr.univfcomte.comp4.table_hachage.*;
+
+public class Tas {
+	private static int TAILLE = 512;
+	private int idTableId = 0;
+	private int nbPuissance;
+	private int nbBlocLibre;
+	public Valeur [] memoire;
+	private TableHachage tableId;
+	private TableHachage tableBlocLibre;
+	
+	public Tas() throws TasException
+	{
+		this(TAILLE);
+	}
+	
+	public Tas(int taille) throws TasException
+	{
+		if(taille<1)
+		{
+			throw new TasException("Erreur : La taille du tas doit être positive.");
+		}
+		nbPuissance = (int)Math.ceil(log2(taille));
+		if(nbPuissance != log2(taille))
+		{
+			throw new TasException("Erreur : La taille du tas doit être une puissance de 2.");
+		}
+		nbBlocLibre = taille;
+		memoire = new Valeur[taille];
+		tableBlocLibre = new TableHachage(nbPuissance+1);
+		tableId = new TableHachage(taille/2);
+		try
+		{
+			String s = "";
+			for(int i = 0; i<=nbPuissance; i++)
+			{
+				s=Integer.toString(i);
+				tableBlocLibre.put(s, -1);		
+			}
+			tableBlocLibre.put(Integer.toString(nbPuissance), 0);
+		}catch(Exception e)
+		{
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	private double log2(int a)
+	{
+		return (Math.log(a)/Math.log(2));
+	}
+	
+	public ValeurTab creerTas(Valeur v, Sorte t, String nom) throws TasException
+	{
+	
+		int nbElem = (int)(Integer)v.getVal();
+		int indiceMemoire = 0;
+		ValeurTab res = null;
+		if(nbElem >nbBlocLibre)
+		{
+			throw new TasException("Erreur : Tableau trop grand, memoire insuffisante.");
+		}
+		
+		if(nbElem < 1 )
+		{
+			throw new TasException("Erreur : La taille du tableau doit etre positive.");
+		}
+		try
+		{
+			indiceMemoire = this.getIndiceMemoire(nbElem);
+			InfoTas tInfo = new InfoTas(indiceMemoire,nbElem);
+			res = new ValeurTab((nom+this.idTableId));
+			tableId.put((nom+this.idTableId), tInfo);
+			this.idTableId++;
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}	
+		//Aloue la mémoire pour le tableau
+		for(int i=indiceMemoire; i<indiceMemoire+nbElem; i++)
+		{
+			memoire[i] =t.createValeur();
+			
+		}
+		return res;
+	}
+	
+	//Découpe et réserve l'espace mémoire nécessaire pour le tableau, et retourne l'indice du premier élément du tableau.
+	public int getIndiceMemoire(int nbElem) throws TasException
+	{
+		int indiceMemoire = -1; //indice du premier element du tableau qui sera alloué
+		nbBlocLibre -= nbElem;
+		int ind = 0;
+		int espace = (int)Math.ceil(log2(nbElem));
+		int puissance2 = espace;	//nbElem <= 2^puissance2
+			
+		try
+		{
+			//Recupère l'indice de premier espace disponible pouvant contenire nbElem elements
+			ind =(Integer) tableBlocLibre.get(Integer.toString(puissance2));
+			while(ind == -1 && (puissance2 < nbPuissance+1))
+			{
+				puissance2++;
+				ind =(Integer) tableBlocLibre.get(Integer.toString(puissance2));
+			}
+		}catch(TableHachageException e)
+		{
+			System.err.println(e.getMessage());
+		}	
+		
+		if(puissance2 == nbPuissance+1)
+		{
+			throw new TasException("Erreur : Tableau trop grand, memoire insuffisante.");
+		}
+		indiceMemoire = ind;
+		
+		//Indice du dernier bloc non referencé de l'espace memoire utilisé
+		int indiceDernierElem = indiceMemoire+(int)Math.pow(2, puissance2)-1;
+		
+		try {
+				tableBlocLibre.remove(Integer.toHexString(puissance2));
+		} catch (TableHachageException e) {
+			System.err.println(e.getMessage());
+		}
+		int nbBlocNonRef = (int)Math.pow(2, puissance2)-nbElem;
+		while(nbBlocNonRef != 0)
+		{
+			puissance2--;
+			if(Math.pow(2, puissance2) <= nbBlocNonRef)
+			{
+				indiceDernierElem -= (int)Math.pow(2, puissance2);
+				tableBlocLibre.put(Integer.toString(puissance2), (indiceDernierElem+1));
+				nbBlocNonRef -= (int)Math.pow(2, puissance2);
+			}
+		}
+		
+		return indiceMemoire;
+	}
+	
+	public void retirerTas(ValeurTab t) throws TableHachageException
+	{
+		String nom = (String)t.getVal();
+		InfoTas tInfo = (InfoTas) tableId.get(nom);
+		System.out.println("!!!!!"+nom+" "+tInfo);
+		if(tInfo.getRef()>1)
+		{
+			tInfo.decrRef();
+		}else
+		{
+			try
+			{
+				//A faire : Récupérer la mémoire perdu lors de l'allocation
+				//supprimerValeur(tInfo.getIndice(), tInfo.getTaille());
+				tableId.remove(nom);
+			}catch(Exception e)
+			{
+				System.err.println(e.getMessage());
+			}
+		}
+	}
+	
+	public void ajouterRef(ValeurTab t)
+	{
+		try
+		{
+			String nom = (String)t.getVal();
+			InfoTas tInfo = (InfoTas) tableId.get(nom);
+			tInfo.incrRef();
+		}catch(Exception e)
+		{
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	public Valeur valeurTas(ValeurTab t, int indice)  throws TasException
+	{
+		InfoTas tInfo=null;
+		try
+		{
+			String nom = (String)t.getVal();
+			tInfo = (InfoTas) tableId.get(nom);
+		}catch(Exception e)
+		{
+			System.err.println(e.getMessage());
+		}	
+		if(indice >= tInfo.getTaille())
+		{
+			throw new TasException("Erreur : Indice en dehors du tableau.");
+		}
+			
+		int indiceDepart = tInfo.getIndice();
+		return memoire[indiceDepart+indice];
+		
+	}
+	
+	public void affecterTas(Valeur v, int indice, ValeurTab t) throws TasException
+	{
+		
+		String nom = (String)t.getVal();
+		InfoTas tInfo = null;
+		try {
+			tInfo = (InfoTas) tableId.get(nom);
+		} catch (TableHachageException e) {
+			System.err.println(e.getMessage());
+		}
+		
+		if(indice >= tInfo.getTaille())
+		{
+			throw new TasException("Erreur : Indice en dehors du tableau.");
+		}
+		
+		if(indice < 0)
+		{
+			throw new TasException("Erreur : Indice en dehors du tableau.");
+		}
+		try
+		{	
+			int indiceDepart = tInfo.getIndice();
+			memoire[indiceDepart+indice] = v;
+		}catch(Exception e)
+		{
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	public void afficherTableau(String nom)
+	{
+		try
+		{
+			
+			String s = nom+" -> [";
+			InfoTas tInfo = (InfoTas) tableId.get(nom);
+			
+			int indice = tInfo.getIndice();
+			int taille = tInfo.getTaille();
+			for(int i = indice; i<indice+taille-1; i++)
+			{
+				s+=memoire[i].toString()+", ";
+			}
+			s+=memoire[indice+taille-1].toString()+"]";
+			System.out.println(s);
+		}catch(Exception e)
+		{
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	public InfoTas getTabInfo(ValeurTab t)
+	{
+		InfoTas res = null;
+		try {
+			res = (InfoTas)(this.tableId.get(t.getVal()));
+		} catch (TableHachageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	public String getTableauToString(Quad q)
+	{
+		String s = "";
+		String nomTab =q.getId();
+		String nomVal = (String) (q.getVal()).getVal();
+		try
+		{
+			
+			s = nomTab+" -> [";
+			InfoTas tInfo = (InfoTas) tableId.get(nomVal);
+
+			int indice = tInfo.getIndice();
+			int taille = tInfo.getTaille();
+			for(int i = indice; i<indice+taille-1; i++)
+			{
+				s+=memoire[i].toString()+", ";
+			}
+			s+=memoire[indice+taille-1].toString()+"]";
+
+		}catch(Exception e)
+		{
+			System.err.println(e.getMessage());
+		}
+		return (s);
+	}
+
+	public boolean contain(ValeurTab t)
+	{
+		return tableId.contains(t.getVal());
+	}
+	
+	public String toString()
+	{
+		return "table ID : "+tableId.toString()+"\n\ntableBlockLibre : "+this.tableBlocLibre.toString() + "\n\n";
+	}
+}

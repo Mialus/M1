@@ -1,0 +1,47 @@
+package fr.univfcomte.comp4.guid;
+
+import fr.univfcomte.comp4.analyseur_JajaCode.*;
+import fr.univfcomte.comp4.interpreteur_MiniJaja.ErreurListener;	// TMP
+import fr.univfcomte.comp4.interpreteur_JajaCode.JajaCodeInterpreteurVisitor;
+import fr.univfcomte.comp4.memoire.Memoire;
+
+import java.io.ByteArrayInputStream;
+
+/**
+ * Created by aymeric on 23/11/2015.
+ */
+public class ThreadInterpretationJajaCode extends Thread {
+
+	private ErreurListener ecouteurErreur;
+    private SimpleNode arbre;
+    private JajaCodeInterpreteurVisitor visiteur;
+    private Memoire memoire;
+
+    public ThreadInterpretationJajaCode(ErreurListener ecouteur, JajaCodeInterpreteurVisitor visiteur, Memoire memoire) {
+        this.memoire =  memoire;
+        this.visiteur = visiteur;
+        this.ecouteurErreur = ecouteur;
+    }
+
+    public void run() {
+
+        ///////////////////////////
+        //INTERPRETATION JAJACODE//
+        ///////////////////////////
+	    try 
+	    {
+			this.arbre.jjtAccept(this.visiteur, this.memoire);
+            System.out.println(this.memoire);
+	    } 
+	    catch (JajaCodeException e) 
+	    {
+			//TODO Auto-generated catch block
+	    	this.ecouteurErreur.onErreur(e.getMessage());
+			e.printStackTrace();
+		}    		
+    }
+
+    public void setNoeud(SimpleNode noeud) {
+        this.arbre = noeud;
+    }
+}

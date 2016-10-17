@@ -1,0 +1,49 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fr.univfcomte.comp4.memoire_MiniJaja;
+
+import fr.univfcomte.comp4.quadruplet.SortEntier;
+import fr.univfcomte.comp4.quadruplet.SortOmega;
+import fr.univfcomte.comp4.quadruplet.Valeur;
+import fr.univfcomte.comp4.quadruplet.ValeurEntier;
+import fr.univfcomte.comp4.table_hachage.*;
+import fr.univfcomte.comp4.tas.*;
+/**
+ *
+ * @author Pierre
+ */
+public class Main {
+    public static void main(String[] args){
+    MemoireMiniJaja mem = new MemoireMiniJaja();
+    /*this.tableSymboles.put(new Symbole("C","class"), new Info("var","entier","class"));
+	this.tableSymboles.put(new Symbole("x","class"), new Info("var","entier","class"));
+	this.tableSymboles.put(new Symbole("x","main"), new Info("var","entier","class"));
+	this.tableSymboles.put(new Symbole("y","main"), new Info("var","entier","main"));
+	this.tableSymboles.put(new Symbole("f","class"), new Info("meth","entier","class"));
+	this.tableSymboles.put(new Symbole("p","f"), new Info("var","entier","f"));
+	this.tableSymboles.put(new Symbole("c","f"), new Info("var","entier","f"));*/
+	mem.declVar("C", new ValeurEntier(10), new SortOmega());
+	mem.declCst("x", new ValeurEntier(1), new SortEntier());
+	mem.declTab("t", new ValeurEntier(10), new SortEntier());
+	mem.setPortee("main");
+	mem.declCst("y", new ValeurEntier(2), new SortEntier());
+	mem.declVar("x", new ValeurEntier(2), new SortEntier());
+	Valeur v = mem.val("x");
+	mem.setPortee("f");
+	v = mem.val("x");
+	System.out.println("____________\n"+mem.getTableSymbole());
+	mem.afficherPile();
+	System.out.println();
+	mem.setPortee("class");
+	mem.retirerDecl("x");
+	mem.setPortee("main");
+	mem.retirerDecl("y");
+	mem.retirerDecl("x");
+	System.out.println("____________\n"+mem.getTableSymbole());
+	mem.afficherPile();
+	System.out.println();
+    }
+}

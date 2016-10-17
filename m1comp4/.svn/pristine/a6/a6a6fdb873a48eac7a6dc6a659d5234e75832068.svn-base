@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+	    <groupId>fr.univfcomte.comp4</groupId>
+	    <artifactId>comp4</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>guid</artifactId>
+    <packaging>jar</packaging>
+    <properties>
+        <mainClass>fr.univfcomte.comp4.guid.MainApp</mainClass>
+    </properties>
+    
+    <dependencies>
+	    <dependency>
+	        <groupId>fr.univfcomte.comp4</groupId>
+	        <artifactId>analyseur</artifactId>
+	        <version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+        <dependency>
+            <groupId>fr.univfcomte.comp4</groupId>
+            <artifactId>interpreteur_MiniJaja</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>fr.univfcomte.comp4</groupId>
+            <artifactId>interpreteur_JajaCode</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>fr.univfcomte.comp4</groupId>
+            <artifactId>compilateur</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+        	<groupId>fr.univfcomte.comp4</groupId>
+        	<artifactId>controle_type</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

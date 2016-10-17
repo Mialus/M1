@@ -1,0 +1,8 @@
+package fr.univfcomte.comp4.memoire;
+
+public interface MemoireListener {
+    void onMemoireChanged(Memoire memoire);
+    /*void onMemoireChangedMainRetrait(Memoire memoire);
+    void onMemoireChangedAppelI(Memoire memoire, String nom);*/
+    void onInstruction(Memoire memoire, Object noeud);
+}

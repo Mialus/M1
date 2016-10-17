@@ -1,0 +1,281 @@
+package fr.univfcomte.comp4.controle_type;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import fr.univfcomte.comp4.analyseur.*;
+import fr.univfcomte.comp4.table_hachage.Info;
+import fr.univfcomte.comp4.table_hachage.Symbole;
+import junit.framework.Assert;
+
+public class TestControleTypeVisitor {
+
+	MiniJaja parser = null;
+	//Creation du visiteur
+	ControleTypeVisitor visitor = new ControleTypeVisitor();
+	
+	@Test
+	public void testASTClasse() throws ParseException, MiniJajaException {
+		//Creation du noeud de l'AST a tester
+		//Ecrit une str qui represent le noeud
+		String str = "class C {"+
+					"main{}}";
+		
+		//Parse la str pour et on appel la fonction permet de generer le noeud désirer
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.classe();
+		
+		//Le visiteur prend en paramètre un noeud et une memoire de type DataControleType
+		//Il modifie la memoire en y ajoutant les variable déclarée lors du controle de type
+		
+		//On créer une memoire de reference. c'est la memoire attendue à la fin de l'excution du visiteur
+		DataControleType cdRef = new DataControleType();
+		cdRef.setPorteeCourante("class");
+		cdRef.getTableSymbole().put(new Symbole("C","class"), 
+				new Info("var","omega","class"));
+		
+		//On creer une memoire de test correspondant à la memoire avant l'execution du visiteur
+		DataControleType cdTest = new DataControleType();
+		
+		//Appel du visiteur
+		n.jjtAccept(visitor, cdTest);
+		
+		Assert.assertEquals(cdRef, cdTest);
+	}
+	
+	@Test(expected= MiniJajaException.class)
+	public void testASTidentException() throws ParseException, MiniJajaException
+	{
+		String str = "a";
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.ident();
+		
+		DataControleType cdRef = new DataControleType();
+		cdRef.setPorteeCourante("class");
+		
+		n.jjtAccept(visitor, cdRef);
+		
+		Assert.assertTrue(false);
+		
+	}
+	
+	@Test
+	public void testASTident() throws ParseException, MiniJajaException
+	{
+		String str = "a";
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.ident();
+		
+		DataControleType cdRef = new DataControleType();
+		cdRef.setPorteeCourante("class");
+		
+		DataControleType cdTest = new DataControleType();
+		cdTest.setPorteeCourante("class");
+		
+		Info infoRef = new Info("var","entier","class");
+		Info infoTest = null;
+		cdRef.getTableSymbole().put(new Symbole("a","class"),infoRef);
+		cdTest.getTableSymbole().put(new Symbole("a","class"),infoRef);
+		
+		infoTest = (Info)n.jjtAccept(visitor, cdTest);
+		
+		Assert.assertTrue(infoRef.equals(infoTest) && cdRef.equals(cdTest));
+		
+	}
+	
+	
+	@Test(expected=MiniJajaException.class)
+	public void testASTmethodeFail() throws ParseException, MiniJajaException
+	{
+		//Test si le nom a déjà été déclaré
+		String str ="void f (){};";
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.decl();
+		
+		DataControleType cdTest = new DataControleType();
+		cdTest.setPorteeCourante("class");
+		
+		cdTest.getTableSymbole().put(new Symbole("f","class"),new Info("meth","vide","class", "vide"));
+		
+		n.jjtAccept(visitor, cdTest);
+		
+		Assert.assertTrue(false);
+	}
+	
+	@Test(expected=MiniJajaException.class)
+	public void testASTtabFail1() throws ParseException, MiniJajaException
+	{
+		//Test si de "a" dans le cas où a n'est pas un entier
+		String str ="int tab[a];";
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.decl();
+		
+		DataControleType cdTest = new DataControleType();
+		cdTest.setPorteeCourante("class");
+		cdTest.getTableSymbole().put(new Symbole("a","class"),new Info("var","vide","class", "vide"));
+		cdTest.getTableSymbole().put(new Symbole("f","class"),new Info("meth","vide","class", "vide"));
+		
+		n.jjtAccept(visitor, cdTest);
+		
+		Assert.assertTrue(false);
+	}
+	
+	@Test(expected=MiniJajaException.class)
+	public void testASTtabFail2() throws ParseException, MiniJajaException
+	{
+		//Test si de "a" dans le cas où a n'est pas une constante ou une var
+		String str ="int tab[a];";
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.decl();
+		
+		DataControleType cdTest = new DataControleType();
+		cdTest.setPorteeCourante("class");
+		cdTest.getTableSymbole().put(new Symbole("a","class"),new Info("meth","vide","class", "vide"));
+		cdTest.getTableSymbole().put(new Symbole("f","class"),new Info("meth","vide","class", "vide"));
+		
+		n.jjtAccept(visitor, cdTest);
+		
+		Assert.assertTrue(false);
+	}
+	
+	@Test(expected=MiniJajaException.class)
+	public void testASTvarFail1() throws ParseException, MiniJajaException
+	{
+		//Test si de "a" dans le cas où a n'est pas une constante ou une var
+		String str ="int x = a;";
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.decl();
+		
+		DataControleType cdTest = new DataControleType();
+		cdTest.setPorteeCourante("class");
+		cdTest.getTableSymbole().put(new Symbole("a","class"),new Info("meth","vide","class", "vide"));
+		
+		
+		n.jjtAccept(visitor, cdTest);
+		
+		Assert.assertTrue(false);
+	}
+	
+	@Test(expected=MiniJajaException.class)
+	public void testASTvarFail2() throws ParseException, MiniJajaException
+	{
+		//Test si de "a" dans le cas où a n'est pas une constante ou une var
+		String str ="int x = a;";
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.decl();
+		
+		DataControleType cdTest = new DataControleType();
+		cdTest.setPorteeCourante("class");
+		cdTest.getTableSymbole().put(new Symbole("a","class"),new Info("var","booleen","class", "vide"));
+		
+		n.jjtAccept(visitor, cdTest);
+		
+		Assert.assertTrue(false);
+	}
+	
+	
+	@Test
+	public void testASTdecls() throws ParseException, MiniJajaException
+	{
+		//Test des différentes déclarations possibles
+		String str = "int a; "
+				+ "int c = 5;"
+				+ "final int b;"
+				+ "boolean tab[5];"
+				+ "void f (){};";
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.decls();
+		
+		DataControleType cdRef = new DataControleType();
+		cdRef.setPorteeCourante("class");
+		
+		DataControleType cdTest = new DataControleType();
+		cdTest.setPorteeCourante("class");
+		
+		cdRef.getTableSymbole().put(new Symbole("a","class"),new Info("var","entier","class"));
+		cdRef.getTableSymbole().put(new Symbole("b","class"),new Info("cst","entier","class"));
+		cdRef.getTableSymbole().put(new Symbole("c","class"),new Info("var","entier","class"));
+		cdRef.getTableSymbole().put(new Symbole("tab","class"),new Info("tab","booleen","class"));
+		cdRef.getTableSymbole().put(new Symbole("f","class"),new Info("meth","vide","class", "vide"));
+		
+		n.jjtAccept(visitor, cdTest);
+		
+		Assert.assertEquals(cdRef, cdTest);
+	}
+	
+	@Test
+	public void testASTvars() throws ParseException, MiniJajaException
+	{
+		//Test des différentes déclarations possibles
+		String str = "int a; "
+				+ "int c = 5;";
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.vars();
+		
+		DataControleType cdRef = new DataControleType();
+		cdRef.setPorteeCourante("class");
+		
+		DataControleType cdTest = new DataControleType();
+		cdTest.setPorteeCourante("class");
+		
+		cdRef.getTableSymbole().put(new Symbole("a","class"),new Info("var","entier","class"));
+		cdRef.getTableSymbole().put(new Symbole("c","class"),new Info("var","entier","class"));
+		
+		n.jjtAccept(visitor, cdTest);
+		
+		Assert.assertEquals(cdRef, cdTest);
+	}
+
+	@Test
+	public void testEntetes() throws ParseException, MiniJajaException
+	{
+		String str = "int a, boolean b, int c";
+		parser = new MiniJaja(str);
+		SimpleNode n = parser.entetes();
+		
+		DataControleType cdRef = new DataControleType();
+		cdRef.setPorteeCourante("fct");
+		
+		DataControleType cdTest = new DataControleType();
+		cdTest.setPorteeCourante("fct");
+		
+		cdRef.getTableSymbole().put(new Symbole("a","fct"),new Info("var","entier","fct"));
+		cdRef.getTableSymbole().put(new Symbole("b","fct"),new Info("var","booleen","fct"));
+		cdRef.getTableSymbole().put(new Symbole("c","fct"),new Info("var","entier","fct"));
+		
+		String res = (String) n.jjtAccept(visitor, cdTest);
+		
+		Assert.assertTrue(res.equals("entierXbooleenXentier") && cdRef.equals(cdTest));
+	}
+	
+	@Test
+	public void testInstrs() throws ParseException, MiniJajaException
+	{
+		//Test de toutes les instructions possibles
+		String str = "if(true){a=5;}else{a+=5;};"+
+		"while(a>10){a++;};"+
+		"return f2(a);";
+		
+		parser= new MiniJaja(str);
+		SimpleNode n = parser.instrs();
+
+		DataControleType cdRef = new DataControleType();
+		cdRef.setPorteeCourante("f");
+		
+		DataControleType cdTest = new DataControleType();
+		cdTest.setPorteeCourante("f");
+		
+		cdRef.getTableSymbole().put(new Symbole("a","f"),new Info("var","entier","f"));
+		cdRef.getTableSymbole().put(new Symbole("f","class"),new Info("meth","booleen","class","vide"));
+		cdRef.getTableSymbole().put(new Symbole("f2","class"),new Info("meth","booleen","class","entier"));
+		
+		cdTest.getTableSymbole().put(new Symbole("a","f"),new Info("var","entier","f"));
+		cdTest.getTableSymbole().put(new Symbole("f","class"),new Info("meth","booleen","class","vide"));
+		cdTest.getTableSymbole().put(new Symbole("f2","class"),new Info("meth","booleen","class","entier"));
+		
+		n.jjtAccept(visitor, cdTest);
+		Assert.assertEquals(cdRef, cdTest);;
+	}
+	
+	
+}

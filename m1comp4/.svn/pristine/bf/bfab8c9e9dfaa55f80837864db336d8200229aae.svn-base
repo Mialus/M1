@@ -1,0 +1,58 @@
+package fr.univfcomte.comp4.guid;
+
+import fr.univfcomte.comp4.analyseur_JajaCode.*;
+import fr.univfcomte.comp4.interpreteur_JajaCode.JajaCodeInterpreteurVisitor;
+import fr.univfcomte.comp4.memoire.Memoire;
+
+import java.io.ByteArrayInputStream;
+
+/**
+ * Created by aymeric on 23/11/2015.
+ */
+public class ThreadInterpretationJajaCode extends Thread {
+
+    private SimpleNode arbre;
+    private JajaCodeInterpreteurVisitor visiteur;
+    private Memoire memoire;
+    private JajaCode parseur;
+
+    public ThreadInterpretationJajaCode(JajaCode jajaCode, int nbInstructions) {
+        this.parseur = jajaCode;
+        this.memoire =  new Memoire(nbInstructions);
+        this.visiteur = new JajaCodeInterpreteurVisitor();
+
+        ////////////////////
+        //ANALYSE JAJACODE//
+        ////////////////////
+        try {
+            this.arbre = this.parseur.classe();
+
+            try {
+                this.arbre.jjtAccept(this.visiteur, this.memoire);
+            }
+            catch(JajaCodeException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        catch (fr.univfcomte.comp4.analyseur_JajaCode.ParseException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void run() {
+
+        ///////////////////////////
+        //INTERPRETATION JAJACODE//
+        ///////////////////////////
+	    try 
+	    {
+			this.arbre.jjtAccept(this.visiteur, this.memoire);
+            System.out.println(this.memoire);
+	    } 
+	    catch (JajaCodeException e) 
+	    {
+			//TODO Auto-generated catch block
+			e.printStackTrace();
+		}    		
+    }
+}

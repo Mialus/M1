@@ -1,0 +1,121 @@
+package fr.univfcomte.comp4.table_hachage;
+
+import java.util.Stack;
+
+import fr.univfcomte.comp4.quadruplet.Quad;
+/* classe permettant de relater les informations nécessaires d'un identificateur
+ * pour le contrôle de type
+ */
+public class Info {
+	
+	/* sorte de l'élément (var,cst,meth,tab) */
+	private String sorte;
+	
+	/* type de l'identificateur */
+	private String type;
+	
+	/* portée de l'identificateur (class pour les variables de classe) */
+	private String portee;
+	
+	/* types des entêtes pour les méthodes */
+	private String typeEntetes;
+	
+	/* Valeur de l'élément */
+	private Instance valeurs;
+	
+	public Info(String sorte, String type) {
+		this.sorte = sorte;
+		this.type = type;
+		this.portee = "";
+		this.typeEntetes = "";
+		try {
+			valeurs = new Instance();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+	}
+
+	public Info(String sorte, String type, String portee) {
+		this(sorte,type);
+		this.portee = portee;
+	}
+	
+	public Info(String genre, String type, String portee, String typeEntetes) {
+		this(genre,type,portee);
+		this.typeEntetes = typeEntetes;
+	}
+	
+	public String getSorte() {
+		return sorte;
+	}
+
+	public String getPortee() {
+		return portee;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public String getTypeEntetes() {
+		return typeEntetes;
+	}
+	
+	public Instance retirerValeur()
+	{
+		Instance res = null;
+		Instance val = this.valeurs;
+		val.getSuivant().setPrecedent(val.getPrecedent());
+		
+		if(val.getPrecedent() != null)
+		{
+			val.getPrecedent().setSuivant(val.getSuivant());
+		}else
+		{
+			res = this.getValeurs().getSuivant();
+		}
+		
+		this.valeurs = val.getValeurSuivante();
+		return res;
+	}
+	
+	public void setValeur(Quad q, Instance s)
+	{
+		Instance val= new Instance(q, this.valeurs, s, null);
+		s.setPrecedent(val);
+		this.valeurs = val;
+	}
+	
+	public Quad getValeur()
+	{
+		return this.valeurs.getValeur();
+	}
+	
+	public Instance getValeurs()
+	{
+		return this.valeurs;
+	}
+	
+	public boolean equals(Object o)
+	{
+		if(o instanceof Info && o!= null)
+		{
+			Info t = (Info)o;
+			return this.sorte.equals(t.sorte) && this.type.equals(t.type) && this.portee.equals(t.portee)
+					&& this.typeEntetes.equals(t.typeEntetes) && this.valeurs.equals(t.valeurs);
+		}else
+		{
+			return false;
+		}
+	}
+	
+	public String toString () {
+		if (typeEntetes == null) {
+			return sorte+"-"+type+"-"+portee+"-"+valeurs.toString();
+		}
+		else {
+			return sorte+"-"+type+"-"+portee+"-"+typeEntetes;
+		}
+	}
+
+}

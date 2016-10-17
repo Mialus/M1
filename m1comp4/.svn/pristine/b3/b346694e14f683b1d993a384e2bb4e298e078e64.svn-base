@@ -1,0 +1,75 @@
+package fr.univfcomte.comp4.table_hachage;
+
+import fr.univfcomte.comp4.quadruplet.Quad;
+/* classe permettant de relater les informations nécessaires d'un identificateur
+ * pour le contrôle de type
+ */
+public class Info {
+	
+	/* sorte de l'élément (var,cst,meth,tab) */
+	private String sorte;
+	
+	/* type de l'identificateur */
+	private String type;
+	
+	/* portée de l'identificateur (class pour les variables de classe) */
+	private String portee;
+	
+	/* types des entêtes pour les méthodes */
+	private String typeEntetes;
+	
+	/* Valeur de l'élément */
+	private Quad valeur;
+	
+	public Info(String sorte, String type) {
+		this.sorte = sorte;
+		this.type = type;
+	}
+
+	public Info(String sorte, String type, String portee) {
+		this(sorte,type);
+		this.portee = portee;
+	}
+	
+	public Info(String genre, String type, String portee, String typeEntetes) {
+		this(genre,type,portee);
+		this.typeEntetes = typeEntetes;
+	}
+	
+	public String getSorte() {
+		return sorte;
+	}
+
+	public String getPortee() {
+		return portee;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public String getTypeEntetes() {
+		return typeEntetes;
+	}
+	
+	public void setValeur(Quad q)
+	{
+		this.valeur = q;
+	}
+	
+	public Quad getValeur()
+	{
+		return this.valeur;
+	}
+	
+	
+	public String toString () {
+		if (typeEntetes == null) {
+			return sorte+"-"+type+"-"+portee;
+		}
+		else {
+			return sorte+"-"+type+"-"+portee+"-"+typeEntetes;
+		}
+	}
+
+}

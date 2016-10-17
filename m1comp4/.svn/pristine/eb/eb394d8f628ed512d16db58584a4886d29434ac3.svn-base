@@ -1,0 +1,46 @@
+package fr.univfcomte.comp4.guid;
+
+import fr.univfcomte.comp4.analyseur_JajaCode.SimpleNode;
+import fr.univfcomte.comp4.analyseur_JajaCode.JajaCodeException;
+import fr.univfcomte.comp4.analyseur_JajaCode.JajaCodeVisitor;
+import fr.univfcomte.comp4.analyseur_JajaCode.ParseException;
+import fr.univfcomte.comp4.interpreteur_JajaCode.JajaCodeInterpreteurVisitor;
+import fr.univfcomte.comp4.memoire.Memoire;
+
+/**
+ * Created by aymeric on 23/11/2015.
+ */
+public class ThreadInterpretationJajaCode extends Thread {
+
+    private SimpleNode noeud;
+    private JajaCodeInterpreteurVisitor visiteur;
+    private Memoire memoire;
+    private int nbInstruction;
+
+    public ThreadInterpretationJajaCode(JajaCodeInterpreteurVisitor visiteur, int nbInstruction) {
+        this.visiteur = visiteur;
+        this.nbInstruction = nbInstruction;
+    }
+
+    public void run() {
+
+        ///////////////////////////
+        //INTERPRETATION JAJACODE//
+        ///////////////////////////
+	    try 
+	    {
+	    	Memoire mem =  new Memoire(this.nbInstruction);
+			this.noeud.jjtAccept(this.visiteur, this.memoire);
+			System.out.println("JavaCC Parser:  Java program parsed successfully.");
+	    } 
+	    catch (JajaCodeException e) 
+	    {
+			//TODO Auto-generated catch block
+			e.printStackTrace();
+		}    		
+    }
+
+    public void setNoeud(SimpleNode n) {
+        this.noeud = n;
+    }
+}

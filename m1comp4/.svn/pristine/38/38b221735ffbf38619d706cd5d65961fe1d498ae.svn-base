@@ -1,0 +1,85 @@
+package interpreteur_JajaCode;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import fr.univfcomte.comp4.analyseur_JajaCode.JajaCode;
+import fr.univfcomte.comp4.analyseur_JajaCode.JajaCodeException;
+import fr.univfcomte.comp4.analyseur_JajaCode.ParseException;
+import fr.univfcomte.comp4.analyseur_JajaCode.SimpleNode;
+import fr.univfcomte.comp4.interpreteur_JajaCode.JajaCodeInterpreteurVisitor;
+import fr.univfcomte.comp4.memoire.Memoire;
+import fr.univfcomte.comp4.quadruplet.ObjetConstante;
+import fr.univfcomte.comp4.quadruplet.Quad;
+import fr.univfcomte.comp4.quadruplet.SortEntier;
+import fr.univfcomte.comp4.quadruplet.SortOmega;
+import fr.univfcomte.comp4.quadruplet.Sorte;
+import fr.univfcomte.comp4.quadruplet.ValeurEntier;
+import junit.framework.Assert;
+
+public class TestJajaCodeInterpreteurVisitor {
+
+	JajaCode parser = null;
+	JajaCodeInterpreteurVisitor visitor = new JajaCodeInterpreteurVisitor();
+	
+	@Test
+	public void testASTtype() throws ParseException, JajaCodeException {
+		//Creation de la chaine a tester pour generer le noeud
+		String str = "entier";
+		parser = new JajaCode(str);
+		
+		//Parse la str pour et on appel la fonction permet de generer le noeud désirer
+		SimpleNode n = parser.type();
+		
+		//Le visiteur prend en paramètre un noeud et une memoire de type Memoire
+		//Il peut modifier la memoire en leur affectant ou retirant une valeur
+		//Le constructeur prend en paramètre l'indice de la première ligne
+		
+		//On créer une memoire de reference. c'est la memoire attendue à la fin de l'excution du visiteur
+		//On reprend dans le code les modifcations faites à la memoire lors de l'appel du visiteur
+		Memoire memRef = new Memoire(1);
+		
+		//On creer une memoire de test correspondant à la memoire avant l'execution du visiteur
+		Memoire memTest = new Memoire(1);
+		
+		//On creer une valeur de retour reference car ici le visiteur retourne une valeur
+		Sorte sRef = new SortEntier();
+		
+		Sorte sTest = null;
+		
+		sTest =(Sorte) n.jjtAccept(visitor, memTest);
+		
+		//On test deux elements mais on doit utiliser qu'un seul Assert
+		Assert.assertTrue(sRef.equals(sTest) && memRef.equals(memTest));
+	}
+	
+	@Test
+	public void testASTMul() throws ParseException, JajaCodeException
+	{
+		// on test 2*3
+		//Creation de la str
+		String str = "mul";
+		parser = new JajaCode(str);
+		SimpleNode n = parser.oper2();
+		
+		//Creation de la memoire
+		Memoire memRef = new Memoire(0);
+		Quad q = new Quad("w",new ValeurEntier(6),new ObjetConstante(),new SortOmega());
+		memRef.empiler(q);
+		
+		Memoire memTest = new Memoire(0);
+		//elemnt de gauche
+		q = new Quad("w",new ValeurEntier(2),new ObjetConstante(),new SortOmega());
+		memTest.empiler(q);
+		
+		//element de droite
+		q = new Quad("w",new ValeurEntier(3),new ObjetConstante(),new SortOmega());
+		memTest.empiler(q);
+		
+		n.jjtAccept(visitor, memTest);
+		
+		Assert.assertEquals(memRef, memTest);
+	}
+
+}

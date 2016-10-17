@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="analyseur" />
+        <module name="analyseur_JajaCode" />
+        <module name="compilateur" />
+        <module name="controle_type" />
+        <module name="guid" />
+        <module name="interpreteur_JajaCode" />
+        <module name="interpreteur_MiniJaja" />
+        <module name="memoire" />
+        <module name="memoire_MiniJaja" />
+        <module name="pile" />
+        <module name="quadruplet" />
+        <module name="table_hachage" />
+        <module name="tas" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="analyseur" target="1.7" />
+      <module name="analyseur_JajaCode" target="1.7" />
+      <module name="comp4" target="1.7" />
+      <module name="compilateur" target="1.7" />
+      <module name="controle_type" target="1.7" />
+      <module name="guid" target="1.7" />
+      <module name="interpreteur_JajaCode" target="1.7" />
+      <module name="interpreteur_MiniJaja" target="1.7" />
+      <module name="memoire" target="1.7" />
+      <module name="memoire_MiniJaja" target="1.7" />
+      <module name="pile" target="1.7" />
+      <module name="quadruplet" target="1.7" />
+      <module name="table_hachage" target="1.7" />
+      <module name="tas" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
